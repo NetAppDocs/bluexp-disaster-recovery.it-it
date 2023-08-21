@@ -1,0 +1,23 @@
+---
+sidebar: sidebar 
+permalink: use/monitor-jobs.html 
+keywords: disaster recovery, bluexp disaster recovery, failover, failback, replicate, fail over, fail back, vmware, vcenter 
+summary: Il disaster recovery di NetApp BlueXP è un servizio di disaster recovery basato sul cloud che automatizza i flussi di lavoro di disaster recovery. 
+---
+= Monitorare i processi di disaster recovery
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/use/
+
+
+[role="lead"]
+È possibile monitorare tutti i processi di ripristino di emergenza e determinarne l'avanzamento.
+
+.Fasi
+. Dal nav sinistro di BlueXP, seleziona *protezione* > *Disaster Recovery*.
+. Dal menu superiore, selezionare *monitoraggio processi*.
+. Esaminare tutti i lavori relativi alle operazioni e controllare la data e lo stato.
+. Per visualizzare i dettagli di un determinato processo, selezionare la riga corrispondente.
+. Per aggiornare le informazioni, selezionare *Aggiorna*.
+

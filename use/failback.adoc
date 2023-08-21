@@ -1,0 +1,33 @@
+---
+sidebar: sidebar 
+permalink: use/failback.html 
+keywords: disaster recovery, bluexp disaster recovery, failover, failback, replicate, fail over, fail back, vmware, vcenter 
+summary: Il disaster recovery di NetApp BlueXP è un servizio di disaster recovery basato sul cloud che automatizza i flussi di lavoro di disaster recovery. 
+---
+= Eseguire il failback delle applicazioni nell'origine originale
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/use/
+
+
+[role="lead"]
+Dopo aver risolto un disastro, esegui il failback dal sito di disaster recovery al sito di origine per tornare alle normali operazioni. È possibile selezionare l'istantanea da cui eseguire il ripristino.
+
+In questo workflow, il disaster recovery di BlueXP replica (risincronizza) qualsiasi modifica alla macchina virtuale di origine prima di invertire la direzione della replica. Questo processo inizia da una relazione che ha completato il failover a una destinazione e prevede i seguenti passaggi:
+
+* Sul sito di destinazione, le macchine virtuali vengono spente e non registrate e i volumi vengono dismontati.
+* La relazione di SnapMirror nell'origine viene interrotta per renderla di lettura/scrittura.
+* La relazione di SnapMirror viene risincronizzata per invertire la replica.
+* Le macchine virtuali di origine sono accese e registrate e i volumi sono montati sull'origine.
+
+
+.Fasi
+. Dal nav sinistro di BlueXP, seleziona *protezione* > *Disaster Recovery*.
+. Dal menu superiore del disaster recovery di BlueXP, selezionare *piani di replica*.
+. Selezionare il piano di disaster recovery.
+. A destra, selezionare l'opzione *azioni* image:../use/icon-horizontal-dots.png["Icona del menu Actions nel servizio di disaster recovery BlueXP"]  E selezionare *fail back*.
+. Immettere il nome del piano di disaster recovery per confermare e avviare il failback.
+. Scegliere la Snapshot per il datastore da cui ripristinare.  L'impostazione predefinita è l'ultima.
+. Per verificare l'avanzamento, nel menu superiore, selezionare *monitoraggio processi*.
+

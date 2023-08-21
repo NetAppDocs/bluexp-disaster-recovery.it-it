@@ -1,0 +1,76 @@
+---
+sidebar: sidebar 
+permalink: get-started/dr-intro.html 
+keywords: how bluexp disaster recovery works, what is disaster recovery, bluexp, vmware, vcenter, draas, replicate, failover, failback, fail over, fail back 
+summary: Il disaster recovery nel cloud rappresenta un modo conveniente e resiliente per proteggere i carichi di lavoro da fuori servizio del sito e eventi di corruzione dei dati. Grazie al disaster recovery di BlueXP per VMware, puoi replicare i carichi di lavoro VMware on-premise con lo storage ONTAP su un data center software-defined VMware in cloud pubblici come sito di disaster recovery usando il cloud storage NetApp. 
+---
+= Scopri le funzionalità di disaster recovery di BlueXP per VMware Beta
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/get-started/
+
+
+[role="lead"]
+Il disaster recovery nel cloud rappresenta un modo conveniente e resiliente per proteggere i carichi di lavoro da fuori servizio del sito e eventi di corruzione dei dati. Grazie al disaster recovery di BlueXP per VMware Beta, puoi replicare i carichi di lavoro VMware on-premise con storage ONTAP su un data center software-defined VMware in un cloud pubblico come sito di disaster recovery utilizzando il cloud storage NetApp.
+
+Il disaster recovery di BlueXP Beta è un servizio di disaster recovery basato sul cloud che automatizza i flussi di lavoro di disaster recovery. Inizialmente, con la versione beta di disaster recovery di BlueXP, puoi proteggere i tuoi carichi di lavoro VMware on-premise basati su NFS che eseguono lo storage NetApp in VMware Cloud (VMC) su AWS con Amazon FSX per NetApp ONTAP.
+
+La versione beta di disaster recovery di BlueXP utilizza la tecnologia ONTAP SnapMirror come trasporto della replica nel cloud. Ciò offre la migliore efficienza dello storage del settore (compressione e deduplica) sui siti primari e secondari.
+
+La versione Beta supporta il disaster recovery per i workload on-premise nel cloud.
+
+image:draas-onprem-to-cloud.png["Diagramma che mostra i componenti del disaster recovery di BlueXP per VMware"]
+
+
+
+== Vantaggi dell'utilizzo del disaster recovery di BlueXP per VMware Beta
+
+Il disaster recovery BlueXP Beta offre i seguenti benefici:
+
+* Esperienza utente semplificata per il rilevamento e il recovery di vCenter delle applicazioni con più operazioni di recovery point-in-time 
+* Total cost of ownership inferiore con costi operativi ridotti e capacità di creare e regolare piani di disaster recovery con risorse minime
+* Disponibilità del disaster recovery costante con test di failover virtuale che non interrompono le operazioni
+* Time-to-value più veloce grazie alle modifiche dinamiche dell'ambiente IT e alla capacità di gestirlo nei piani di disaster recovery
+
+
+
+
+== Cosa puoi fare con il disaster recovery di BlueXP per VMware Beta
+
+La versione beta del disaster recovery di BlueXP ti fornisce l'uso completo di diverse tecnologie NetApp per raggiungere i seguenti obiettivi:
+
+* Replica le app VMware sul sito di produzione in un sito remoto di disaster recovery nel cloud usando la replica SnapMirror.
+* In caso di disastro, esegui il failover on-demand del sito primario in un volume cloud NetApp in VMware Cloud su AWS.
+* Una volta risolto il disastro, è possibile eseguire il failback on-demand dal sito di disaster recovery al sito primario.
+
+
+Con la tecnologia SnapMirror di NetApp, i workload VMware on-premise (per NFS) possono essere replicati in FSX per NetApp ONTAP in AWS.
+
+
+NOTE: La configurazione del server vSphere viene eseguita al di fuori del disaster recovery BlueXP in vSphere Server.
+
+
+
+== Costo
+
+NetApp non ti addebita i costi di utilizzo della versione beta del disaster recovery di BlueXP.
+
+Il servizio di disaster recovery BlueXP, in base alla disponibilità generale, deve offrire prezzi pay-as-you-go o un piano annuale basato su abbonamento.
+
+
+
+== Come funziona la versione beta di disaster recovery di BlueXP
+
+Il disaster recovery di BlueXP Beta può ripristinare i workload replicati da on-premise su Amazon FSX per ONTAP. Questo servizio automatizza il ripristino dal livello di SnapMirror, tramite la registrazione della macchina virtuale al Virtual Machine Cloud (VMC) e alle mappature di rete direttamente sulla piattaforma di sicurezza e virtualizzazione della rete di VMware, NSX-T. Questa funzione è inclusa in tutti gli ambienti Virtual Machine Cloud.
+
+Il disaster recovery Beta di BlueXP sfrutta la tecnologia SnapMirror di ONTAP, che offre una replica altamente efficiente e mantiene le efficienze di Snapshot incrementali da sempre di ONTAP. La replica SnapMirror garantisce che le copie Snapshot coerenti con l'applicazione siano sempre sincronizzate e i dati siano utilizzabili subito dopo un failover.
+
+image:dr-architecture-diagram-70.png["Diagramma che mostra l'architettura del disaster recovery di BlueXP per l'infrastruttura di servizi VMware"]
+
+In caso di emergenza, questo servizio consente di ripristinare macchine virtuali nel VMC rompendo le relazioni di SnapMirror e rendendo attivo il sito di destinazione.
+
+* Il servizio consente inoltre di eseguire il failback delle macchine virtuali nel percorso di origine.
+* È possibile verificare il processo di failover del disaster recovery senza interrompere le macchine virtuali originali. Il test ripristina le macchine virtuali in una rete isolata creando un FlexClone del volume.
+* Per il processo di failover o di test del failover, è possibile scegliere l'Snapshot più recente (predefinito) o selezionata da cui ripristinare la macchina virtuale.
+

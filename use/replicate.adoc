@@ -1,0 +1,25 @@
+---
+sidebar: sidebar 
+permalink: use/replicate.html 
+keywords: disaster recovery, bluexp disaster recovery, failover, failback, replicate, fail over, fail back, vmware, vcenter 
+summary: Il disaster recovery di NetApp BlueXP è un servizio di disaster recovery basato sul cloud che automatizza i flussi di lavoro di disaster recovery. 
+---
+= Replicare le applicazioni in un altro sito
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/use/
+
+
+[role="lead"]
+Replica le app VMware sul sito di origine su un sito remoto di disaster recovery nel cloud usando la replica SnapMirror.
+
+
+TIP: Dopo aver creato il piano di disaster recovery, identificato la ricorrenza nella procedura guidata e avviato una replica su un sito di disaster recovery, ogni 30 minuti il disaster recovery di BlueXP verifica l'effettivo svolgimento della replica secondo il piano. È possibile monitorare il controllo nella pagina monitoraggio lavoro.
+
+.Fasi
+. Dal nav sinistro di BlueXP, seleziona *protezione* > *Disaster Recovery*.
+. Dal menu superiore, selezionare *piani di replica*.
+. Selezionare il piano di disaster recovery.
+. A destra, selezionare l'opzione *azioni* image:../use/icon-horizontal-dots.png["Icona del menu Actions nel servizio di disaster recovery BlueXP"] E selezionare *Replica*.
+

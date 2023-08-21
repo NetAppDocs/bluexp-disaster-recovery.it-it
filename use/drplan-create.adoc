@@ -1,0 +1,158 @@
+---
+sidebar: sidebar 
+permalink: use/drplan-create.html 
+keywords: disaster recovery, bluexp disaster recovery, failover, failback, replicate, fail over, fail back, vmware, vcenter, replication plan 
+summary: Il disaster recovery di NetApp BlueXP è un servizio di disaster recovery basato sul cloud che automatizza i flussi di lavoro di disaster recovery. Una volta aggiunti i siti vCenter, potrai creare un piano di disaster recovery o replica. 
+---
+= Creare un piano di replica
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/use/
+
+
+[role="lead"]
+Una volta aggiunti i siti vCenter, potrai creare un piano di disaster recovery o replica. Selezionare i vCenter di origine e di destinazione, scegliere i gruppi di risorse e raggruppare le modalità di ripristino e accensione delle applicazioni. Ad esempio, è possibile raggruppare macchine virtuali associate a un'applicazione o raggruppare applicazioni con livelli simili.
+
+Tali piani sono a volte chiamati _blueprint_.
+
+Una procedura guidata consente di eseguire le seguenti operazioni:
+
+* Seleziona i server vCenter
+* Selezionare le VM da replicare e assegnare gruppi
+* Mappare la modalità di mappatura delle risorse dall'ambiente di origine alla destinazione.
+* Identificare la ricorrenza
+* Rivedere il piano
+
+
+
+
+== Seleziona i server vCenter
+
+Innanzitutto, selezionare il vCenter di origine e quindi il vCenter di destinazione.
+
+.Fasi
+. Dal nav sinistro di BlueXP, seleziona *protezione* > *Disaster Recovery*.
+. Dal menu superiore del disaster recovery di BlueXP, selezionare *piani di replica*. In alternativa, se si sta appena iniziando a utilizzare il servizio, nel Dashboard selezionare *Aggiungi piano di replica*.
++
+image:dr-plan-create-name.png["Schermata che mostra la pagina Aggiungi piano di replica > Aggiungi piano"]
+
+. Creare un nome per il piano di replica.
+. Selezionare i vCenter di origine e di destinazione dagli elenchi vCenter di origine e destinazione.
+. Selezionare *Avanti*.
+
+
+
+
+== Selezionare le applicazioni da replicare e assegnare gruppi di risorse
+
+Il passaggio successivo consiste nel raggruppare le macchine virtuali necessarie in gruppi di risorse funzionali. I gruppi di risorse consentono di raggruppare una serie di macchine virtuali dipendenti in gruppi logici che soddisfano le proprie esigenze. Ad esempio, i gruppi possono contenere l'ordine di avvio che può essere eseguito al momento del ripristino.
+
+
+TIP: Ciascun gruppo di risorse può includere una o più macchine virtuali. Le macchine virtuali si accenderanno in base alla sequenza in cui vengono incluse.
+
+.Fasi
+. Sul lato sinistro della pagina applicazioni, selezionare le macchine virtuali che si desidera replicare e assegnare al gruppo selezionato.
++
+La macchina virtuale selezionata viene aggiunta automaticamente al gruppo 1 e viene avviato un nuovo gruppo 2. Ogni volta che si aggiunge una macchina virtuale all'ultimo gruppo, viene aggiunto un altro gruppo.
+
++
+image:dr-plan-create-apps-vms.png["Schermata che mostra la pagina Aggiungi piano di replica > applicazioni da replicare"]
+
+. Facoltativamente, eseguire una delle seguenti operazioni:
++
+** Per modificare i gruppi, fare clic sull'icona *Modifica* del gruppo.
+** Per rimuovere una macchina virtuale da un gruppo, selezionare *X*.
+** Per spostare una macchina virtuale in un gruppo diverso, trascinarla e rilasciarla nel nuovo gruppo.
+
+
+. Quando si dispone di più gruppi di risorse, assicurarsi che la sequenza dei gruppi corrisponda alla sequenza operativa che dovrebbe verificarsi.
++
+Ogni macchina virtuale all'interno di un gruppo viene avviata in sequenza in base all'ordine qui riportato. Due gruppi vengono avviati in parallelo.
+
+. Se lo si desidera, rinominare il gruppo facendo clic sull'icona *Modifica*.
+. Selezionare *Avanti*.
+
+
+
+
+== Mappare le risorse di origine alla destinazione
+
+Nel passaggio mappatura risorse, specificare il modo in cui le risorse dell'ambiente di origine devono essere mappate alla destinazione.
+
+* Selezionare la mappatura di rete per il segmento appropriato.
++
+I segmenti dovrebbero essere già forniti all'interno di VMC, quindi selezionare il segmento appropriato per mappare la macchina virtuale.
+
+* In base alla selezione delle macchine virtuali, le mappature del datastore vengono selezionate automaticamente.
++
+
+NOTE: SnapMirror è a livello di volume. Pertanto, tutte le macchine virtuali vengono replicate nella destinazione della replica. Assicurarsi di selezionare tutte le macchine virtuali che fanno parte dell'archivio dati. Se non sono selezionate, vengono elaborate solo le macchine virtuali che fanno parte del piano di replica.
+
+
+
+.Fasi
+. Nella pagina mappatura delle risorse, per utilizzare le stesse mappature sia per le operazioni di failover che per quelle di test, selezionare la casella.
+. Nella scheda Mapping di failover, selezionare la freccia verso il basso a destra di ciascuna risorsa e mappare le risorse in ciascuna:
++
+** Risorse di calcolo
+** Reti virtuali
+** Macchine virtuali
+** Datastore
+
+
+. Nei dettagli delle macchine virtuali, è possibile ridimensionare facoltativamente i parametri della CPU e della RAM della macchina virtuale.
++
+image:dr-plan-create-mapping-vms.png["Schermata di aggiunta del piano di replica > mappatura delle risorse > macchine virtuali"]
+
++
+Ciò può risultare molto utile quando si ripristinano ambienti di grandi dimensioni in cluster di destinazione più piccoli o quando si eseguono test di disaster recovery senza dover eseguire il provisioning di un'infrastruttura fisica VMware uno a uno. Inoltre, è possibile modificare l'ordine di avvio per tutte le macchine virtuali selezionate nei gruppi di risorse.
+
++
+Per impostazione predefinita, viene utilizzato l'ordine di avvio selezionato durante la selezione del gruppo di risorse; tuttavia, è possibile apportare modifiche in questa fase.
+
+. Per impostare diverse mappature per l'ambiente di test, deselezionare la casella e selezionare la scheda *mappature di test*. Passare attraverso ciascuna scheda come prima, ma questa volta per l'ambiente di test.
++
+
+TIP: In seguito, è possibile testare l'intero piano. In questo momento, si stanno impostando le mappature per l'ambiente di test.
+
+
+
+
+
+== Identificare la ricorrenza
+
+Seleziona se desideri migrare i dati (uno spostamento una tantum) su un'altra destinazione o replicarli alla frequenza di SnapMirror. Se si desidera eseguirne la replica, identificare la frequenza di mirroring dei dati.
+
+
+NOTE: In questa versione beta, configura la frequenza al di fuori del servizio di disaster recovery di BlueXP.
+
+.Fasi
+. Nella pagina ricorrenza, selezionare *Migra* o *Replica*.
++
+** *Migra*: Selezionare per spostare l'applicazione nella posizione di destinazione.
+** *Replica*: Mantenere aggiornata la copia di destinazione con le modifiche apportate dalla copia di origine in una replica ricorrente.
+
+
++
+image:dr-plan-create-recurrence.png["Schermata che mostra Aggiungi piano di replica > ricorrenza"]
+
+. Selezionare *Avanti*.
+
+
+
+
+== Confermare il piano di replica
+
+Infine, dedicare qualche istante alla conferma del piano di replica.
+
+
+TIP: È possibile disattivare o eliminare il piano di replica in un secondo momento.
+
+.Fasi
+. Esaminare le informazioni in ciascuna scheda: Dettagli del piano, mappatura di failover, macchine virtuali.
+. Selezionare *Aggiungi piano*.
++
+Il piano viene aggiunto all'elenco dei piani.
+
+

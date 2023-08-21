@@ -1,0 +1,45 @@
+---
+indexpage:
+  lead: Il disaster recovery nel cloud rappresenta un modo resiliente e conveniente
+    di proteggere i carichi di lavoro da fuori servizio del sito ed eventi di corruzione
+    dei dati (ad esempio, il ransomware). Grazie al disaster recovery di BlueXP per
+    VMware Beta, puoi replicare i carichi di lavoro VMware on-premise con storage
+    ONTAP su un data center software-defined VMware in un cloud pubblico come sito
+    di disaster recovery utilizzando il cloud storage NetApp.
+  tiles:
+  - title: Inizia subito
+    links:
+    - title: Scopri di più sul disaster recovery di BlueXP
+      url: "/get-started/dr-intro.html"
+    - title: Novità del disaster recovery BlueXP
+      url: "/release-notes/dr-whats-new.html"
+    - title: Avvio rapido
+      url: "/get-started/dr-quick-start.html"
+    - title: Prerequisiti
+      url: "/get-started/dr-prerequisites.html"
+    - title: Accedi al disaster recovery di BlueXP
+      url: "/get-started/dr-login.html"
+    - title: FAQ
+      url: "/get-started/dr-faq.html"
+  - title: USA il disaster recovery di BlueXP
+    links:
+    - title: Aggiungere siti vCenter
+      url: "/use/sites-add.html"
+    - title: Creare un piano di disaster recovery
+      url: "/use/drplan-create.html"
+    - title: Replicare le app in un altro sito
+      url: "/use/replicate.html"
+    - title: Eseguire il failover delle applicazioni in un sito remoto
+      url: "/use/failover.html"
+    - title: Eseguire il failback delle applicazioni nel sito di origine
+      url: "/use/failback.html"
+    - title: Gestisci siti, piani, datastore e informazioni sulle macchine virtuali
+      url: "/use/manage.html"
+    - title: Monitorare i processi di disaster recovery
+      url: "/use/monitor-jobs.html"
+  - title: Blog e community
+    links:
+    - title: Community NetApp
+      url: https://community.netapp.com/t5/BlueXP-and-Services/ct-p/CDS
+    - title: Webinar sul cloud
+      url: https://bluexp.netapp.com/events

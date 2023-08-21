@@ -1,0 +1,48 @@
+---
+sidebar: sidebar 
+permalink: use/sites-add.html 
+keywords: disaster recovery, bluexp disaster recovery, failover, failback, replicate, fail over, fail back, vmware, vcenter 
+summary: Il disaster recovery di NetApp BlueXP è un servizio di disaster recovery basato sul cloud che automatizza i flussi di lavoro di disaster recovery. 
+---
+= Aggiungere siti vCenter
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/use/
+
+
+[role="lead"]
+Prima di poter creare un piano di disaster recovery, devi aggiungere un sito vCenter primario e un sito di disaster recovery vCenter di destinazione in BlueXP.
+
+Una volta aggiunti, il disaster recovery di BlueXP esegue un rilevamento approfondito degli ambienti vCenter, inclusi cluster vCenter, host ESXi, datastore, impronta ecologica dello storage, dettagli della macchina virtuale, repliche SnapMirror e reti di macchine virtuali.
+
+.Fasi
+. Accedi a BlueXP e seleziona *protezione* > *Disaster Recovery* dal navigatore di sinistra.
++
+Ti atterrai alla pagina della dashboard di disaster recovery di BlueXP. Quando si inizia con il servizio, è necessario aggiungere le informazioni vCenter. Successivamente, il Dashboard visualizza i dati relativi ai siti e ai piani di replica.
+
+. Selezionare *Scopri server vCenter* per inserire le informazioni sul sito vCenter di origine.
++
+
+TIP: Se alcuni siti vCenter esistono già e si desidera aggiungerne altri, dal menu in alto, selezionare *Sites* (Siti), quindi selezionare *Add* (Aggiungi).
+
++
+image:vcenter-add.png["Schermata Aggiungi vCenter server "]
+
+. Aggiungi un sito, seleziona il connettore BlueXP e fornisci credenziali vCenter.
+. Per accettare certificati autofirmati per vCenter di origine, selezionare la casella.
++
+
+NOTE: I certificati autofirmati non sono protetti come gli altri certificati. Se vCenter è *NON* configurato con certificati di autorità di certificazione (CA), selezionare questa casella; in caso contrario, la connessione a vCenter non funzionerà.
+
+. Selezionare *Aggiungi*.
++
+Successivamente, verrà aggiunto un vCenter di destinazione.
+
+. Scegliere il sito di destinazione e la posizione. Se la destinazione è cloud, selezionare *AWS*.
+. Selezionare *Aggiungi*.
++
+I vCenter di origine e di destinazione vengono visualizzati nell'elenco dei siti.
+
+. Per visualizzare lo stato di avanzamento dell'operazione, dal menu superiore, selezionare *monitoraggio processi*.
+

@@ -1,0 +1,85 @@
+---
+sidebar: sidebar 
+permalink: use/failover.html 
+keywords: disaster recovery, bluexp disaster recovery, failover, replicate, fail over, vmware, vcenter 
+summary: Il disaster recovery di NetApp BlueXP è un servizio di disaster recovery basato sul cloud che automatizza i flussi di lavoro di disaster recovery. 
+---
+= Eseguire il failover delle applicazioni in un sito remoto
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/use/
+
+
+[role="lead"]
+In caso di disastro, esegui il failover del sito primario on-premise su VMware Cloud in un sito AWS con FSX per NetApp ONTAP.
+
+Durante il failover viene utilizzata la copia snapshot SnapMirror più recente. In alternativa, puoi selezionare una copia Snapshot specifica da una copia Snapshot point-in-time (per la politica di conservazione di SnapMirror). L'opzione point-in-time può essere utile in caso di eventi di danneggiamento come il ransomware, in cui le repliche più recenti sono già compromesse o crittografate. Il disaster recovery di BlueXP mostra tutti i punti disponibili in tempo.
+
+Questa procedura interrompe la relazione di replica, posiziona le macchine virtuali di origine vCenter offline e abilita la lettura/scrittura sul sito di destinazione.
+
+Prima di iniziare il failover, è possibile testare il processo, assicurandone la riuscita quando necessario. Il test non mette le macchine virtuali fuori linea.
+
+
+
+== Verificare il processo di failover
+
+Prima di avviare un failover effettivo, è necessario verificare il processo di failover.
+
+Durante un test di failover, le macchine virtuali vengono create temporaneamente. Il disaster recovery di BlueXP non mappa il volume di destinazione. Ma crea un nuovo volume FlexClone a partire dallo snapshot selezionato, mentre un datastore temporaneo di backup del volume FlexClone viene mappato agli host ESXi.
+
+Questo processo non consuma capacità fisica aggiuntiva per Amazon FSX per NetApp ONTAP. Il volume di origine originale non viene modificato e i processi di replica possono continuare anche durante il ripristino di emergenza.
+
+Al termine del test, è necessario reimpostare le macchine virtuali con l'opzione *Clean up test*. Sebbene questa opzione sia consigliata, non è necessaria.
+
+.Fasi
+. Dal nav sinistro di BlueXP, seleziona *protezione* > *Disaster Recovery*.
+. Dal menu superiore del disaster recovery di BlueXP, selezionare *piani di replica*.
+. Selezionare il piano di disaster recovery.
+. A destra, selezionare l'opzione *azioni* image:../use/icon-horizontal-dots.png["Icona del menu Actions nel servizio di disaster recovery BlueXP"] E selezionare *Test failover*.
+. Nella pagina Test failover, immettere "Test failover" e selezionare *Test failover*.
+. Al termine del test, pulire l'ambiente di test.
+
+
+
+
+== Ripulire l'ambiente di test dopo un test di failover
+
+Al termine del test di failover, è necessario ripulire l'ambiente di test. Questo processo rimuove le macchine virtuali temporanee dalla posizione di test, da FlexClone e dai datastore temporanei.
+
+.Fasi
+. Dal menu superiore del disaster recovery di BlueXP, selezionare *piani di replica*.
+. Selezionare il piano di disaster recovery.
+. A destra, selezionare l'opzione *azioni* image:../use/icon-horizontal-dots.png["Icona del menu Actions nel servizio di disaster recovery BlueXP"]  E selezionare *Clean up failover test*.
+. Nella pagina Test failover, immettere "Clean up failover" e selezionare *Clean up failover test*.
+
+
+
+
+== Esegui il failover del sito di origine su un sito di disaster recovery
+
+In caso di disastro, effettua il failover on-demand del sito di origine su VMware Cloud su un sito AWS con FSX per NetApp ONTAP.
+
+Il processo di failover comporta le seguenti operazioni:
+
+* Se si seleziona l'ultima Snapshot, viene eseguito l'update di SnapMirror per replicare le modifiche più recenti.
+* Le macchine virtuali di origine sono spente.
+* La relazione di SnapMirror viene interrotta e il volume di destinazione viene reso in lettura/scrittura.
+* In base alla selezione della Snapshot, il file system attivo viene ripristinato all'Snapshot specificata (ultima o selezionata)
+* I datastore vengono creati e montati su cluster o host VMC in base alle informazioni acquisite nel piano di disaster recovery.
+* Le macchine virtuali di destinazione vengono registrate e attivate in base all'ordine acquisito nella pagina gruppi di risorse.
+* Viene invertita la relazione di SnapMirror dalla macchina virtuale di destinazione a quella di origine.
+
+
+
+TIP: Dopo l'avvio del failover, è possibile vedere gli elementi ripristinati in VMC vCenter (macchine virtuali, reti e datastore). Per impostazione predefinita, le macchine virtuali vengono ripristinate nella cartella workload (carico di lavoro).
+
+.Fasi
+. Dal nav sinistro di BlueXP, seleziona *protezione* > *Disaster Recovery*.
+. Dal menu superiore del disaster recovery di BlueXP, selezionare *piani di replica*.
+. Selezionare il piano di disaster recovery.
+. A destra, selezionare l'opzione *azioni* image:../use/icon-horizontal-dots.png["Icona del menu Actions nel servizio di disaster recovery BlueXP"] E selezionare *failover*.
+. Nella pagina Test failover, immettere il nome del piano di disaster recovery per confermare e selezionare *failover*.
+. Scegliere la Snapshot per il datastore da cui ripristinare.  L'impostazione predefinita è l'ultima.
+. Per verificare l'avanzamento, nel menu superiore, selezionare *monitoraggio processi*.
+

@@ -1,0 +1,39 @@
+---
+sidebar: sidebar 
+permalink: release-notes/dr-limitations.html 
+keywords: disaster recovery, bluexp 
+summary: Le limitazioni note identificano piattaforme, dispositivi o funzioni non supportate da questa release del servizio o che non interagiscono correttamente con esso. 
+---
+= Limitazioni
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/use/
+
+
+[role="lead"]
+Le limitazioni note identificano piattaforme, dispositivi o funzioni non supportate da questa release del servizio o che non interagiscono correttamente con esso.
+
+
+
+== BlueXP potrebbe non scoprire Amazon FSX per NetApp ONTAP
+
+A volte, BlueXP non rileva Amazon FSX per i cluster NetApp ONTAP. Ciò potrebbe essere dovuto al fatto che le credenziali di FSX non erano corrette.
+
+*Soluzione alternativa*: Aggiungere il cluster Amazon FSX per NetApp ONTAP in BlueXP e aggiornare periodicamente il cluster per visualizzare eventuali modifiche.
+
+Se devi rimuovere il cluster ONTAP FSX dal servizio di disaster recovery BlueXP, completa i seguenti passaggi:
+
+. Nel connettore BlueXP, usa le opzioni di connettività del tuo cloud provider, connettiti alla macchina virtuale Linux su cui è eseguito il connettore, riavvia il servizio "occm" usando l' `docker restart occm` comando.
++
+Fare riferimento a. https://docs.netapp.com/us-en/bluexp-setup-admin/task-managing-connectors.html#connect-to-the-linux-vm["Gestire i connettori esistenti"^].
+
+. In BlueXP Canvas, Aggiungi nuovamente l'ambiente Amazon FSX per ONTAP e fornisci le credenziali FSX.
++
+Fare riferimento a. https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/getting-started-step1.html["Crea un file system Amazon FSX per NetApp ONTAP"^].
+
+. Dal disaster recovery di BlueXP, selezionare *Siti*, nella riga di vCenter selezionare l'opzione *azioni* image:../use/icon-vertical-dots.png["Icona del menu Actions nel servizio di disaster recovery BlueXP"]E dal menu azioni, selezionare *Aggiorna* per aggiornare la ricerca FSX in BlueXP Disaster Recovery.
++
+In questo modo viene riscoperto il datastore, le macchine virtuali e la relazione di destinazione.
+
+

@@ -1,0 +1,42 @@
+---
+sidebar: sidebar 
+permalink: get-started/dr-login.html 
+keywords: bluexp login, disaster recovery log in 
+summary: Inizia il disaster recovery di BlueXP accedendo al servizio in BlueXP. 
+---
+= Accedi al disaster recovery di BlueXP
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/get-started/
+
+
+[role="lead"]
+USA NetApp BlueXP per accedere al servizio di disaster recovery di BlueXP.
+
+Per accedere a BlueXP, puoi utilizzare le credenziali del sito di supporto NetApp oppure iscriverti per un login cloud NetApp utilizzando la tua email e una password. https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-logging-in.html["Scopri di più sull'accesso"^].
+
+.Fasi
+. Aprire un browser Web e accedere a. https://console.bluexp.netapp.com/["Console BlueXP"^].
++
+Viene visualizzata la pagina di accesso a NetApp BlueXP.
+
+. Accedere a BlueXP.
+. Dal menu di navigazione a sinistra di BlueXP, selezionare *protezione* > *Disaster Recovery*.
++
+Se è la prima volta che accedi a questo servizio, viene visualizzata la pagina iniziale.
+
++
+image:draas-landing.png["Screenshot della landing page per il disaster recovery di BlueXP"]
+
++
+In caso contrario, verrà visualizzata la dashboard di disaster recovery di BlueXP.
+
++
+** Se non disponi di un connettore BlueXP o non è quello per questa versione beta, potrebbe essere necessario contattare il supporto NetApp o seguire i messaggi per iscriverti a questa versione beta.
+** Se sei un nuovo utente di BlueXP e non hai utilizzato alcun connettore, quando selezioni "Disaster Recovery", viene visualizzato un messaggio relativo alla registrazione. Procedi e invia il modulo. NetApp ti contatterà in merito alla tua richiesta di beta.
+** Se sei un utente BlueXP con un connettore esistente, quando selezioni "Disaster Recovery", viene visualizzato un messaggio relativo alla registrazione.
+** Se stai già partecipando alla beta, quando selezioni "Disaster Recovery", puoi procedere con il servizio.
+
+
+

@@ -1,0 +1,20 @@
+---
+section: use
+title: USA il disaster recovery di BlueXP
+entries:
+- title: USA la panoramica sul disaster recovery di BlueXP
+  url: "/use/use-overview.html"
+- title: Aggiungere siti vCenter
+  url: "/use/sites-add.html"
+- title: Creare un piano di disaster recovery
+  url: "/use/drplan-create.html"
+- title: Replica in un altro sito
+  url: "/use/replicate.html"
+- title: Failover su un sito remoto
+  url: "/use/failover.html"
+- title: Eseguire il failback delle applicazioni nel sito di origine
+  url: "/use/failback.html"
+- title: Gestisci siti, piani, datastore e informazioni sulle macchine virtuali
+  url: "/use/manage.html"
+- title: Monitorare i processi di disaster recovery
+  url: "/use/monitor-jobs.html"
