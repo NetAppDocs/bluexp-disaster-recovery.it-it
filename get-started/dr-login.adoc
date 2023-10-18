@@ -33,10 +33,10 @@ image:draas-landing.png["Screenshot della landing page per il disaster recovery 
 In caso contrario, verrà visualizzata la dashboard di disaster recovery di BlueXP.
 
 +
-** Se non disponi di un connettore BlueXP o non è quello per questa versione beta, potrebbe essere necessario contattare il supporto NetApp o seguire i messaggi per iscriverti a questa versione beta.
-** Se sei un nuovo utente di BlueXP e non hai utilizzato alcun connettore, quando selezioni "Disaster Recovery", viene visualizzato un messaggio relativo alla registrazione. Procedi e invia il modulo. NetApp ti contatterà in merito alla tua richiesta di beta.
+** Se non hai un connettore BlueXP o non è quello per questa anteprima, potrebbe essere necessario contattare il supporto NetApp o seguire i messaggi per iscriverti a questa anteprima.
+** Se sei un nuovo utente di BlueXP e non hai utilizzato alcun connettore, quando selezioni "Disaster Recovery", viene visualizzato un messaggio relativo alla registrazione. Procedi e invia il modulo. NetApp ti contatterà per la tua richiesta di anteprima.
 ** Se sei un utente BlueXP con un connettore esistente, quando selezioni "Disaster Recovery", viene visualizzato un messaggio relativo alla registrazione.
-** Se stai già partecipando alla beta, quando selezioni "Disaster Recovery", puoi procedere con il servizio.
+** Se si sta già partecipando all'anteprima, quando si seleziona "Disaster Recovery" (Ripristino di emergenza), è possibile procedere con il servizio.
 
 
 

@@ -12,7 +12,7 @@ summary: Il disaster recovery di NetApp BlueXP è un servizio di disaster recove
 
 
 [role="lead"]
-Una volta aggiunti i siti vCenter, potrai creare un piano di disaster recovery o replica. Selezionare i vCenter di origine e di destinazione, scegliere i gruppi di risorse e raggruppare le modalità di ripristino e accensione delle applicazioni. Ad esempio, è possibile raggruppare macchine virtuali associate a un'applicazione o raggruppare applicazioni con livelli simili.
+Una volta aggiunti i siti vCenter, sarai pronto a creare un disaster recovery o un _piano di replica_. Selezionare i vCenter di origine e di destinazione, scegliere i gruppi di risorse e raggruppare le modalità di ripristino e accensione delle applicazioni. Ad esempio, è possibile raggruppare macchine virtuali associate a un'applicazione o raggruppare applicazioni con livelli simili.
 
 Tali piani sono a volte chiamati _blueprint_.
 
@@ -25,11 +25,19 @@ Una procedura guidata consente di eseguire le seguenti operazioni:
 * Rivedere il piano
 
 
+Durante la creazione del piano di replica, è possibile definire la relazione di SnapMirror tra volumi di origine e di destinazione in una delle seguenti configurazioni:
+
+* da 1 a 1
+* 1 a molti in un'architettura fanout
+* Molti a 1 in un gruppo di coerenza
+* Molti a molti
+
+
 
 
 == Seleziona i server vCenter
 
-Innanzitutto, selezionare il vCenter di origine e quindi il vCenter di destinazione.
+Prima di tutto, seleziona il vCenter di origine e poi il vCenter di destinazione.
 
 .Fasi
 . Dal nav sinistro di BlueXP, seleziona *protezione* > *Disaster Recovery*.
@@ -80,36 +88,31 @@ Ogni macchina virtuale all'interno di un gruppo viene avviata in sequenza in bas
 
 Nel passaggio mappatura risorse, specificare il modo in cui le risorse dell'ambiente di origine devono essere mappate alla destinazione.
 
-* Selezionare la mappatura di rete per il segmento appropriato.
-+
-I segmenti dovrebbero essere già forniti all'interno di VMC, quindi selezionare il segmento appropriato per mappare la macchina virtuale.
-
-* In base alla selezione delle macchine virtuali, le mappature del datastore vengono selezionate automaticamente.
-+
-
-NOTE: SnapMirror è a livello di volume. Pertanto, tutte le macchine virtuali vengono replicate nella destinazione della replica. Assicurarsi di selezionare tutte le macchine virtuali che fanno parte dell'archivio dati. Se non sono selezionate, vengono elaborate solo le macchine virtuali che fanno parte del piano di replica.
-
-
-
 .Fasi
 . Nella pagina mappatura delle risorse, per utilizzare le stesse mappature sia per le operazioni di failover che per quelle di test, selezionare la casella.
 . Nella scheda Mapping di failover, selezionare la freccia verso il basso a destra di ciascuna risorsa e mappare le risorse in ciascuna:
 +
-** Risorse di calcolo
-** Reti virtuali
-** Macchine virtuali
-** Datastore
-
-
-. Nei dettagli delle macchine virtuali, è possibile ridimensionare facoltativamente i parametri della CPU e della RAM della macchina virtuale.
+** *Risorse di calcolo*
+** *Reti virtuali*
+** *Macchine virtuali*: Selezionare la mappatura di rete per il segmento appropriato. I segmenti dovrebbero essere già forniti, quindi selezionare il segmento appropriato per mappare la macchina virtuale.
 +
-image:dr-plan-create-mapping-vms.png["Schermata di aggiunta del piano di replica > mappatura delle risorse > macchine virtuali"]
+
+NOTE: SnapMirror è a livello di volume. Pertanto, tutte le macchine virtuali vengono replicate nella destinazione della replica. Assicurarsi di selezionare tutte le macchine virtuali che fanno parte dell'archivio dati. Se non sono selezionate, vengono elaborate solo le macchine virtuali che fanno parte del piano di replica.
+
++
+Nei dettagli delle macchine virtuali, è possibile ridimensionare facoltativamente i parametri della CPU e della RAM della macchina virtuale. Inoltre, è possibile selezionare indirizzo IP, subnet mask, DNS e gateway se si desidera configurare le informazioni di rete su una VM. Le credenziali del sistema operativo guest delle VM devono essere fornite a livello globale o a ciascun livello di VM.
 
 +
 Ciò può risultare molto utile quando si ripristinano ambienti di grandi dimensioni in cluster di destinazione più piccoli o quando si eseguono test di disaster recovery senza dover eseguire il provisioning di un'infrastruttura fisica VMware uno a uno. Inoltre, è possibile modificare l'ordine di avvio per tutte le macchine virtuali selezionate nei gruppi di risorse.
 
 +
 Per impostazione predefinita, viene utilizzato l'ordine di avvio selezionato durante la selezione del gruppo di risorse; tuttavia, è possibile apportare modifiche in questa fase.
+
+** *Datastores*: In base alla selezione delle macchine virtuali, le mappature del datastore vengono selezionate automaticamente.
++
+Inserire l'obiettivo del punto di ripristino (RPO) per indicare la quantità di dati da ripristinare (misurata in tempo). Ad esempio, se inserisci un RPO di 2 ore, il recovery deve avere dati non più vecchi di 2 ore in ogni momento. In caso di emergenza, si può perdere fino a 2 ore di dati. Inserire anche il numero di copie Snapshot da conservare per tutti i datastore.
+
+
 
 . Per impostare diverse mappature per l'ambiente di test, deselezionare la casella e selezionare la scheda *mappature di test*. Passare attraverso ciascuna scheda come prima, ma questa volta per l'ambiente di test.
 +
@@ -122,10 +125,12 @@ TIP: In seguito, è possibile testare l'intero piano. In questo momento, si stan
 
 == Identificare la ricorrenza
 
-Seleziona se desideri migrare i dati (uno spostamento una tantum) su un'altra destinazione o replicarli alla frequenza di SnapMirror. Se si desidera eseguirne la replica, identificare la frequenza di mirroring dei dati.
+Seleziona se desideri migrare i dati (uno spostamento una tantum) su un'altra destinazione o replicarli alla frequenza di SnapMirror.
+
+Se si desidera eseguirne la replica, identificare la frequenza di mirroring dei dati.
 
 
-NOTE: In questa versione beta, configura la frequenza al di fuori del servizio di disaster recovery di BlueXP.
+NOTE: In questa anteprima, configura la frequenza al di fuori del servizio di disaster recovery di BlueXP.
 
 .Fasi
 . Nella pagina ricorrenza, selezionare *Migra* o *Replica*.

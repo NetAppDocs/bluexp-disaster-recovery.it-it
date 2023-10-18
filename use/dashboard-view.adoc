@@ -1,0 +1,54 @@
+---
+sidebar: sidebar 
+permalink: use/dashboard-view.html 
+keywords: disaster recovery remediate, disaster recovery, failover, failback, replication 
+summary: Il disaster recovery di NetApp BlueXP è un servizio di disaster recovery basato sul cloud che automatizza i flussi di lavoro di disaster recovery. 
+---
+= Visualizzare lo stato dei piani di disaster recovery sul Dashboard
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/use/
+
+
+[role="lead"]
+Usando la dashboard di disaster recovery di BlueXP, puoi determinare lo stato di salute dei siti di disaster recovery e dei piani di replica. È possibile stabilire rapidamente quali siti e piani sono sani, scollegati o degradati.
+
+.Fasi
+. Dal nav sinistro di BlueXP, seleziona *protezione* > *Disaster Recovery*.
+. Dal menu superiore del disaster recovery di BlueXP, selezionare *Dashboard*.
+. Esaminare le seguenti informazioni sul dashboard:
++
+** *Siti*: Visualizza la salute dei tuoi siti. Un sito può avere uno dei seguenti stati:
++
+*** *Sano*: VCenter è connesso e in esecuzione.
+*** *Disconnesso*: VCenter non è raggiungibile o presenta problemi di connettività.
+*** *Degradata*: VCenter non è raggiungibile o presenta problemi di connettività.
++
+Per visualizzare i dettagli del sito, selezionare *Visualizza tutto* per uno stato o *Visualizza siti* per visualizzarli tutti.
+
+
+
+** *Piani di replica*: Consente di visualizzare lo stato di salute dei piani. Un piano può avere uno dei seguenti stati:
++
+*** *Pronto*
+*** *Non riuscito*
++
+Per rivedere i dettagli del piano di replica, selezionare *Visualizza tutto* per uno stato o *Visualizza piani di replica* per visualizzarli tutti.
+
+
+
+** *Gruppi di risorse*: Consente di visualizzare lo stato dei gruppi di risorse. Un gruppo di risorse può avere uno dei seguenti stati:
++
+*** *VM protette*: Le VM fanno parte di un gruppo di risorse.
+*** *VM non protette*: Le VM non fanno parte di un gruppo di risorse.
++
+Per rivedere i dettagli del gruppo di risorse, selezionare *Visualizza tutto* per uno stato o *Visualizza gruppi di risorse* per visualizzarli tutti.
+
+
+
+** Il numero di failover, failover di test e migrazioni. Ad esempio, se sono stati creati due piani e sono stati migrati verso le destinazioni, il numero di migrazioni viene visualizzato come "2".
+
+
+. Controllare tutte le operazioni nel riquadro attività. Per visualizzare tutte le operazioni in Job Monitor, selezionare *Visualizza tutti i lavori*.
+

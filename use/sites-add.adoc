@@ -21,7 +21,7 @@ Una volta aggiunti, il disaster recovery di BlueXP esegue un rilevamento approfo
 +
 Ti atterrai alla pagina della dashboard di disaster recovery di BlueXP. Quando si inizia con il servizio, è necessario aggiungere le informazioni vCenter. Successivamente, il Dashboard visualizza i dati relativi ai siti e ai piani di replica.
 
-. Selezionare *Scopri server vCenter* per inserire le informazioni sul sito vCenter di origine.
+. *Fonte*: Selezionare *Scopri i server vCenter* per inserire le informazioni sul sito vCenter di origine.
 +
 
 TIP: Se alcuni siti vCenter esistono già e si desidera aggiungerne altri, dal menu in alto, selezionare *Sites* (Siti), quindi selezionare *Add* (Aggiungi).
@@ -29,20 +29,30 @@ TIP: Se alcuni siti vCenter esistono già e si desidera aggiungerne altri, dal m
 +
 image:vcenter-add.png["Schermata Aggiungi vCenter server "]
 
-. Aggiungi un sito, seleziona il connettore BlueXP e fornisci credenziali vCenter.
-. Per accettare certificati autofirmati per vCenter di origine, selezionare la casella.
++
+.. Aggiungi un sito, seleziona il connettore BlueXP e fornisci credenziali vCenter.
+.. Per accettare certificati autofirmati per vCenter di origine, selezionare la casella.
 +
 
 NOTE: I certificati autofirmati non sono protetti come gli altri certificati. Se vCenter è *NON* configurato con certificati di autorità di certificazione (CA), selezionare questa casella; in caso contrario, la connessione a vCenter non funzionerà.
 
-. Selezionare *Aggiungi*.
+.. Selezionare *Aggiungi*.
 +
 Successivamente, verrà aggiunto un vCenter di destinazione.
 
-. Scegliere il sito di destinazione e la posizione. Se la destinazione è cloud, selezionare *AWS*.
-. Selezionare *Aggiungi*.
+
+
+. *Destinazione*:
++
+.. Scegliere il sito di destinazione e la posizione. Se la destinazione è cloud, selezionare *AWS*.
+.. Selezionare *Aggiungi*.
 +
 I vCenter di origine e di destinazione vengono visualizzati nell'elenco dei siti.
+
+
+
++
+image:sites-list.png["Schermata della pagina dei siti"]
 
 . Per visualizzare lo stato di avanzamento dell'operazione, dal menu superiore, selezionare *monitoraggio processi*.
 

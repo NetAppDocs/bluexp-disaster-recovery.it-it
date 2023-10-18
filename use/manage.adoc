@@ -14,24 +14,11 @@ summary: Il disaster recovery di NetApp BlueXP è un servizio di disaster recove
 [role="lead"]
 Potrete dare un rapido sguardo a tutte le vostre risorse di disaster recovery o approfondire ciascuna di esse:
 
-* Dashboard
 * Siti
 * Piani di replica
+* Datastore
+* Macchine virtuali
 * Gruppi di risorse
-
-
-
-
-== Consulta la dashboard di disaster recovery di BlueXP
-
-USA la dashboard per ottenere una panoramica di tutte le risorse e le attività di disaster recovery di BlueXP. Il riquadro attività mostra l'attività operativa del processo aggiornata.
-
-.Fasi
-. Dal nav sinistro di BlueXP, seleziona *protezione* > *Disaster Recovery*.
-. Dal menu superiore, selezionare *Dashboard*.
-. Esplorate tutti i piani di disaster recovery, la conformità, i vCenter, le macchine virtuali e i gruppi di risorse nel Dashboard.
-. Per visualizzare la risorsa, selezionare la freccia a destra.
-. Per visualizzare tutti i gruppi di risorse, selezionare *Visualizza gruppi di risorse*.
 
 
 
@@ -66,7 +53,8 @@ Puoi modificare il nome del sito vCenter e il tipo di sito (on-premise o AWS).
 ** Per aggiungere o modificare le macchine virtuali, selezionare la scheda *macchina virtuale* e selezionare l'icona *Modifica*.
 
 
-. Per eseguire azioni con il piano, selezionare l'opzione *azioni* image:../use/icon-horizontal-dots.png["Icona del menu Actions nel servizio di disaster recovery BlueXP"]  Nella parte superiore e selezionare una delle opzioni, come *Test failover*, *fail over*, *fail back*, *Disable*, *Enable*, oppure *Elimina*.
+. Tornare all'elenco dei piani selezionando "piani di replica" nelle breadcrumb in alto a sinistra.
+. Per eseguire azioni con il piano, selezionare l'opzione *azioni* dall'elenco dei piani di replica image:../use/icon-horizontal-dots.png["Icona del menu Actions nel servizio di disaster recovery BlueXP"]  A destra del piano e selezionare una delle opzioni, come *Modifica pianificazioni*, *Test failover*, *fail over*, *fail back*, *Disable*, *Abilita* o *Elimina*.
 
 
 
