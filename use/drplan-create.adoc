@@ -54,7 +54,7 @@ image:dr-plan-create-name.png["Schermata che mostra la pagina Aggiungi piano di 
 
 == Selezionare le applicazioni da replicare e assegnare gruppi di risorse
 
-Il passaggio successivo consiste nel raggruppare le macchine virtuali necessarie in gruppi di risorse funzionali. I gruppi di risorse consentono di raggruppare una serie di macchine virtuali dipendenti in gruppi logici che soddisfano le proprie esigenze. Ad esempio, i gruppi possono contenere l'ordine di avvio che può essere eseguito al momento del ripristino.
+Il passaggio successivo consiste nel raggruppare le macchine virtuali necessarie in gruppi di risorse funzionali. I gruppi di risorse consentono di raggruppare una serie di macchine virtuali dipendenti in gruppi logici che soddisfano le proprie esigenze. Ad esempio, i gruppi potrebbero contenere ordini di avvio ritardati che possono essere eseguiti al momento del ripristino.
 
 
 TIP: Ciascun gruppo di risorse può includere una o più macchine virtuali. Le macchine virtuali si accenderanno in base alla sequenza in cui vengono incluse.
@@ -94,23 +94,46 @@ Nel passaggio mappatura risorse, specificare il modo in cui le risorse dell'ambi
 +
 ** *Risorse di calcolo*
 ** *Reti virtuali*
+
+
+. Nella scheda Mapping di failover, selezionare la freccia verso il basso a destra di ciascuna risorsa:
++
 ** *Macchine virtuali*: Selezionare la mappatura di rete per il segmento appropriato. I segmenti dovrebbero essere già forniti, quindi selezionare il segmento appropriato per mappare la macchina virtuale.
 +
-
-NOTE: SnapMirror è a livello di volume. Pertanto, tutte le macchine virtuali vengono replicate nella destinazione della replica. Assicurarsi di selezionare tutte le macchine virtuali che fanno parte dell'archivio dati. Se non sono selezionate, vengono elaborate solo le macchine virtuali che fanno parte del piano di replica.
-
-+
-Nei dettagli delle macchine virtuali, è possibile ridimensionare facoltativamente i parametri della CPU e della RAM della macchina virtuale. Inoltre, è possibile selezionare indirizzo IP, subnet mask, DNS e gateway se si desidera configurare le informazioni di rete su una VM. Le credenziali del sistema operativo guest delle VM devono essere fornite a livello globale o a ciascun livello di VM.
+SnapMirror è a livello di volume. Pertanto, tutte le macchine virtuali vengono replicate nella destinazione della replica. Assicurarsi di selezionare tutte le macchine virtuali che fanno parte dell'archivio dati. Se non sono selezionate, vengono elaborate solo le macchine virtuali che fanno parte del piano di replica.
 
 +
-Ciò può risultare molto utile quando si ripristinano ambienti di grandi dimensioni in cluster di destinazione più piccoli o quando si eseguono test di disaster recovery senza dover eseguire il provisioning di un'infrastruttura fisica VMware uno a uno. Inoltre, è possibile modificare l'ordine di avvio per tutte le macchine virtuali selezionate nei gruppi di risorse.
+*** *CPU e RAM della VM*: Nei dettagli delle macchine virtuali, è possibile ridimensionare facoltativamente i parametri della CPU e della RAM della VM.
+*** *Ritardo ordine di avvio*: È inoltre possibile modificare l'ordine di avvio per tutte le macchine virtuali selezionate nei gruppi di risorse. Per impostazione predefinita, viene utilizzato l'ordine di avvio selezionato durante la selezione del gruppo di risorse; tuttavia, è possibile apportare modifiche in questa fase.
+*** *DHCP o IP statico*: Quando si esegue il mapping del networking tra le posizioni di origine e di destinazione nella sezione macchine virtuali del piano di replica, il disaster recovery di BlueXP offre due opzioni: DHCP o IP statico. Per gli IP statici, configurare la subnet, il gateway e i server DNS. Inoltre, immettere le credenziali per le macchine virtuali.
++
+**** *DHCP*: Se si sceglie questa opzione, si forniscono solo le credenziali per la VM.
+**** *IP statico*: È possibile selezionare informazioni uguali o diverse dalla macchina virtuale di origine. Se si sceglie lo stesso come origine, non è necessario immettere le credenziali. D'altro canto, se si sceglie di utilizzare informazioni diverse dall'origine, è possibile fornire le credenziali, l'indirizzo IP della macchina virtuale, la subnet mask, il DNS e le informazioni del gateway. Le credenziali del sistema operativo guest delle VM devono essere fornite a livello globale o a ciascun livello di VM.
++
+image:dr-plan-create-mapping-vms.png["Schermata di aggiunta del piano di replica > mappatura delle risorse > macchine virtuali"]
 
 +
-Per impostazione predefinita, viene utilizzato l'ordine di avvio selezionato durante la selezione del gruppo di risorse; tuttavia, è possibile apportare modifiche in questa fase.
+Ciò può risultare molto utile quando si ripristinano ambienti di grandi dimensioni in cluster di destinazione più piccoli o quando si eseguono test di disaster recovery senza dover eseguire il provisioning di un'infrastruttura fisica VMware uno a uno.
 
+
+
+
+
+** *Repliche coerenti con l'applicazione*: Indica se creare copie Snapshot coerenti con l'applicazione. Il servizio disattiverà l'applicazione e quindi eseguirà un'istantanea per ottenere uno stato coerente dell'applicazione.
 ** *Datastores*: In base alla selezione delle macchine virtuali, le mappature del datastore vengono selezionate automaticamente.
 +
-Inserire l'obiettivo del punto di ripristino (RPO) per indicare la quantità di dati da ripristinare (misurata in tempo). Ad esempio, se inserisci un RPO di 2 ore, il recovery deve avere dati non più vecchi di 2 ore in ogni momento. In caso di emergenza, si può perdere fino a 2 ore di dati. Inserire anche il numero di copie Snapshot da conservare per tutti i datastore.
+*** *RPO*: Inserire l'obiettivo del punto di ripristino (RPO) per indicare la quantità di dati da recuperare (misurata nel tempo). Ad esempio, se inserisci un RPO di 2 ore, il recovery deve avere dati non più vecchi di 2 ore in ogni momento. In caso di emergenza, si può perdere fino a 2 ore di dati. Inserire anche il numero di copie Snapshot da conservare per tutti i datastore.
+*** *Relazioni SnapMirror*: Se un volume ha già stabilito una relazione di SnapMirror, è possibile selezionare i datastore di origine e destinazione corrispondenti. Se selezioni un volume che non ha una relazione di SnapMirror, puoi crearne uno subito selezionando l'ambiente di lavoro e la relativa SVM peer.
+
+
+** *Gruppi di coerenza*: Quando crei un piano di replica, puoi includere macchine virtuali provenienti da diversi volumi e SVM diverse. Il disaster recovery di BlueXP crea una snapshot del gruppo di coerenza.
++
+*** Se si specifica l'obiettivo RPO (Recovery Point Objective), il servizio pianifica un backup primario in base all'RPO e aggiorna le destinazioni secondarie.
+*** Se le macchine virtuali provengono dallo stesso volume e dalla stessa SVM, il servizio esegue una snapshot ONTAP standard e aggiorna le destinazioni secondarie.
+*** Se le macchine virtuali provengono da volumi diversi e dalla stessa SVM, il servizio crea una snapshot del gruppo di coerenza includendo tutti i volumi e aggiornando le destinazioni secondarie.
+*** Se le macchine virtuali provengono da volumi diversi e da SVM diverse, il servizio esegue una fase di avvio del gruppo di coerenza e applica la fase Snapshot includendo tutti i volumi nello stesso cluster o in un cluster diverso e aggiorna le destinazioni secondarie.
+*** Durante il failover, è possibile selezionare qualsiasi Snapshot. Se si seleziona l'ultima snapshot, il servizio crea un backup on-demand, aggiorna la destinazione e utilizza tale Snapshot per il failover.
+
 
 
 

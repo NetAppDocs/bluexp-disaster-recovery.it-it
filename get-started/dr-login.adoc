@@ -27,16 +27,22 @@ Viene visualizzata la pagina di accesso a NetApp BlueXP.
 Se è la prima volta che accedi a questo servizio, viene visualizzata la pagina iniziale.
 
 +
-image:draas-landing.png["Screenshot della landing page per il disaster recovery di BlueXP"]
+image:draas-landing2.png["Screenshot della landing page per il disaster recovery di BlueXP"]
 
 +
 In caso contrario, verrà visualizzata la dashboard di disaster recovery di BlueXP.
 
 +
-** Se non hai un connettore BlueXP o non è quello per questa anteprima, potrebbe essere necessario contattare il supporto NetApp o seguire i messaggi per iscriverti a questa anteprima.
-** Se sei un nuovo utente di BlueXP e non hai utilizzato alcun connettore, quando selezioni "Disaster Recovery", viene visualizzato un messaggio relativo alla registrazione. Procedi e invia il modulo. NetApp ti contatterà per la tua richiesta di anteprima.
-** Se sei un utente BlueXP con un connettore esistente, quando selezioni "Disaster Recovery", viene visualizzato un messaggio relativo alla registrazione.
-** Se si sta già partecipando all'anteprima, quando si seleziona "Disaster Recovery" (Ripristino di emergenza), è possibile procedere con il servizio.
+** Se non disponi di un connettore BlueXP o non è quello per questo servizio, potrebbe essere necessario contattare il supporto NetApp o seguire i messaggi per iscriverti a questo servizio.
++
+Per aggiungere un connettore, fare riferimento a. https://docs.netapp.com/us-en/bluexp-setup-admin/concept-connectors.html["Scopri di più sui connettori"^].
 
+** Se non hai mai utilizzato BlueXP e non hai utilizzato alcun connettore, quando selezioni "Disaster Recovery" viene visualizzato un messaggio relativo all'iscrizione. Procedi e invia il modulo. NetApp ti contatterà in merito alla tua richiesta.
+** Se sei un utente BlueXP con un connettore esistente, quando selezioni "Disaster Recovery", viene visualizzato un messaggio relativo alla registrazione.
+** Se si sta già utilizzando il servizio, quando si seleziona "Disaster Recovery" (Ripristino di emergenza), è possibile procedere.
+
+
++
+image:dr-dashboard-preview.png["Dashboard di disaster recovery di BlueXP"]
 
 

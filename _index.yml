@@ -1,5 +1,11 @@
 ---
 indexpage:
+  title: Documentazione di disaster recovery di BlueXP
+  summary: Grazie al disaster recovery di BlueXP per VMware, puoi replicare i carichi
+    di lavoro VMware on-premise con lo storage ONTAP su un data center software-defined
+    VMware in un cloud pubblico come sito di disaster recovery utilizzando il cloud
+    storage NetApp.
+  keywords: disaster, disaster recovery, bluexp, replicate, replication, cloud storage
   lead: Il disaster recovery nel cloud rappresenta un modo resiliente e conveniente
     di proteggere i carichi di lavoro da fuori servizio del sito ed eventi di corruzione
     dei dati (ad esempio, il ransomware). Grazie all'anteprima del disaster recovery
