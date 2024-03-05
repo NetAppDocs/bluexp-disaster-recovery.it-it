@@ -17,5 +17,10 @@ Queste FAQ possono essere utili se stai cercando una risposta rapida a una doman
 *Che cos'è l'URL di disaster recovery di BlueXP?*
 Per l'URL, in un browser, immettere: https://console.bluexp.netapp.com/["https://console.bluexp.netapp.com/"^] Per accedere alla console BlueXP.
 
+*È necessaria una licenza per utilizzare il disaster recovery di BlueXP?*
+Per un accesso completo è necessaria una licenza di disaster recovery BlueXP. Tuttavia, è possibile provarlo con la versione di prova gratuita.
+
+Per ulteriori informazioni sulla configurazione delle licenze per il disaster recovery di BlueXP, fare riferimento a. link:../get-started/dr-licensing.html["Configura le licenze di disaster recovery di BlueXP"].
+
 *Come si accede al Disaster Recovery di BlueXP?*
 Il disaster recovery di BlueXP non richiede alcuna abilitazione. L'opzione di disaster recovery viene visualizzata automaticamente nella navigazione a sinistra di BlueXP.

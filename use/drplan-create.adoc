@@ -16,6 +16,12 @@ Una volta aggiunti i siti vCenter, sarai pronto a creare un disaster recovery o 
 
 Tali piani sono a volte chiamati _blueprint_.
 
+È possibile creare un piano di replica e modificare le pianificazioni per la conformità e il test.
+
+
+
+== Creare il piano
+
 Una procedura guidata consente di eseguire le seguenti operazioni:
 
 * Seleziona i server vCenter
@@ -33,9 +39,12 @@ Durante la creazione del piano di replica, è possibile definire la relazione di
 * Molti a molti
 
 
+.Prima di iniziare
+Per creare una relazione di SnapMirror in questo servizio, il cluster e il relativo peering SVM dovrebbero essere già stati impostati al di fuori del disaster recovery di BlueXP.
 
 
-== Seleziona i server vCenter
+
+=== Seleziona i server vCenter
 
 Prima di tutto, seleziona il vCenter di origine e poi il vCenter di destinazione.
 
@@ -52,7 +61,7 @@ image:dr-plan-create-name.png["Schermata che mostra la pagina Aggiungi piano di 
 
 
 
-== Selezionare le applicazioni da replicare e assegnare gruppi di risorse
+=== Selezionare le applicazioni da replicare e assegnare gruppi di risorse
 
 Il passaggio successivo consiste nel raggruppare le macchine virtuali necessarie in gruppi di risorse funzionali. I gruppi di risorse consentono di raggruppare una serie di macchine virtuali dipendenti in gruppi logici che soddisfano le proprie esigenze. Ad esempio, i gruppi potrebbero contenere ordini di avvio ritardati che possono essere eseguiti al momento del ripristino.
 
@@ -84,9 +93,12 @@ Ogni macchina virtuale all'interno di un gruppo viene avviata in sequenza in bas
 
 
 
-== Mappare le risorse di origine alla destinazione
+=== Mappare le risorse di origine alla destinazione
 
 Nel passaggio mappatura risorse, specificare il modo in cui le risorse dell'ambiente di origine devono essere mappate alla destinazione.
+
+.Prima di iniziare
+Per creare una relazione di SnapMirror in questo servizio, il cluster e il relativo peering SVM dovrebbero essere già stati impostati al di fuori del disaster recovery di BlueXP.
 
 .Fasi
 . Nella pagina mappatura delle risorse, per utilizzare le stesse mappature sia per le operazioni di failover che per quelle di test, selezionare la casella.
@@ -122,8 +134,12 @@ Ciò può risultare molto utile quando si ripristinano ambienti di grandi dimens
 ** *Repliche coerenti con l'applicazione*: Indica se creare copie Snapshot coerenti con l'applicazione. Il servizio disattiverà l'applicazione e quindi eseguirà un'istantanea per ottenere uno stato coerente dell'applicazione.
 ** *Datastores*: In base alla selezione delle macchine virtuali, le mappature del datastore vengono selezionate automaticamente.
 +
-*** *RPO*: Inserire l'obiettivo del punto di ripristino (RPO) per indicare la quantità di dati da recuperare (misurata nel tempo). Ad esempio, se inserisci un RPO di 2 ore, il recovery deve avere dati non più vecchi di 2 ore in ogni momento. In caso di emergenza, si può perdere fino a 2 ore di dati. Inserire anche il numero di copie Snapshot da conservare per tutti i datastore.
+*** *RPO*: Inserire l'obiettivo del punto di ripristino (RPO) per indicare la quantità di dati da recuperare (misurata nel tempo). Ad esempio, se inserisci un RPO di 60 minuti, il recovery deve avere dati non più vecchi di 60 minuti in ogni momento. In caso di emergenza, si può perdere fino a 60 minuti di dati. Inserire anche il numero di copie Snapshot da conservare per tutti i datastore.
 *** *Relazioni SnapMirror*: Se un volume ha già stabilito una relazione di SnapMirror, è possibile selezionare i datastore di origine e destinazione corrispondenti. Se selezioni un volume che non ha una relazione di SnapMirror, puoi crearne uno subito selezionando l'ambiente di lavoro e la relativa SVM peer.
++
+
+NOTE: Per creare una relazione di SnapMirror in questo servizio, il cluster e il relativo peering SVM dovrebbero essere già stati impostati al di fuori del disaster recovery di BlueXP.
+
 
 
 ** *Gruppi di coerenza*: Quando crei un piano di replica, puoi includere macchine virtuali provenienti da diversi volumi e SVM diverse. Il disaster recovery di BlueXP crea una snapshot del gruppo di coerenza.
@@ -146,14 +162,11 @@ TIP: In seguito, è possibile testare l'intero piano. In questo momento, si stan
 
 
 
-== Identificare la ricorrenza
+=== Identificare la ricorrenza
 
 Seleziona se desideri migrare i dati (uno spostamento una tantum) su un'altra destinazione o replicarli alla frequenza di SnapMirror.
 
 Se si desidera eseguirne la replica, identificare la frequenza di mirroring dei dati.
-
-
-NOTE: In questa anteprima, configura la frequenza al di fuori del servizio di disaster recovery di BlueXP.
 
 .Fasi
 . Nella pagina ricorrenza, selezionare *Migra* o *Replica*.
@@ -170,7 +183,7 @@ image:dr-plan-create-recurrence.png["Schermata che mostra Aggiungi piano di repl
 
 
 
-== Confermare il piano di replica
+=== Confermare il piano di replica
 
 Infine, dedicare qualche istante alla conferma del piano di replica.
 
@@ -183,4 +196,43 @@ TIP: È possibile disattivare o eliminare il piano di replica in un secondo mome
 +
 Il piano viene aggiunto all'elenco dei piani.
 
+
+
+
+
+== Modificare le pianificazioni per verificare la conformità e garantire il funzionamento dei test di failover
+
+È consigliabile impostare pianificazioni per verificare la conformità e i test di failover in modo da garantire che funzionino correttamente in caso di necessità.
+
+* *Impatto sul tempo di conformità*: Quando viene creato un piano di replica, il servizio crea un piano di conformità per impostazione predefinita. Il tempo di conformità predefinito è di 30 minuti. Per modificare questo orario, è possibile modificare la pianificazione nel piano di replica.
+* *Test failover Impact*: È possibile testare un processo di failover su richiesta o in base a una pianificazione. Ciò consente di verificare il failover di macchine virtuali su una destinazione specificata in un piano di replica.
++
+Un failover di test crea un volume FlexClone, monta il datastore e sposta il carico di lavoro in quel datastore. Un'operazione di failover di test _non_ influisce sui carichi di lavoro di produzione, sulla relazione di SnapMirror utilizzata nel sito di test e sui carichi di lavoro protetti che devono continuare a funzionare normalmente.
+
+
+
+In base alla pianificazione, il test di failover viene eseguito e garantisce che i carichi di lavoro vengano spostati nella destinazione specificata dal piano di replica.
+
+.Fasi
+. Dal menu superiore del disaster recovery di BlueXP, selezionare *piani di replica*.
++
+image:dr-plan-list.png["Schermata che mostra l'elenco dei piani di replica"]
+
+. Selezionare *azioni* image:icon-horizontal-dots.png["Menu azioni punti orizzontali"] E selezionare *Modifica pianificazioni*.
+. Inserisci con quale frequenza, in pochi minuti, vuoi che il disaster recovery di BlueXP verifichi la conformità ai test.
+. Per verificare che i test di failover siano integri, selezionare *Esegui failover in base a una pianificazione mensile*.
++
+.. Selezionare il giorno del mese e l'ora in cui si desidera eseguire i test.
+.. Immettere la data in formato aaaa-mm-gg quando si desidera avviare il test.
++
+image:dr-plan-schedule-edit.png["Schermata che mostra dove è possibile modificare le pianificazioni"]
+
+
+
+. Per ripulire l'ambiente di test al termine del test di failover, selezionare *pulizia automatica dopo il failover del test*.
++
+
+NOTE: Questo processo disregistra le macchine virtuali temporanee dalla posizione di test, elimina il volume FlexClone creato e dismonta i datastore temporanei.
+
+. Selezionare *Salva*.
 

@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: get-started/dr-setup.html 
-keywords: bluexp, disaster recovery, 
+keywords: bluexp, disaster recovery, aws, amazon web services 
 summary: Per utilizzare il disaster recovery di BlueXP, esegui alcuni passaggi per configurarlo. 
 ---
 = Configura il disaster recovery di BlueXP
@@ -12,14 +12,14 @@ summary: Per utilizzare il disaster recovery di BlueXP, esegui alcuni passaggi p
 
 
 [role="lead"]
-Per utilizzare il disaster recovery di BlueXP, esegui alcuni passaggi per configurarlo in AWS e in BlueXP.
+Per utilizzare il disaster recovery di BlueXP, esegui alcuni passaggi per configurarlo sia in Amazon Web Services (AWS) che in BlueXP.
 
 
 TIP: Revisione link:../get-started/dr-prerequisites.html["prerequisiti"] per garantire che il tuo ambiente sia pronto.
 
 
 
-== Configurazione in AWS
+== Configura AWS
 
 In AWS, è necessario effettuare le seguenti operazioni:
 
@@ -44,7 +44,7 @@ Amazon FSX per NetApp ONTAP è un servizio completamente gestito che offre un fi
 
 
 
-== Configurazione in BlueXP
+== Configura il disaster recovery di BlueXP
 
 Il passo successivo è configurare il disaster recovery in BlueXP.
 
@@ -58,7 +58,7 @@ Il passo successivo è configurare il disaster recovery in BlueXP.
 
 === Creare un connettore in BlueXP
 
-Devi iscriverti per l'anteprima o contattare il tuo rappresentante commerciale NetApp per provare questo servizio. Quindi, quando utilizzi il connettore BlueXP, includerà le funzionalità appropriate per il servizio di disaster recovery.
+Per provare questo servizio, contatta il tuo rappresentante di vendita NetApp. Quindi, quando utilizzi il connettore BlueXP, includerà le funzionalità appropriate per il servizio di disaster recovery.
 
 Per creare un connettore in BlueXP prima di utilizzare il servizio, consultare la documentazione di BlueXP che descrive https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-connectors.html["come creare un connettore"^].
 
@@ -81,3 +81,7 @@ Il passo successivo è configurare il disaster recovery in BlueXP.
 === Impostare la licenza
 
 Grazie al disaster recovery di BlueXP, puoi iscriverti a una prova gratuita di 90 giorni.
+
+È possibile utilizzare la propria licenza BYOL (Bring Your Own License), ovvero un file di licenza NetApp (NLF).
+
+Per ulteriori informazioni sulla configurazione delle licenze per il disaster recovery di BlueXP, fare riferimento a. link:../get-started/dr-licensing.html["Configura le licenze di disaster recovery di BlueXP"].

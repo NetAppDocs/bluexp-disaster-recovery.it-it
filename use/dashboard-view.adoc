@@ -17,13 +17,16 @@ Usando la dashboard di disaster recovery di BlueXP, puoi determinare lo stato di
 .Fasi
 . Dal nav sinistro di BlueXP, seleziona *protezione* > *Disaster Recovery*.
 . Dal menu superiore del disaster recovery di BlueXP, selezionare *Dashboard*.
++
+image:dr-dashboard.png["Dashboard di disaster recovery di BlueXP"]
+
 . Esaminare le seguenti informazioni sul dashboard:
 +
 ** *Siti*: Visualizza la salute dei tuoi siti. Un sito può avere uno dei seguenti stati:
 +
-*** *Sano*: VCenter è connesso e in esecuzione.
-*** *Disconnesso*: VCenter non è raggiungibile o presenta problemi di connettività.
-*** *Degradata*: VCenter non è raggiungibile o presenta problemi di connettività.
+*** *In esecuzione*: VCenter è connesso, funzionante e in esecuzione.
+*** *Down*: VCenter non è raggiungibile o presenta problemi di connettività.
+*** *Problema*: VCenter non è raggiungibile o presenta problemi di connettività.
 +
 Per visualizzare i dettagli del sito, selezionare *Visualizza tutto* per uno stato o *Visualizza siti* per visualizzarli tutti.
 

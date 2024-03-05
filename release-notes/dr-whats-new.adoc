@@ -12,13 +12,34 @@ summary: Il disaster recovery di BlueXP è un servizio di disaster recovery basa
 
 
 [role="lead"]
-Scopri le novità dell'anteprima del disaster recovery di BlueXP.
+Scopri le novità del disaster recovery BlueXP.
+
+
+
+== 5 marzo 2024
+
+Questa è la release General Availability del disaster recovery di BlueXP, che include i seguenti aggiornamenti.
+
+* *Aggiornamenti delle licenze*: Con il disaster recovery di BlueXP, puoi iscriverti a una prova gratuita di 90 giorni o portare la tua licenza (BYOL), che è un file di licenza NetApp (NLF) che ottieni dal tuo rappresentante di vendita NetApp Puoi utilizzare il numero di serie della licenza per attivare il BYOL nel Digital Wallet di BlueXP. Le spese per il disaster recovery di BlueXP si basano sulla capacità di provisioning dei datastore.
++
+Per ulteriori informazioni sulla configurazione delle licenze per il disaster recovery di BlueXP, fare riferimento a. https://docs.netapp.com/us-en/bluexp-disaster-recovery/get-started/dr-licensing.html["Impostare la licenza"].
+
++
+Per informazioni dettagliate sulla gestione delle licenze per *tutti* i servizi BlueXP, fare riferimento a. https://docs.netapp.com/us-en/bluexp-digital-wallet/task-manage-data-services-licenses.html["Gestisci le licenze per tutti i servizi BlueXP"^].
+
+
+
+* *Modifica pianificazioni*: Con questa release, è ora possibile impostare pianificazioni per testare la conformità e i test di failover in modo da garantire che funzionino correttamente se ne hanno bisogno.
++
+Per ulteriori informazioni, fare riferimento a. https://docs.netapp.com/us-en/bluexp-disaster-recovery/use/drplan-create.html["Creare il piano di replica"].
+
+
 
 
 
 == 1 febbraio 2024
 
-Questa release di disaster recovery di BlueXP include i seguenti aggiornamenti:
+Questa release di anteprima del disaster recovery di BlueXP include i seguenti aggiornamenti:
 
 * *Potenziamento della rete*: Con questa versione, è ora possibile ridimensionare i valori della CPU e della RAM della VM. Ora è anche possibile selezionare un DHCP di rete o un indirizzo IP statico per la VM.
 +
@@ -55,7 +76,7 @@ Per ulteriori informazioni, fare riferimento a. https://docs.netapp.com/us-en/bl
 
 == 11 gennaio 2024
 
-Questa versione di disaster recovery di BlueXP include i seguenti aggiornamenti:
+Questa release di anteprima del disaster recovery di BlueXP include i seguenti aggiornamenti:
 
 * Con questa versione, è possibile accedere più rapidamente alle informazioni presenti in altre pagine dal dashboard.
 

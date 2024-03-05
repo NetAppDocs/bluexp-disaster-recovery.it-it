@@ -29,7 +29,7 @@ Puoi modificare il nome del sito vCenter e il tipo di sito (on-premise o AWS).
 
 .Fasi
 . Dal menu in alto, selezionare *Siti*.
-. Selezionare l'opzione *azioni* image:../use/icon-horizontal-dots.png["Icona del menu Actions nel servizio di disaster recovery BlueXP"]  A destra del nome vCenter e selezionare *Modifica*.
+. Selezionare l'opzione *azioni* image:../use/icon-vertical-dots.png["Icona del menu Actions nel servizio di disaster recovery BlueXP"]  A destra del nome vCenter e selezionare *Modifica*.
 . Modificare il nome e la posizione del sito vCenter.
 
 
@@ -45,6 +45,9 @@ Puoi modificare il nome del sito vCenter e il tipo di sito (on-premise o AWS).
 
 .Fasi
 . Dal menu superiore, selezionare *piani di replica*.
++
+image:../use/dr-plan-list2.png["Elenco dei piani di replica"]
+
 . Per visualizzare i dettagli del piano, selezionare l'opzione *azioni* image:../use/icon-horizontal-dots.png["Icona del menu Actions nel servizio di disaster recovery BlueXP"] E selezionare *Visualizza dettagli piano*.
 . Effettuare una delle seguenti operazioni:
 +

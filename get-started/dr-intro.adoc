@@ -4,7 +4,7 @@ permalink: get-started/dr-intro.html
 keywords: how bluexp disaster recovery works, what is disaster recovery, bluexp, vmware, vcenter, draas, replicate, failover, failback, fail over, fail back 
 summary: Il disaster recovery nel cloud rappresenta un modo conveniente e resiliente per proteggere i carichi di lavoro da fuori servizio del sito e eventi di corruzione dei dati. Grazie al disaster recovery di BlueXP per VMware, puoi replicare i carichi di lavoro VMware on-premise con lo storage ONTAP su un data center software-defined VMware in cloud pubblici come sito di disaster recovery usando il cloud storage NetApp. 
 ---
-= Scopri l'anteprima di BlueXP disaster recovery per VMware
+= Scopri le funzionalità di disaster recovery di BlueXP per VMware
 :hardbreaks:
 :allow-uri-read: 
 :icons: font
@@ -12,15 +12,15 @@ summary: Il disaster recovery nel cloud rappresenta un modo conveniente e resili
 
 
 [role="lead"]
-Il disaster recovery nel cloud rappresenta un modo conveniente e resiliente per proteggere i carichi di lavoro da fuori servizio del sito e eventi di corruzione dei dati. Grazie all'anteprima del disaster recovery di BlueXP per VMware, puoi replicare i carichi di lavoro VMware on-premise con lo storage ONTAP in un data center software-defined VMware in un cloud pubblico utilizzando il cloud storage NetApp o in un altro ambiente VMware on-premise con lo storage ONTAP come sito di disaster recovery.
+Il disaster recovery nel cloud rappresenta un modo conveniente e resiliente per proteggere i carichi di lavoro da fuori servizio del sito e eventi di corruzione dei dati. Grazie al disaster recovery di BlueXP per VMware, puoi replicare i carichi di lavoro VMware on-premise con lo storage ONTAP su un data center software-defined VMware in un cloud pubblico utilizzando il cloud storage NetApp o in un altro ambiente VMware on-premise con lo storage ONTAP come sito di disaster recovery.
 
-L'anteprima del disaster recovery di BlueXP è un servizio di disaster recovery basato sul cloud che automatizza i flussi di lavoro di disaster recovery. Inizialmente, con il servizio di disaster recovery di BlueXP puoi proteggere i carichi di lavoro VMware on-premise basati su NFS che eseguono lo storage NetApp in uno dei seguenti elementi:
+Il disaster recovery di BlueXP è un servizio di disaster recovery basato sul cloud che automatizza i flussi di lavoro di disaster recovery. Inizialmente, con il servizio di disaster recovery di BlueXP puoi proteggere i carichi di lavoro VMware on-premise basati su NFS che eseguono lo storage NetApp in uno dei seguenti elementi:
 
 * VMware Cloud (VMC) su AWS con Amazon FSX per NetApp ONTAP o.
 * Un altro ambiente VMware on-premise basato su NFS con storage ONTAP
 
 
-L'anteprima del disaster recovery di BlueXP sfrutta la tecnologia ONTAP SnapMirror come trasporto di replica verso il sito di disaster recovery. Ciò offre la migliore efficienza dello storage del settore (compressione e deduplica) sui siti primari e secondari.
+Il disaster recovery di BlueXP sfrutta la tecnologia ONTAP SnapMirror come trasporto di replica verso il sito di disaster recovery. Ciò offre la migliore efficienza dello storage del settore (compressione e deduplica) sui siti primari e secondari.
 
 image:draas-onprem-to-cloud-onprem.png["Diagramma che mostra i componenti del disaster recovery di BlueXP per VMware"]
 
@@ -38,9 +38,9 @@ Il disaster recovery di BlueXP offre i seguenti benefici:
 
 
 
-== Cosa puoi fare con l'anteprima del disaster recovery di BlueXP per VMware
+== Cosa puoi fare con il disaster recovery BlueXP per VMware
 
-L'anteprima del disaster recovery di BlueXP ti fornisce l'utilizzo completo di diverse tecnologie NetApp per raggiungere i seguenti obiettivi:
+Il disaster recovery di BlueXP ti fornisce l'utilizzo completo di diverse tecnologie NetApp per raggiungere i seguenti obiettivi:
 
 * Replica le app VMware sul sito di produzione on-premise in un sito remoto di disaster recovery nel cloud o on-premise utilizzando la replica SnapMirror.
 * Eseguire la migrazione dei carichi di lavoro VMware dal sito originale a un altro sito.
@@ -57,11 +57,34 @@ NOTE: La configurazione del server vSphere viene eseguita al di fuori del disast
 
 NetApp non ti addebita i costi per l'utilizzo della versione di prova del disaster recovery di BlueXP.
 
+È possibile utilizzare la versione completa del servizio di disaster recovery di BlueXP con una licenza NetApp.
+
+
+
+== Licensing
+
+È possibile utilizzare i seguenti tipi di licenza:
+
+* Iscriviti per una prova gratuita di 90 giorni.
+* BYOL (Bring Your Own License), ovvero un file di licenza NetApp (NLF) ottenuto dal rappresentante vendite NetApp Puoi utilizzare il numero di serie della licenza per attivare il BYOL nel Digital Wallet di BlueXP.
+
+
+Le licenze per tutti i servizi BlueXP sono gestite dal servizio di Digital Wallet di BlueXP. Dopo aver configurato il BYOL, puoi vedere una licenza attiva per il servizio nel Digital Wallet di BlueXP.
+
+
+NOTE: Le spese di disaster recovery di BlueXP si basano sulla capacità di provisioning dei datastore sul sito di origine, se c'è almeno una macchina virtuale che ha un piano di replica. La capacità di un datastore in failover non è inclusa nella capacità consentita. Per un BYOL, se i dati superano la capacità consentita, le operazioni del servizio sono limitate fino a quando non ottieni una licenza di capacità aggiuntiva o esegui l'upgrade della licenza nel Digital Wallet di BlueXP.
+
+Per ulteriori informazioni sulla configurazione delle licenze per il disaster recovery di BlueXP, fare riferimento a. link:../get-started/dr-licensing.html["Configura le licenze di disaster recovery di BlueXP"].
+
 
 
 == prova gratuita di 90 giorni
 
 Puoi provare il disaster recovery di BlueXP utilizzando una prova gratuita di 90 giorni.
+
+Per continuare dopo la prova di 90 giorni, dovrai acquistare una licenza BYOL da NetApp.
+
+Puoi acquistare una licenza in qualsiasi momento e non ti verrà addebitato alcun costo fino al termine del periodo di prova di 90 giorni.
 
 
 

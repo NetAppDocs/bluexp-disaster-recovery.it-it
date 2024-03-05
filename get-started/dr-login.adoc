@@ -43,6 +43,6 @@ Per aggiungere un connettore, fare riferimento a. https://docs.netapp.com/us-en/
 
 
 +
-image:dr-dashboard-preview.png["Dashboard di disaster recovery di BlueXP"]
+image:dr-dashboard.png["Dashboard di disaster recovery di BlueXP"]
 
 
