@@ -562,7 +562,6 @@ Il disaster recovery di BlueXP non richiede alcuna abilitazione. L'opzione di di
   <block id="dcc9d99320099ed731ca2f05b3e501a7" category="list-text">Eseguire la migrazione dei carichi di lavoro VMware dal sito originale a un altro sito.</block>
   <block id="2aefc74ac286c583100431f62049590d" category="list-text">In caso di disastro, effettua il failover on-demand nel sito di disaster recovery, che può essere VMware Cloud su AWS con FSX per NetApp ONTAP o un ambiente VMware on-premise con ONTAP.</block>
   <block id="a6a42e8e3070730d19bfd86d6a1d66fe" category="paragraph">Il diagramma seguente mostra l'architettura dei piani di disaster recovery da on-premise a on-premise.</block>
-  <block id="11ee533cc4ce7135332d0b64a9e82e51" category="paragraph"><block ref="11ee533cc4ce7135332d0b64a9e82e51" category="inline-image-macro-rx" type="image"></block></block>
   <block id="20099229ad21726312a6ff50740b0b57" category="paragraph">In caso di disastro, questo servizio aiuta a ripristinare macchine virtuali nell'altro ambiente VMware o VMC on-premise suddividendo le relazioni SnapMirror e rendendo attivo il sito di destinazione.</block>
   <block id="a675a2edc95f7fca650a735944e38f96" category="paragraph">Per utilizzare il disaster recovery di BlueXP, devi assicurarti che l'ambiente soddisfi i seguenti requisiti:</block>
   <block id="96ed64c294e585324853f8f980f9d78e" category="sidebar">Migrare le app in un altro sito</block>
@@ -797,4 +796,5 @@ Per un accesso completo è necessaria una licenza di disaster recovery BlueXP. T
   <block id="9fc7e8cb24850b1f0912cebc8da32620" category="list-text">Accedi al Digital Wallet di BlueXP.</block>
   <block id="7b6dca09bf0ef612bac047a313d66cbf" category="list-text">Selezionare la scheda *licenze servizi dati*, selezionare l'icona *azioni ...* per il numero di serie del servizio che si sta aggiornando, quindi selezionare *Aggiorna licenza*.</block>
   <block id="be976ba4e18c887ae57e14f6ebfbbab3" category="sidebar">Il disaster recovery nel cloud rappresenta un modo resiliente e conveniente di proteggere i carichi di lavoro da fuori servizio del sito ed eventi di corruzione dei dati (ad esempio, il ransomware). Grazie al disaster recovery di BlueXP per VMware, puoi replicare i carichi di lavoro VMware on-premise con lo storage ONTAP in un data center software-defined VMware in un cloud pubblico o in un altro sito on-premise come sito di disaster recovery.</block>
+  <block id="67d87f62e2f6294a12829113edfa11b8" category="paragraph"><block ref="67d87f62e2f6294a12829113edfa11b8" category="inline-image-macro-rx" type="image"></block></block>
 </blocks>
