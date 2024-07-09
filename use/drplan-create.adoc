@@ -69,12 +69,13 @@ Il passaggio successivo consiste nel raggruppare le macchine virtuali necessarie
 TIP: Ciascun gruppo di risorse può includere una o più macchine virtuali. Le macchine virtuali si accenderanno in base alla sequenza in cui vengono incluse.
 
 .Fasi
+. Sul lato sinistro della pagina applicazioni, è possibile cercare gli archivi dati.
 . Sul lato sinistro della pagina applicazioni, selezionare le macchine virtuali che si desidera replicare e assegnare al gruppo selezionato.
 +
 La macchina virtuale selezionata viene aggiunta automaticamente al gruppo 1 e viene avviato un nuovo gruppo 2. Ogni volta che si aggiunge una macchina virtuale all'ultimo gruppo, viene aggiunto un altro gruppo.
 
 +
-image:dr-plan-create-apps-vms.png["Schermata che mostra la pagina Aggiungi piano di replica > applicazioni da replicare"]
+image:dr-plan-create-apps-vms3.png["Schermata che mostra la pagina Aggiungi piano di replica > applicazioni da replicare"]
 
 . Facoltativamente, eseguire una delle seguenti operazioni:
 +
@@ -102,15 +103,28 @@ Per creare una relazione di SnapMirror in questo servizio, il cluster e il relat
 
 .Fasi
 . Nella pagina mappatura delle risorse, per utilizzare le stesse mappature sia per le operazioni di failover che per quelle di test, selezionare la casella.
++
+image:dr-plan-resource-mapping.png["Piano di replica, scheda mappatura risorse"]
+
 . Nella scheda Mapping di failover, selezionare la freccia verso il basso a destra di ciascuna risorsa e mappare le risorse in ciascuna:
 +
 ** *Risorse di calcolo*
++
+*** *Datacenter di origine e destinazione*
+*** *Host di destinazione* (opzionale)
+*** *Cluster di destinazione* (opzionale)
+*** *Cartella VM di destinazione* (opzionale): Utilizzare questa opzione per creare una nuova cartella principale in cui memorizzare le VM selezionate.
+
+
 ** *Reti virtuali*
 
 
 . Nella scheda Mapping di failover, selezionare la freccia verso il basso a destra di ciascuna risorsa:
 +
 ** *Macchine virtuali*: Selezionare la mappatura di rete per il segmento appropriato. I segmenti dovrebbero essere già forniti, quindi selezionare il segmento appropriato per mappare la macchina virtuale.
++
+Questa sezione potrebbe essere attivata o disattivata a seconda della selezione effettuata.
+
 +
 SnapMirror è a livello di volume. Pertanto, tutte le macchine virtuali vengono replicate nella destinazione della replica. Assicurarsi di selezionare tutte le macchine virtuali che fanno parte dell'archivio dati. Se non sono selezionate, vengono elaborate solo le macchine virtuali che fanno parte del piano di replica.
 
@@ -134,6 +148,9 @@ Ciò può risultare molto utile quando si ripristinano ambienti di grandi dimens
 ** *Repliche coerenti con l'applicazione*: Indica se creare copie Snapshot coerenti con l'applicazione. Il servizio disattiverà l'applicazione e quindi eseguirà un'istantanea per ottenere uno stato coerente dell'applicazione.
 ** *Datastores*: In base alla selezione delle macchine virtuali, le mappature del datastore vengono selezionate automaticamente.
 +
+Questa sezione potrebbe essere attivata o disattivata a seconda della selezione effettuata.
+
++
 *** *RPO*: Inserire l'obiettivo del punto di ripristino (RPO) per indicare la quantità di dati da recuperare (misurata nel tempo). Ad esempio, se inserisci un RPO di 60 minuti, il recovery deve avere dati non più vecchi di 60 minuti in ogni momento. In caso di emergenza, si può perdere fino a 60 minuti di dati. Inserire anche il numero di copie Snapshot da conservare per tutti i datastore.
 *** *Relazioni SnapMirror*: Se un volume ha già stabilito una relazione di SnapMirror, è possibile selezionare i datastore di origine e destinazione corrispondenti. Se selezioni un volume che non ha una relazione di SnapMirror, puoi crearne uno subito selezionando l'ambiente di lavoro e la relativa SVM peer.
 +
@@ -154,6 +171,9 @@ NOTE: Per creare una relazione di SnapMirror in questo servizio, il cluster e il
 
 
 . Per impostare diverse mappature per l'ambiente di test, deselezionare la casella e selezionare la scheda *mappature di test*. Passare attraverso ciascuna scheda come prima, ma questa volta per l'ambiente di test.
++
+Nella scheda Mapping test, le mappature macchine virtuali e archivi dati sono disattivate.
+
 +
 
 TIP: In seguito, è possibile testare l'intero piano. In questo momento, si stanno impostando le mappature per l'ambiente di test.
@@ -191,7 +211,7 @@ Infine, dedicare qualche istante alla conferma del piano di replica.
 TIP: È possibile disattivare o eliminare il piano di replica in un secondo momento.
 
 .Fasi
-. Esaminare le informazioni in ciascuna scheda: Dettagli del piano, mappatura di failover, macchine virtuali.
+. Rivedere le informazioni in ciascuna scheda: Dettagli del piano, mappatura di failover, VM.
 . Selezionare *Aggiungi piano*.
 +
 Il piano viene aggiunto all'elenco dei piani.

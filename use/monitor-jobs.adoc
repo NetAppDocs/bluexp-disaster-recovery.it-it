@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar 
 permalink: use/monitor-jobs.html 
-keywords: disaster recovery, bluexp disaster recovery, failover, failback, replicate, fail over, fail back, vmware, vcenter 
-summary: Il disaster recovery di NetApp BlueXP è un servizio di disaster recovery basato sul cloud che automatizza i flussi di lavoro di disaster recovery. 
+keywords: disaster recovery, bluexp disaster recovery, failover, failback, replicate, fail over, fail back, vmware, vcenter, monitor 
+summary: 'Il disaster recovery di NetApp BlueXP è un servizio di disaster recovery basato sul cloud che automatizza i flussi di lavoro di disaster recovery. È possibile monitorare tutti i processi di ripristino di emergenza e determinarne l"avanzamento.' 
 ---
 = Monitorare i processi di disaster recovery
 :hardbreaks:
@@ -20,34 +20,4 @@ summary: Il disaster recovery di NetApp BlueXP è un servizio di disaster recove
 . Esaminare tutti i lavori relativi alle operazioni e controllare la data e lo stato.
 . Per visualizzare i dettagli di un determinato processo, selezionare la riga corrispondente.
 . Per aggiornare le informazioni, selezionare *Aggiorna*.
-
-
-
-
-== Annullare un lavoro
-
-Se un lavoro è in corso e non si desidera che continui, è possibile annullarlo. È possibile annullare un lavoro se è bloccato nello stesso stato e si desidera liberare l'operazione successiva nella coda. È possibile annullare un processo prima che scada.
-
-Per annullare un lavoro, utilizzare Swagger.
-
-.Prima di iniziare
-Per annullare un processo, è necessario disporre dell'ID centro di costo.
-
-.Fasi
-. Dal nav sinistro di BlueXP, seleziona *protezione* > *Disaster Recovery*.
-. Dal menu superiore, selezionare *monitoraggio processi*.
-. Nella pagina monitoraggio lavoro, annotare l'ID del lavoro che si desidera annullare.
-. Accedi all'URL di BlueXP Disaster Recovery Swagger: https://snapcenter.cloudmanager.cloud.netapp.com/api-doc/#/Jobs/put_jobmanager_v2_jobs__jobId_["Ingarbugliamento"^].
-+
-"https://snapcenter.cloudmanager.cloud.netapp.com/api-doc/#/Jobs/put_jobmanager_v2_jobs__jobId_"[]
-
-+
-image:dr-swagger-job-cancel.png["Pagina di sfalsamento che mostra come annullare un processo"]
-
-+
-Per ulteriori informazioni su Swagger, vedere https://swagger.io/docs/["Documenti Swagger"^].
-
-. Da Swagger, ottenere il token di sicurezza, chiamato anche _bearer token_, dall'opzione autorizza.
-. Immettere l'ID centro di costo e l'ID lavoro.
-. Selezionare *Provalo*.
 

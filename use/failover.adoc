@@ -83,7 +83,15 @@ TIP: Una volta avviato il failover, è possibile visualizzare le VM ripristinate
 . Dal menu superiore del disaster recovery di BlueXP, selezionare *piani di replica*.
 . Selezionare il piano di replica.
 . A destra, selezionare l'opzione *azioni* image:../use/icon-horizontal-dots.png["Icona del menu Actions nel servizio di disaster recovery BlueXP"] E selezionare *failover*.
-. Nella pagina Test failover, immettere il nome del piano di replica da confermare e selezionare *failover*.
-. Scegliere la Snapshot per il datastore da cui ripristinare.  L'impostazione predefinita è l'ultima.
++
+image:dr-plan-failover.png["Pagina di failover"]
+
+. Nella pagina di failover, avvia uno snapshot ora o scegli la Snapshot per il datastore da cui ripristinare. L'impostazione predefinita è l'ultima.
++
+Prima che si verifichi il failover, verrà acquisita e replicata una snapshot dell'origine corrente nella destinazione corrente.
+
+. Facoltativamente, selezionare *forza failover* se si desidera che il failover avvenga anche se viene rilevato un errore che normalmente impedirebbe il failover.
+. Digitare "failover" nella casella.
+. Selezionare *failover*.
 . Per verificare l'avanzamento, nel menu superiore, selezionare *monitoraggio processi*.
 

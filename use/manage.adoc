@@ -1,10 +1,10 @@
 ---
 sidebar: sidebar 
 permalink: use/manage.html 
-keywords: disaster recovery, bluexp disaster recovery, failover, failback, replicate, fail over, fail back, vmware, vcenter 
-summary: Il disaster recovery di NetApp BlueXP è un servizio di disaster recovery basato sul cloud che automatizza i flussi di lavoro di disaster recovery. 
+keywords: disaster recovery, bluexp disaster recovery, failover, failback, replicate, fail over, fail back, vmware, vcenter, replication plans, resource groups 
+summary: Puoi dare una rapida occhiata a tutte le risorse di disaster recovery di BlueXP e gestire siti, gruppi di risorse e piani di replica di vCenter. 
 ---
-= Gestire siti, piani, datastore e informazioni sulle macchine virtuali
+= Gestire siti, gruppi di risorse, piani di replica, datastore e informazioni sulle macchine virtuali
 :hardbreaks:
 :allow-uri-read: 
 :icons: font
@@ -15,10 +15,10 @@ summary: Il disaster recovery di NetApp BlueXP è un servizio di disaster recove
 Potrete dare un rapido sguardo a tutte le vostre risorse di disaster recovery o approfondire ciascuna di esse:
 
 * Siti
+* Gruppi di risorse
 * Piani di replica
 * Datastore
 * Macchine virtuali
-* Gruppi di risorse
 
 
 
@@ -35,9 +35,23 @@ Puoi modificare il nome del sito vCenter e il tipo di sito (on-premise o AWS).
 
 
 
+== Gestire i gruppi di risorse
+
+Sebbene sia possibile aggiungere un gruppo di risorse come parte della creazione di un piano di replica, potrebbe essere più conveniente aggiungere i gruppi separatamente e in seguito utilizzare tali gruppi nel piano.
+
+È inoltre possibile modificare ed eliminare i gruppi di risorse.
+
+.Fasi
+. Dal menu superiore, selezionare *gruppi di risorse*.
+. Per aggiungere un gruppo di risorse, selezionare *Aggiungi gruppo*.
+. Per eseguire azioni con il gruppo di risorse, selezionare l'opzione *azioni* image:../use/icon-horizontal-dots.png["Icona del menu Actions nel servizio di disaster recovery BlueXP"]  A destra e selezionare una delle opzioni, ad esempio *Modifica gruppo di risorse* o *Elimina gruppo di risorse*.
+
+
+
+
 == Gestire i piani di replica
 
-È possibile disattivare, attivare ed eliminare i piani di replica.
+È possibile disattivare, attivare ed eliminare i piani di replica. È possibile modificare le pianificazioni.
 
 * Se si desidera sospendere temporaneamente un piano di replica, è possibile disattivarlo e attivarlo in un secondo momento.
 * Se il piano non è più necessario, è possibile eliminarlo.
@@ -53,11 +67,19 @@ image:../use/dr-plan-list2.png["Elenco dei piani di replica"]
 +
 ** Per modificare i dettagli del piano (modificare la ricorrenza), selezionare la scheda *Dettagli piano* e selezionare l'icona *Modifica* a destra.
 ** Per modificare le mappature delle risorse, selezionare la scheda *mappatura failover* e selezionare l'icona *Modifica*.
-** Per aggiungere o modificare le macchine virtuali, selezionare la scheda *macchina virtuale* e selezionare l'icona *Modifica*.
+** Per aggiungere o modificare le macchine virtuali, selezionare la scheda *macchine virtuali* e selezionare l'opzione *Aggiungi macchine virtuali* o l'icona *Modifica*.
 
 
 . Tornare all'elenco dei piani selezionando "piani di replica" nelle breadcrumb in alto a sinistra.
 . Per eseguire azioni con il piano, selezionare l'opzione *azioni* dall'elenco dei piani di replica image:../use/icon-horizontal-dots.png["Icona del menu Actions nel servizio di disaster recovery BlueXP"]  A destra del piano e selezionare una delle opzioni, come *Modifica pianificazioni*, *Test failover*, *fail over*, *fail back*, *Disable*, *Abilita* o *Elimina*.
+. Per impostare o modificare una pianificazione di failover di test o impostare il controllo della frequenza di conformità, selezionare l'opzione *azioni* image:../use/icon-horizontal-dots.png["Icona del menu Actions nel servizio di disaster recovery BlueXP"] a destra del piano e selezionare *Modifica pianificazioni*.
++
+.. Nella pagina Modifica pianificazioni, immettere la frequenza in minuti in cui si desidera che venga eseguito il controllo di conformità del failover.
+.. Selezionare *Esegui test failover in base a una pianificazione*.
+.. Nell'opzione Ripeti, selezionare la pianificazione giornaliera, settimanale o mensile.
+.. Selezionare *Salva*.
+
+
 
 
 
@@ -82,18 +104,4 @@ Puoi visualizzare informazioni sul numero di datastore presenti nell'origine e n
 . Selezionare il vCenter nella riga del sito.
 . Selezionare *macchine virtuali*.
 . Visualizzare le informazioni sulle macchine virtuali.
-
-
-
-
-== Gestire i gruppi di risorse
-
-Sebbene sia possibile aggiungere un gruppo di risorse come parte della creazione di un piano di replica, potrebbe essere più conveniente aggiungere i gruppi separatamente e in seguito utilizzare tali gruppi nel piano.
-
-È inoltre possibile modificare ed eliminare i gruppi di risorse.
-
-.Fasi
-. Dal menu superiore, selezionare *gruppi di risorse*.
-. Per aggiungere un gruppo di risorse, selezionare *Aggiungi gruppo*.
-. Per eseguire azioni con il gruppo di risorse, selezionare l'opzione *azioni* image:../use/icon-horizontal-dots.png["Icona del menu Actions nel servizio di disaster recovery BlueXP"]  A destra e selezionare una delle opzioni, ad esempio *Modifica gruppo di risorse* o *Elimina gruppo di risorse*.
 

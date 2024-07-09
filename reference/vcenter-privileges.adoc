@@ -1,0 +1,153 @@
+---
+sidebar: sidebar 
+permalink: reference/vcenter-privileges.html 
+keywords: disaster recovery, bluexp, vcenter, 
+summary: 'L"account vCenter deve disporre di un set minimo di privilegi vCenter per consentire al disaster recovery di BlueXP di eseguire i propri servizi, come registrazione e deregistrazione dei datastore, avvio e arresto delle macchine virtuali e riconfigurazione delle macchine virtuali (VM). Nella tabella seguente sono elencati tutti i privilegi necessari per il disaster recovery di BlueXP per interfacciarsi con un cluster vCenter.' 
+---
+= Privilegi vCenter necessari per il disaster recovery di BlueXP
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/use/
+
+
+[role="lead"]
+L'account vCenter deve disporre di un set minimo di privilegi vCenter per consentire al disaster recovery di BlueXP di eseguire i propri servizi, come registrazione e deregistrazione dei datastore, avvio e arresto delle macchine virtuali e riconfigurazione delle macchine virtuali (VM). Nella tabella seguente sono elencati tutti i privilegi necessari per il disaster recovery di BlueXP per interfacciarsi con un cluster vCenter.
+
+[cols="25,35a,40a"]
+|===
+| Tipo | Nome privilegio | Descrizione 
+
+
+| *Datastore*  a| 
+Archivio dati. Configurare l'archivio dati
+ a| 
+Utilizzare per configurare un datastore.
+
+
+
+|   a| 
+Archivio dati. Rimuovere l'archivio dati
+ a| 
+Utilizzare per rimuovere un datastore.
+
+
+
+| *Macchina virtuale*  a| 
+Macchina virtuale.Configurazione.Modifica impostazioni
+ a| 
+Consente di modificare le impostazioni generali della macchina virtuale.
+
+
+
+|   a| 
+Macchina virtuale.Configurazione.Modifica delle impostazioni della periferica
+ a| 
+Utilizzare per modificare le proprietà di una periferica esistente.
+
+
+
+|   a| 
+Virtual machine.Configuration.Reload from path
+ a| 
+Consente di modificare una patch di configurazione della macchina virtuale mantenendo l'identità della macchina virtuale. Soluzioni come VMware vCenter Site Recovery Manager utilizzano questa operazione per mantenere l'identificazione delle VM durante il failover e il failback.
+
+
+
+|   a| 
+Macchina virtuale.Configurazione.Rinomina
+ a| 
+Consente di rinominare una macchina virtuale o di modificare i nodi associati di una macchina virtuale.
+
+
+
+|   a| 
+Virtual machine.Configuration.Reset informazioni guest
+ a| 
+Consente di modificare le informazioni del sistema operativo guest per una VM.
+
+
+
+|   a| 
+Macchina virtuale.Configurazione.Cambia memoria
+ a| 
+Utilizzare per modificare la quantità di memoria allocata alla macchina virtuale.
+
+
+
+|   a| 
+Virtual machine.Configuration.Change CPU count (macchina virtuale.Configurazione.Modifica conteggio CPU)
+ a| 
+Utilizzare per modificare il numero di CPU virtuali.
+
+
+
+| *Guest macchina virtuale*  a| 
+Macchina virtuale. Operazioni per i clienti. Modifiche al funzionamento degli ospiti
+ a| 
+Abilita le operazioni guest delle VM che implicano modifiche a un sistema operativo guest in una VM, come il trasferimento di un file alla VM.
+
+
+
+| *Interazione macchina virtuale*  a| 
+Macchina virtuale.interazione.spegnimento
+ a| 
+Utilizzare per spegnere una macchina virtuale accesa. Questa operazione disattiva il sistema operativo guest.
+
+
+
+|   a| 
+Macchina virtuale.interazione.accensione
+ a| 
+Utilizzare per accendere una macchina virtuale spenta e riprendere una macchina virtuale sospesa.
+
+
+
+|   a| 
+Installazione di Virtual Machine.Interaction.VMware Tools
+ a| 
+Utilizzare per montare e smontare il programma di installazione del CD di VMware Tools come CD-ROM per il sistema operativo guest.
+
+
+
+| *Inventario macchine virtuali*  a| 
+Virtual machine.Inventory.Create new
+ a| 
+Consente di creare una macchina virtuale e allocare le risorse per la sua esecuzione.
+
+
+
+|   a| 
+Virtual machine.Inventory.Register
+ a| 
+Consente di aggiungere una macchina virtuale esistente a un inventario vCenter Server o host.
+
+
+
+|   a| 
+Macchina virtuale.inventario.Annulla registrazione
+ a| 
+Consente di annullare la registrazione di una macchina virtuale da un inventario vCenter Server o host.
+
+
+
+| *Stato macchina virtuale*  a| 
+Macchina virtuale. Gestione delle Snapshot. Crea snapshot
+ a| 
+Consente di creare un'istantanea dallo stato corrente della VM.
+
+
+
+|   a| 
+Macchina virtuale. Gestione delle Snapshot. Rimuovere l'istantanea
+ a| 
+Consente di rimuovere un'istantanea dalla cronologia.
+
+
+
+|   a| 
+Macchina virtuale. Gestione delle Snapshot. Ripristina istantanea
+ a| 
+Utilizzare per impostare la macchina virtuale sullo stato in cui si trovava in un dato snapshot.
+
+|===

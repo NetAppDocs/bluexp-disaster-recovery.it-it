@@ -1,0 +1,6 @@
+---
+section: reference
+title: Riferimento
+entries:
+- title: Privilegi vCenter richiesti per il disaster recovery di BlueXP
+  url: "/reference/vcenter-privileges.html"

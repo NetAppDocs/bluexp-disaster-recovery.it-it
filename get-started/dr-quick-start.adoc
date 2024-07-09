@@ -18,23 +18,23 @@ Di seguito è riportata una panoramica dei passaggi necessari per iniziare con i
 [role="quick-margin-para"]
 link:../get-started/dr-prerequisites.html["Assicurati che il tuo ambiente soddisfi questi requisiti"].
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Due"] Configurare il servizio di disaster recovery
-[role="quick-margin-para"]
-link:../get-started/dr-setup.html["Completare la procedura per configurare il servizio"].
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Due"] Configurare il servizio di disaster recovery BlueXP
+[role="quick-margin-list"]
+* link:../get-started/dr-setup.html["Configurare l'infrastruttura per il servizio"].
+* link:../get-started/dr-licensing.html["Impostare la licenza"].
 
-[role="quick-margin-para"]
-link:../get-started/dr-licensing.html["Completare i passaggi per impostare la licenza"].
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Tre"] Quali sono le prossime novità?
 [role="quick-margin-para"]
 Dopo aver configurato il servizio, ecco cosa fare in seguito.
 
 [role="quick-margin-list"]
-* link:../use/sites-add.html["Aggiungere siti vCenter"].
-* link:../use/drplan-create.html["Creare un piano di disaster recovery"].
+* link:../use/sites-add.html["Aggiungi i siti vCenter al disaster recovery di BlueXP"].
+* link:../use/manage.html#manage-resource-groups["Creare il primo gruppo di risorse"].
+* link:../use/drplan-create.html["Creare il primo piano di replica"].
 * link:../use/replicate.html["Replicare le applicazioni in un altro sito"].
 * link:../use/failover.html["Eseguire il failover delle applicazioni in un sito remoto"].
 * link:../use/failback.html["Eseguire il failback delle applicazioni nel sito di origine"].
-* link:../use/manage.html["Gestisci siti, piani, datastore e informazioni sulle macchine virtuali"].
+* link:../use/manage.html["Gestire siti, gruppi di risorse e piani di replica"].
 * link:../use/monitor-jobs.html["Monitorare le operazioni di disaster recovery"].
 

@@ -1,10 +1,10 @@
 ---
 sidebar: sidebar 
 permalink: get-started/dr-setup.html 
-keywords: bluexp, disaster recovery, aws, amazon web services 
+keywords: bluexp, disaster recovery, aws, amazon web services, amazon fsx for netapp ontap 
 summary: Per utilizzare il disaster recovery di BlueXP, esegui alcuni passaggi per configurarlo. 
 ---
-= Configura il disaster recovery di BlueXP
+= Configura l'infrastruttura per il disaster recovery di BlueXP
 :hardbreaks:
 :allow-uri-read: 
 :icons: font
@@ -19,13 +19,37 @@ TIP: Revisione link:../get-started/dr-prerequisites.html["prerequisiti"] per gar
 
 
 
-== Configura AWS
+== Preparati al disaster recovery di BlueXP
 
-In AWS, è necessario effettuare le seguenti operazioni:
+* Verificare l'ambiente di produzione.
++
+** Verificare che le macchine virtuali da proteggere siano ospitate su datastore NFS (utilizzando volumi NFS ONTAP) o datastore VMFS (utilizzando LUN iSCSI NetApp).
+** Assicurati di disporre delle credenziali e delle chiavi di accesso per gli array ONTAP on-premise, i vCenter e le istanze cloud VMware ospitate da AWS.
 
-* Implementa e configura VMware Cloud su AWS.
-* Crea un file system Amazon FSX per ONTAP. Esegui il provisioning e configura FSX per ONTAP.
-* Utilizzare un account VMware e effettuare il provisioning del Software-Defined Data Center (SDDC). Verificare che l'SDDC sia compatibile con FSX per ONTAP.
+
+* Creare o verificare il sito di disaster recovery.
++
+** Crea o verifica che il file system Amazon FSX sia pronto.
+** Verifica che il peering delle macchine virtuali di origine e destinazione sia eseguito.
+
+
+
+
+
+
+== Configura VMware Cloud per AWS SDDC
+
+Configura VMware Cloud per il Software-Defined Data Center (SDDC) di AWS.
+
+* Crea un file system Amazon FSX per ONTAP. Esegui il provisioning e configura FSX per ONTAP. Amazon FSX per NetApp ONTAP è un servizio completamente gestito che offre un file storage altamente affidabile, scalabile, dalle performance elevate e ricco di funzionalità, basato sul popolare file system ONTAP di NetApp.
+* Per eseguire il provisioning e la configurazione di FSX per NetApp ONTAP, procedere come segue https://docs.netapp.com/us-en/netapp-solutions/ehc/aws/aws-native-overview.html["collegamento"^] https://docs.netapp.com/us-en/bluexp-fsx-ontap/start/task-getting-started-fsx.html["Avvio rapido di Amazon FSX per NetApp ONTAP"] .
+* Aggiungi Amazon FSX per NetApp ONTAP all'ambiente di lavoro e Aggiungi le credenziali AWS per FSX per ONTAP.
+* In AWS, è necessario effettuare le seguenti operazioni:
++
+** Implementa e configura VMware Cloud su AWS.
+** Utilizzare un account VMware e effettuare il provisioning dell'SDDC. Verificare che l'SDDC sia compatibile con FSX per ONTAP.
+
+
 
 
 
@@ -38,50 +62,14 @@ Per configurare un ambiente VMC su AWS, seguire questa procedura https://docs.ne
 
 
 
-=== Configura Amazon FSX per NetApp ONTAP
-
-Amazon FSX per NetApp ONTAP è un servizio completamente gestito che offre un file storage altamente affidabile, scalabile, dalle performance elevate e ricco di funzionalità, basato sul popolare file system ONTAP di NetApp. Seguire questa procedura https://docs.netapp.com/us-en/netapp-solutions/ehc/aws/aws-native-overview.html["collegamento"^] Per eseguire il provisioning e configurare FSX per NetApp ONTAP.
-
-
-
-== Configura il disaster recovery di BlueXP
-
-Il passo successivo è configurare il disaster recovery in BlueXP.
-
-* Creare un connettore in BlueXP.
-* Implementa e configura SnapMirror per Amazon FSX per NetApp ONTAP.
-* Aggiungi l'ambiente di lavoro dello storage ONTAP on-premise ad BlueXP. Questo è il cluster ONTAP di origine.
-* Aggiungi un account BlueXP, Aggiungi FSxN all'ambiente di lavoro e Aggiungi le credenziali AWS per FSX per ONTAP.
-
-
-
-
-=== Creare un connettore in BlueXP
-
-Per provare questo servizio, contatta il tuo rappresentante di vendita NetApp. Quindi, quando utilizzi il connettore BlueXP, includerà le funzionalità appropriate per il servizio di disaster recovery.
-
-Per creare un connettore in BlueXP prima di utilizzare il servizio, consultare la documentazione di BlueXP che descrive https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-connectors.html["come creare un connettore"^].
-
-Utilizza il connettore on-premise BlueXP o il connettore AWS BlueXP, che ha accesso al vCenter on-premise di origine e al vCenter on-premise di destinazione.
-
-
-
-=== Configura SnapMirror per Amazon FSX per NetApp ONTAP
-
-Il passo successivo è configurare il disaster recovery in BlueXP.
-
-. In BlueXP, Aggiungi un account. Fare riferimento a. https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-netapp-accounts.html["Documentazione di BlueXP su come aggiungere un account"^].
-. Aggiungi Amazon FSX per NetApp ONTAP all'ambiente di lavoro. Assicurati che la relazione di SnapMirror con il cluster ONTAP sia attiva e che disponga di una destinazione di FSX per NetApp ONTAP. Fare riferimento a. https://docs.netapp.com/us-en/cloud-manager-fsx-ontap/use/task-creating-fsx-working-environment.html["Come impostare un ambiente di lavoro FSX per ONTAP"^].
-. In BlueXP, implementa SnapMirror in FSX per NetApp ONTAP.
-. In BlueXP, scopri FSX per NetApp ONTAP su un'istanza AWS e replica i volumi del datastore specificati da un ambiente on-premise in FSX per NetApp ONTAP con la frequenza appropriata e la conservazione delle copie Snapshot di NetApp.
-
-
-
-
-=== Impostare la licenza
+== Impostare la licenza
 
 Grazie al disaster recovery di BlueXP, puoi iscriverti a una prova gratuita di 90 giorni.
 
-Puoi acquistare un abbonamento pay-as-you-go (PAYGO) con il marketplace AWS o Bring Your Own License (BYOL), che è un file di licenza NetApp (NLF).
+È possibile acquistare uno dei seguenti prodotti:
 
-Per ulteriori informazioni sulla configurazione delle licenze per il disaster recovery di BlueXP, fare riferimento a. link:../get-started/dr-licensing.html["Configura le licenze di disaster recovery di BlueXP"].
+* Un'iscrizione pay-as-you-go (PAYGO) con il marketplace AWS
+* BYOL (Bring Your Own License), ovvero un file di licenza NetApp (NLF).
+
+
+Fare riferimento alla link:../get-started/dr-licensing.html["Configura le licenze di disaster recovery di BlueXP"].
