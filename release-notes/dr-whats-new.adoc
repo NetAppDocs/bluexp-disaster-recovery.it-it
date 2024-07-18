@@ -16,6 +16,43 @@ Scopri le novità del disaster recovery BlueXP.
 
 
 
+== 17 luglio 2024
+
+Questa release di disaster recovery di BlueXP include i seguenti aggiornamenti:
+
+* *Pianificazioni dei test di failover*: Questa versione include aggiornamenti alla struttura di pianificazione dei test di failover, necessaria per supportare le pianificazioni giornaliere e settimanali. Questo aggiornamento richiede la disattivazione e la riattivazione di tutti i piani di replica esistenti in modo da poter utilizzare le nuove pianificazioni di test di failover giornalieri e settimanali. Questo è un requisito una tantum.
++
+Ecco come:
+
++
+.. Dal menu superiore, selezionare *piani di replica*.
+.. Selezionare un piano e selezionare l'icona azioni per visualizzare il menu a discesa.
+.. Selezionare *Disable* (Disattiva).
+.. Dopo alcuni minuti, selezionare *Abilita*.
+
+
+* *Aggiornamenti del piano di replica*: Questa versione include aggiornamenti ai dati del piano di replica, che risolve un problema di "snapshot non trovato". Ciò richiede la modifica del conteggio di conservazione in tutti i piani di replica a 1 e l'avvio di uno snapshot on-demand. Questo processo crea un nuovo backup e rimuove tutti i backup precedenti.
++
+Ecco come:
+
++
+.. Dal menu superiore, selezionare *piani di replica*.
+.. Selezionare il piano di replica, fare clic sulla scheda *mappatura di failover* e fare clic sull'icona *Modifica* matita.
+.. Fare clic sulla freccia *Datastores* per espanderla.
++
+image:use/dr-plan-failover-edit.png["Modificare la pagina mappature di failover"]
+
+.. Annotare il valore del conteggio di conservazione nel piano di replica. Sarà necessario ripristinare questo valore originale al termine di questi passaggi.
+.. Ridurre il conteggio a 1.
+.. Avvia una snapshot on-demand. A tale scopo, nella pagina piano di replica, selezionare il piano, fare clic sull'icona azioni e selezionare *scatta istantanea adesso*.
+.. Una volta completato correttamente il processo snapshot, aumentare il conteggio nel piano di replica riportandolo al valore originale annotato nel primo passo.
+.. Ripetere questi passaggi per tutti i piani di replica esistenti.
+
+
+
+
+
+
 == 5 luglio 2024
 
 Questa release di disaster recovery di BlueXP include i seguenti aggiornamenti:

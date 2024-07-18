@@ -84,6 +84,21 @@ image:../use/dr-plan-list2.png["Elenco dei piani di replica"]
 
 
 
+=== Modificare il numero di conservazione per le pianificazioni di failover
+
+È possibile modificare il numero di datastore conservati.
+
+. Dal menu superiore, selezionare *piani di replica*.
+. Selezionare il piano di replica, fare clic sulla scheda *mappatura di failover* e fare clic sull'icona *Modifica* matita.
+. Fare clic sulla freccia *Datastores* per espanderla.
++
+image:../use/dr-plan-failover-edit.png["Modificare la pagina mappature di failover"]
+
+. Modificare il valore del conteggio di conservazione nel piano di replica.
+
+
+
+
 == Visualizzare informazioni sui datastore
 
 Puoi visualizzare informazioni sul numero di datastore presenti nell'origine e nella destinazione.

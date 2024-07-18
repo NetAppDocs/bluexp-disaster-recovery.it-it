@@ -904,4 +904,24 @@ Dopo aver acquistato una licenza di disaster recovery BlueXP per l'account BlueX
   <block id="554cfab3938e21d9270bd6b75931f96f" category="sidebar">Video</block>
   <block id="63d5049791d9d79d86e9a108b0a999ca" category="sidebar">Riferimento</block>
   <block id="b80f9ccd1ed052ae2d1a95c50bd37d8b" category="sidebar">Privilegi vCenter richiesti per il disaster recovery di BlueXP</block>
+  <block id="f4c84d2d214fb7f3e3cae921398c8e4a" category="section-title">17 luglio 2024</block>
+  <block id="e96e73e43a84335e9de1d02f80f7d655" category="list-text">*Pianificazioni dei test di failover*: Questa versione include aggiornamenti alla struttura di pianificazione dei test di failover, necessaria per supportare le pianificazioni giornaliere e settimanali. Questo aggiornamento richiede la disattivazione e la riattivazione di tutti i piani di replica esistenti in modo da poter utilizzare le nuove pianificazioni di test di failover giornalieri e settimanali. Questo è un requisito una tantum.</block>
+  <block id="7043d4fb27c94bc9a206c106cef9d80c" category="paragraph">Ecco come:</block>
+  <block id="2ae04d8f24d0c8f552b0d3857c0953b3" category="list-text">Selezionare un piano e selezionare l'icona azioni per visualizzare il menu a discesa.</block>
+  <block id="dbf8ea65a71d9e2042b03a97a0da4095" category="list-text">Selezionare *Disable* (Disattiva).</block>
+  <block id="9ffe587f372d96c9b0db66cfe333c0cf" category="list-text">Dopo alcuni minuti, selezionare *Abilita*.</block>
+  <block id="dc6efda4f2a86706d886df508f873039" category="list-text">*Aggiornamenti del piano di replica*: Questa versione include aggiornamenti ai dati del piano di replica, che risolve un problema di "snapshot non trovato". Ciò richiede la modifica del conteggio di conservazione in tutti i piani di replica a 1 e l'avvio di uno snapshot on-demand. Questo processo crea un nuovo backup e rimuove tutti i backup precedenti.</block>
+  <block id="3d3e2652059a9417e7a9b8801e83b99d" category="list-text">Selezionare il piano di replica, fare clic sulla scheda *mappatura di failover* e fare clic sull'icona *Modifica* matita.</block>
+  <block id="f05351f8a712da4ff1e724d342c4670b" category="list-text">Fare clic sulla freccia *Datastores* per espanderla.</block>
+  <block id="ee9e0fb0a09a468f33fa6f2dabc4ff49" category="inline-image-macro">Modificare la pagina mappature di failover</block>
+  <block id="7cbc4647aa042fa4dbc711ee9aa94612" category="paragraph"><block ref="7cbc4647aa042fa4dbc711ee9aa94612" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="0d59b78804ed5feec9399254629a60f1" category="list-text">Annotare il valore del conteggio di conservazione nel piano di replica. Sarà necessario ripristinare questo valore originale al termine di questi passaggi.</block>
+  <block id="e9c686cd7f0fc0f9a24375142cf2639b" category="list-text">Ridurre il conteggio a 1.</block>
+  <block id="94eec0eecc897e0613b4dca05f1db3b5" category="list-text">Avvia una snapshot on-demand. A tale scopo, nella pagina piano di replica, selezionare il piano, fare clic sull'icona azioni e selezionare *scatta istantanea adesso*.</block>
+  <block id="4be920e5d3a5c6a1a13e6a9ed1ea0d96" category="list-text">Una volta completato correttamente il processo snapshot, aumentare il conteggio nel piano di replica riportandolo al valore originale annotato nel primo passo.</block>
+  <block id="fcf0bc475de9e6576c18ef6dcf5d7506" category="list-text">Ripetere questi passaggi per tutti i piani di replica esistenti.</block>
+  <block id="f51ae48fcef0eb66752ca677561d408c" category="section-title">Modificare il numero di conservazione per le pianificazioni di failover</block>
+  <block id="b138bbcc2a9cc6e505caed49815b326b" category="paragraph">È possibile modificare il numero di datastore conservati.</block>
+  <block id="2aef38b97efb9369d3e496e8d062d8fd" category="paragraph"><block ref="2aef38b97efb9369d3e496e8d062d8fd" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="51c600bec26d8fec2fcc4cb42728fd01" category="list-text">Modificare il valore del conteggio di conservazione nel piano di replica.</block>
 </blocks>
