@@ -35,5 +35,5 @@ Se un lavoro è in corso o in stato di coda e non si desidera che continui, è p
 +
 Il lavoro deve essere in stato "in corso" o "in coda".
 
-. Nella colonna azioni, selezionare *Annulla*.
+. Nella colonna azioni, selezionare *Annulla lavoro*.
 

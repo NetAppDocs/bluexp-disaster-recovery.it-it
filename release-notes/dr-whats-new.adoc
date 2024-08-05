@@ -20,7 +20,7 @@ Scopri le novità del disaster recovery BlueXP.
 
 Questa release di disaster recovery di BlueXP include i seguenti aggiornamenti:
 
-* *Supporto per datastore VMware VMFS per FC da on-premise a on-premise*: Questa release include un'anteprima _tecnologica_ del supporto per VM montate su datastore VMFS (Virtual Machine file system) VMware vSphere per FC protetti nello storage on-premise. In precedenza, il servizio forniva un'anteprima tecnologica che supportava gli archivi dati VMFS per isci. Con questa release, il disaster recovery di BlueXP supporta un'anteprima tecnologica per i carichi di lavoro VMware on-premise nell'ambiente VMware on-premise con datastore VMFS per FC.
+* *Supporto per datastore VMware VMFS per FC da on-premise a on-premise*: Questa release include un'anteprima _tecnologica_ del supporto per VM montate su datastore VMFS (Virtual Machine file system) VMware vSphere per FC protetti nello storage on-premise. In precedenza, il servizio forniva un'anteprima tecnologica che supportava gli archivi dati VMFS per iSCSI.
 +
 
 NOTE: NetApp non ti addebita alcun costo per la capacità dei workload in anteprima.
