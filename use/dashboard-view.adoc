@@ -42,13 +42,10 @@ Per rivedere i dettagli del piano di replica, selezionare *Visualizza tutto* per
 
 
 ** *Gruppi di risorse*: Consente di visualizzare lo stato dei gruppi di risorse. Un gruppo di risorse può avere uno dei seguenti stati:
+** *VM protette*: Le VM fanno parte di un gruppo di risorse.
+** *VM non protette*: Le VM non fanno parte di un gruppo di risorse.
 +
-*** *VM protette*: Le VM fanno parte di un gruppo di risorse.
-*** *VM non protette*: Le VM non fanno parte di un gruppo di risorse.
-+
-Per rivedere i dettagli del gruppo di risorse, selezionare *Visualizza tutto* per uno stato o *Visualizza gruppi di risorse* per visualizzarli tutti.
-
-
+Per rivedere i dettagli, selezionare il collegamento *Visualizza* sotto ciascuno.
 
 ** Il numero di failover, failover di test e migrazioni. Ad esempio, se sono stati creati due piani e sono stati migrati verso le destinazioni, il numero di migrazioni viene visualizzato come "2".
 
