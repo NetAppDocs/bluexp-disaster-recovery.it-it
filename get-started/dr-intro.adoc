@@ -47,6 +47,7 @@ Il disaster recovery di BlueXP ti fornisce l'utilizzo completo di diverse tecnol
 
 * Replica le app VMware sul sito di produzione on-premise in un sito remoto di disaster recovery nel cloud o on-premise utilizzando la replica SnapMirror.
 * Eseguire la migrazione dei carichi di lavoro VMware dal sito originale a un altro sito.
+* Eseguire un test di failover; le macchine virtuali vengono create temporaneamente. Il disaster recovery di BlueXP  crea un nuovo volume FlexClone dalla snapshot selezionata e un datastore temporaneo di backup del volume FlexClone viene mappato agli host ESXi. Questo processo non consuma capacità fisica aggiuntiva nello storage ONTAP on-premise o in FSX per lo storage NetApp ONTAP in AWS. Il volume di origine originale non viene modificato e i processi di replica possono continuare anche durante il ripristino di emergenza.
 * In caso di disastro, effettua il failover on-demand nel sito di disaster recovery, che può essere VMware Cloud su AWS con FSX per NetApp ONTAP o un ambiente VMware on-premise con ONTAP.
 * Una volta risolto il disastro, è possibile eseguire il failback on-demand dal sito di disaster recovery al sito primario.
 
@@ -112,4 +113,15 @@ In caso di disastro, questo servizio aiuta a ripristinare macchine virtuali nell
 * Il servizio consente inoltre di eseguire il failback delle macchine virtuali nel percorso di origine.
 * È possibile verificare il processo di failover del disaster recovery senza interrompere le macchine virtuali originali. Il test ripristina le macchine virtuali in una rete isolata creando un FlexClone del volume.
 * Per il processo di failover o di test del failover, è possibile scegliere l'Snapshot più recente (predefinito) o selezionata da cui ripristinare la macchina virtuale.
+
+
+
+
+== Termini e condizioni per il disaster recovery di BlueXP 
+
+È possibile trarre vantaggio dalla comprensione di alcuni termini relativi al disaster recovery.
+
+* *Sito*: Un contenitore logico generalmente associato a un data center fisico o a un cloud provider.
+* *Gruppo di risorse*: Un contenitore logico che consente di gestire più VM come una singola unità.
+* *Piano di replica*: Un insieme di regole sulla frequenza dei backup e sulla gestione degli eventi di failover. I piani vengono assegnati a uno o più gruppi di risorse.
 

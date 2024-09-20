@@ -16,6 +16,12 @@ Le limitazioni note identificano piattaforme, dispositivi o funzioni non support
 
 
 
+== Attendere il completamento del failback prima di eseguire il rilevamento
+
+Al termine di un failover, non avviare manualmente il rilevamento sul vCenter di origine. Attendere il completamento del failback, quindi avviare il rilevamento sul vCenter di origine.
+
+
+
 == BlueXP potrebbe non scoprire Amazon FSX per NetApp ONTAP
 
 A volte, BlueXP non rileva Amazon FSX per i cluster NetApp ONTAP. Ciò potrebbe essere dovuto al fatto che le credenziali di FSX non erano corrette.

@@ -336,9 +336,6 @@ Il disaster recovery di BlueXP non richiede alcuna abilitazione. L'opzione di di
   <block id="b2f702d4d241c0d53726eedc499ac784" category="paragraph">Tali piani sono a volte chiamati _blueprint_.</block>
   <block id="4f27ef77939e5393adc6b44aec83a6b7" category="paragraph">Una procedura guidata consente di eseguire le seguenti operazioni:</block>
   <block id="8705d6076cb452e919a6e22862427440" category="list-text">Seleziona i server vCenter</block>
-  <block id="8b89ed4b8e4a4b16d551a86114a0c361" category="list-text">Selezionare le VM da replicare e assegnare gruppi</block>
-  <block id="0ee5515fd7a8d972a5df4c4eb08b18f2" category="list-text">Identificare la ricorrenza</block>
-  <block id="febc3cdab40dc222679ce1e42cce7011" category="list-text">Rivedere il piano</block>
   <block id="d72f4a94d857178ae5cb1420995137e4" category="inline-image-macro">Schermata che mostra la pagina Aggiungi piano di replica &amp;gt; Aggiungi piano</block>
   <block id="6961a5b80d0429840ea8a9232c79ec6f" category="paragraph"><block ref="b3b324f474892662518dcbec32158ea5" category="inline-image-macro-rx" type="image"></block></block>
   <block id="466ea193e548e9ef8d853f2da4829a3e" category="list-text">Creare un nome per il piano di replica.</block>
@@ -920,8 +917,6 @@ Dopo aver acquistato una licenza di disaster recovery BlueXP per l'account BlueX
   <block id="7906e2e007c3bad108fcd7ed7311a131" category="paragraph"><block ref="7906e2e007c3bad108fcd7ed7311a131" category="inline-image-macro-rx" type="image"></block></block>
   <block id="6dbc81f47f4a822cd11ce7c8403756ed" category="list-text">Nella scheda Mapping di failover, selezionare la freccia verso il basso a destra di ciascuna risorsa e mappare le risorse in ciascuna.</block>
   <block id="022ab008c31f5588f9d15da4dc3439fb" category="list-text">*Compute resources*: Selezionare la freccia giù accanto a *Compute resources*.</block>
-  <block id="023cde6974e67dee3aff7c64e3290e80" category="list-text">Cluster di origine</block>
-  <block id="221533a77747ed01c409141d8985b5fe" category="list-text">Cluster di destinazione (opzionale)</block>
   <block id="5bfe17be68350c18dc777bcfabdd7a8f" category="list-text">*Reti virtuali*: Nella scheda mappature di failover, selezionare la freccia giù accanto a *reti virtuali*. Immettere o selezionare la LAN virtuale di origine e il segmento di destinazione.</block>
   <block id="a358a5c755a9f869690207e2a0726737" category="list-text">*Macchine virtuali*: Nella scheda mappature di failover, selezionare la freccia in basso accanto a *macchine virtuali*.</block>
   <block id="909f84e264f0200a692127b28fbdbaaf" category="paragraph">Selezionare la mappatura di rete per il segmento appropriato. I segmenti dovrebbero essere già forniti, quindi selezionare il segmento appropriato per mappare la macchina virtuale.</block>
@@ -934,4 +929,47 @@ Dopo aver acquistato una licenza di disaster recovery BlueXP per l'account BlueX
   <block id="10936c8535aaede0ed75f5d8d4fa6aaf" category="list-text">*Conteggio di conservazione*: Immettere il numero di istantanee che si desidera conservare.</block>
   <block id="b23c862689b973964a4b79af3d87b2de" category="list-text">*Datastore di origine e destinazione*: Se un volume ha già stabilito un rapporto SnapMirror, è possibile selezionare i datastore di origine e destinazione corrispondenti. Se selezioni un volume che non ha una relazione di SnapMirror, puoi crearne uno subito selezionando l'ambiente di lavoro e la relativa SVM peer.</block>
   <block id="8772d236d3c62b688c3b57224d982ee1" category="paragraph"><block ref="8772d236d3c62b688c3b57224d982ee1" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="1267d6fc2aff2a3372b02b4d25a9f397" category="list-text">Eseguire un test di failover; le macchine virtuali vengono create temporaneamente. Il disaster recovery di BlueXP  crea un nuovo volume FlexClone dalla snapshot selezionata e un datastore temporaneo di backup del volume FlexClone viene mappato agli host ESXi. Questo processo non consuma capacità fisica aggiuntiva nello storage ONTAP on-premise o in FSX per lo storage NetApp ONTAP in AWS. Il volume di origine originale non viene modificato e i processi di replica possono continuare anche durante il ripristino di emergenza.</block>
+  <block id="76e4d72594030fca0b96279d0f8392dc" category="section-title">Termini e condizioni per il disaster recovery di BlueXP </block>
+  <block id="b7b26d16c3d1d84d3872afa1f04c92d6" category="paragraph">È possibile trarre vantaggio dalla comprensione di alcuni termini relativi al disaster recovery.</block>
+  <block id="7f800e59a5bd3f98ce900fa6e543f67d" category="list-text">*Sito*: Un contenitore logico generalmente associato a un data center fisico o a un cloud provider.</block>
+  <block id="1060a69dfe06a51ad97fdd63bb36b6c6" category="list-text">*Gruppo di risorse*: Un contenitore logico che consente di gestire più VM come una singola unità.</block>
+  <block id="01f306e8e2e64b0a1d39d18d7594ecf5" category="list-text">*Piano di replica*: Un insieme di regole sulla frequenza dei backup e sulla gestione degli eventi di failover. I piani vengono assegnati a uno o più gruppi di risorse.</block>
+  <block id="84c20a0b7ce2eb1001004d644d0ca57e" category="section-title">Attendere il completamento del failback prima di eseguire il rilevamento</block>
+  <block id="a59aaedc864081e6c1a7bd46bcdf9813" category="paragraph">Al termine di un failover, non avviare manualmente il rilevamento sul vCenter di origine. Attendere il completamento del failback, quindi avviare il rilevamento sul vCenter di origine.</block>
+  <block id="eaecda6db64f5346d5c63bfe0094e040" category="section-title">20 settembre 2024</block>
+  <block id="ee811bd919a27bd2eb705f65ed45e4f6" category="paragraph">Questa versione di disaster recovery di BlueXP  include il seguente aggiornamento.</block>
+  <block id="b077aa4f9a421cc2e2782608fb5caf4f" category="list-text">*Supporto per datastore VMFS VMware on-premise in sede*: Questa release include il supporto per le VM montate su datastore VMFS (Virtual Machine file System) VMware vSphere per iSCSI e FC protetti nello storage on-premise. In precedenza, il servizio forniva un'anteprima _tecnologica_ che supportava datastore VMFS per iSCSI e FC.</block>
+  <block id="0eb65976c0b0c5ffa90b07d4a062e509" category="paragraph">Di seguito sono riportate alcune considerazioni aggiuntive sui protocolli iSCSI e FC:</block>
+  <block id="d671bd2f503deef1e03581ce8d516507" category="list-text">Il supporto FC è per i protocolli front-end dei client, non per la replica.</block>
+  <block id="cf1967c6d778937fae37b9e43582b1b6" category="list-text">Il disaster recovery di BlueXP  supporta solo una singola LUN per volume ONTAP. Il volume non deve avere più LUN.</block>
+  <block id="f3a37c3560d0027bc0f49abfab4ab0e3" category="list-text">Per qualsiasi piano di replica, il volume ONTAP di destinazione deve utilizzare gli stessi protocolli del volume ONTAP di origine che ospita le macchine virtuali protette. Ad esempio, se l'origine utilizza un protocollo FC, la destinazione deve utilizzare anche FC.</block>
+  <block id="3baff38a392d31950fc8d4d62ea2adc0" category="list-text">Seleziona i server vCenter.</block>
+  <block id="cfb3b856fe141dd537038393a8052d33" category="list-text">Selezionare le VM da replicare e assegnare gruppi.</block>
+  <block id="8e635b1aadad234871ba0e012309361f" category="list-text">Identificare la ricorrenza, eseguire uno script ospitato da guest, impostare l'ordine di avvio e selezionare l'obiettivo del punto di ripristino.</block>
+  <block id="1c10305a999dce53cb52dd4f6b8d89ff" category="list-text">Rivedere il piano.</block>
+  <block id="054b753af44fc4eeee43c9ba6037caaa" category="doc">Creare report di disaster recovery</block>
+  <block id="282dfbc5927b79619ad76e7f3cbfe3c6" category="paragraph">La revisione dei report sul disaster recovery può aiutarti ad analizzare la tua preparazione al disaster recovery. I report preprogettati includono un riepilogo di failover e failback, dettagli di replica su tutti i siti e dettagli sui processi relativi all'anno precedente. È inoltre possibile creare rapporti personalizzati.</block>
+  <block id="08efd64e87408e4769275d6a11482ddf" category="paragraph">È possibile scaricare i report in formato PDF.</block>
+  <block id="b775ae7fb34855ffeede56666da9a15c" category="list-text">Dal menu in alto, selezionare *Report*.</block>
+  <block id="44f0d43cd92781ec793d9ba50c2d422e" category="inline-image-macro">Pagina dei report</block>
+  <block id="a73757daae33bff01ded292e39f3ddaf" category="paragraph"><block ref="a73757daae33bff01ded292e39f3ddaf" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="3ccbbafbdd477e2f028bfd34e03f436b" category="list-text">Prima di creare o scaricare un report, aggiornare i dati facendo clic sull'opzione *Aggiorna*.</block>
+  <block id="c83e2a522238e98593e337bd5a7311b5" category="list-text">Selezionare un rapporto dalla scheda *Pronto* o creare un rapporto personalizzato nella scheda *personalizzato*.</block>
+  <block id="70db9063910acf1265d5a518168c69cd" category="list-text">Scaricare un report facendo clic su *Download*.</block>
+  <block id="0656a1b7f286656b2fc85b91fe54f0dd" category="section-title">Creare un report di disaster recovery personalizzato</block>
+  <block id="8eaafa07b3ff6e9aa5dbe62e7cc8c77c" category="paragraph">È possibile creare un report personalizzato in cui specificare i siti, i piani di replica e i dati. È possibile specificare se includere riepiloghi di failover e failback per l'anno scorso, dettagli VM per ciascun piano di replica e dettagli sui processi per ciascun piano di replica per l'anno scorso.</block>
+  <block id="036f7e4b10d318ae312cdfbb79a225fe" category="list-text">Prima di creare un report, aggiornare i dati facendo clic sull'opzione *Aggiorna*.</block>
+  <block id="27c38bec0a8c0321e9a3236a8a9d4e76" category="list-text">Selezionare la scheda *personalizzato*.</block>
+  <block id="c3c616a8c2970d4d1156559952705700" category="list-text">Selezionare *Aggiungi* per aggiungere un nuovo rapporto.</block>
+  <block id="402199b58c216d8c9be526288150639b" category="inline-image-macro">Finestra di dialogo Aggiungi rapporto personalizzato</block>
+  <block id="8224443416aacfdb9c8d006355a8489a" category="paragraph"><block ref="8224443416aacfdb9c8d006355a8489a" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="4d6c444c23609646be63340436709d5f" category="list-text">Selezionare le opzioni per personalizzare il rapporto:</block>
+  <block id="f6068daa29dbb05a7ead1e3b5a48bbee" category="list-text">Dati</block>
+  <block id="478109b22c544f0e3bed80d9622cc572" category="list-text">Riepilogo delle operazioni di failover e failback dell'anno scorso</block>
+  <block id="d9848020098abdd6a6adf5b664e0a02c" category="list-text">Dettagli VM per ciascun piano di replica</block>
+  <block id="2eac16c021d7f4e2d342be672e454649" category="list-text">Dettagli del processo per ciascun piano di replica dell'anno precedente</block>
+  <block id="65db0a5300ccaa6099d24aaf16150200" category="paragraph">Il rapporto personalizzato viene visualizzato nell'elenco dei rapporti personalizzati.</block>
+  <block id="b7a41431aa1eee1607db390ac47d2a65" category="admonition">Per visualizzare tutti i siti o i piani inclusi nel report, fare clic sul numero a destra del nome del report o dei nomi dei piani.</block>
+  <block id="a99780537c030fe162f59c129be8e471" category="list-text">Scaricare il report personalizzato facendo clic su *Download*.</block>
 </blocks>

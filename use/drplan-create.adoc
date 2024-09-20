@@ -24,11 +24,11 @@ Tali piani sono a volte chiamati _blueprint_.
 
 Una procedura guidata consente di eseguire le seguenti operazioni:
 
-* Seleziona i server vCenter
-* Selezionare le VM da replicare e assegnare gruppi
+* Seleziona i server vCenter.
+* Selezionare le VM da replicare e assegnare gruppi.
 * Mappare la modalità di mappatura delle risorse dall'ambiente di origine alla destinazione.
-* Identificare la ricorrenza
-* Rivedere il piano
+* Identificare la ricorrenza, eseguire uno script ospitato da guest, impostare l'ordine di avvio e selezionare l'obiettivo del punto di ripristino.
+* Rivedere il piano.
 
 
 Durante la creazione del piano di replica, è possibile definire la relazione di SnapMirror tra volumi di origine e di destinazione in una delle seguenti configurazioni:
@@ -108,11 +108,6 @@ image:dr-plan-resource-mapping2.png["Piano di replica, scheda mappatura risorse"
 
 . Nella scheda Mapping di failover, selezionare la freccia verso il basso a destra di ciascuna risorsa e mappare le risorse in ciascuna.
 . *Compute resources*: Selezionare la freccia giù accanto a *Compute resources*.
-+
-** Cluster di origine
-** Cluster di destinazione (opzionale)
-
-
 . *Reti virtuali*: Nella scheda mappature di failover, selezionare la freccia giù accanto a *reti virtuali*. Immettere o selezionare la LAN virtuale di origine e il segmento di destinazione.
 . *Macchine virtuali*: Nella scheda mappature di failover, selezionare la freccia in basso accanto a *macchine virtuali*.
 +
@@ -130,10 +125,10 @@ SnapMirror è a livello di volume. Pertanto, tutte le macchine virtuali vengono 
 *** *DHCP*: Se si sceglie questa opzione, si forniscono solo le credenziali per la VM.
 *** *IP statico*: È possibile selezionare informazioni uguali o diverse dalla macchina virtuale di origine. Se si sceglie lo stesso come origine, non è necessario immettere le credenziali. D'altro canto, se si sceglie di utilizzare informazioni diverse dall'origine, è possibile fornire le credenziali, l'indirizzo IP della macchina virtuale, la subnet mask, il DNS e le informazioni del gateway. Le credenziali del sistema operativo guest delle VM devono essere fornite a livello globale o a ciascun livello di VM.
 +
-image:dr-plan-create-mapping-vms2.png["Schermata di aggiunta del piano di replica > mappatura delle risorse > macchine virtuali"]
+Ciò può risultare molto utile quando si ripristinano ambienti di grandi dimensioni in cluster di destinazione più piccoli o quando si eseguono test di disaster recovery senza dover eseguire il provisioning di un'infrastruttura fisica VMware uno a uno.
 
 +
-Ciò può risultare molto utile quando si ripristinano ambienti di grandi dimensioni in cluster di destinazione più piccoli o quando si eseguono test di disaster recovery senza dover eseguire il provisioning di un'infrastruttura fisica VMware uno a uno.
+image:dr-plan-create-mapping-vms2.png["Schermata di aggiunta del piano di replica > mappatura delle risorse > macchine virtuali"]
 
 
 

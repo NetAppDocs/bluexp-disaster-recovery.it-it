@@ -16,6 +16,24 @@ Scopri le novità del disaster recovery BlueXP.
 
 
 
+== 20 settembre 2024
+
+Questa versione di disaster recovery di BlueXP  include il seguente aggiornamento.
+
+* *Supporto per datastore VMFS VMware on-premise in sede*: Questa release include il supporto per le VM montate su datastore VMFS (Virtual Machine file System) VMware vSphere per iSCSI e FC protetti nello storage on-premise. In precedenza, il servizio forniva un'anteprima _tecnologica_ che supportava datastore VMFS per iSCSI e FC.
++
+Di seguito sono riportate alcune considerazioni aggiuntive sui protocolli iSCSI e FC:
+
++
+** Il supporto FC è per i protocolli front-end dei client, non per la replica.
+** Il disaster recovery di BlueXP  supporta solo una singola LUN per volume ONTAP. Il volume non deve avere più LUN.
+** Per qualsiasi piano di replica, il volume ONTAP di destinazione deve utilizzare gli stessi protocolli del volume ONTAP di origine che ospita le macchine virtuali protette. Ad esempio, se l'origine utilizza un protocollo FC, la destinazione deve utilizzare anche FC.
+
+
+
+
+
+
 == 2 agosto 2024
 
 Questa release di disaster recovery di BlueXP include i seguenti aggiornamenti:
