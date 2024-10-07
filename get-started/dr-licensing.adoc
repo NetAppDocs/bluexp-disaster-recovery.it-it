@@ -97,20 +97,9 @@ Se porti la tua licenza BYOL, il setup include l'acquisto della licenza, il repe
 *Attivare la licenza*
 Dopo aver acquistato la licenza di disaster recovery BlueXP dal rappresentante di vendita NetApp, si attiva la licenza inserendo il numero di serie del disaster recovery di BlueXP e le informazioni dell'account del sito di supporto NetApp (NSS).
 
-Prima di iniziare, è necessario disporre delle seguenti informazioni:
+È necessario il numero di serie del ripristino di emergenza BlueXP . Individua questo numero nell'ordine di vendita o contatta l'account team per ottenere queste informazioni.
 
-* Numero di serie del disaster recovery di BlueXP
-+
-Individua questo numero nell'ordine di vendita o contatta l'account team per ottenere queste informazioni.
-
-* ID account BlueXP
-+
-Puoi trovare il tuo ID account BlueXP selezionando l'elenco a discesa *account* nella parte superiore di BlueXP, quindi selezionando *Gestisci account* accanto al tuo account. L'ID account si trova nella scheda Panoramica.
-
-
-
-*Aggiungere la licenza al Digital Wallet di BlueXP*
-Dopo aver acquistato una licenza di disaster recovery BlueXP per l'account BlueXP, devi aggiungere la licenza al Digital Wallet di BlueXP.
+*Aggiungere la licenza al portafoglio digitale BlueXP * dopo aver acquistato una licenza di disaster recovery BlueXP , è necessario aggiungere la licenza al portafoglio digitale BlueXP .
 
 . Una volta ottenuta la licenza, tornare al disaster recovery di BlueXP. Seleziona l'opzione *Visualizza metodi di pagamento* in alto a destra. Oppure, nel messaggio che la prova gratuita sta per scadere, seleziona *Sottoscrivi o acquista una licenza*.
 +
