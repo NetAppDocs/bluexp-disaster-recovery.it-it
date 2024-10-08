@@ -44,7 +44,7 @@ Questi prerequisiti si applicano sia ai cluster vCenter on-premise che al Softwa
 * Tutti i datastore VMware da gestire con il disaster recovery di BlueXP devono utilizzare uno dei seguenti protocolli:
 +
 ** NFS
-** VMFS che utilizza il protocollo iSCSI (attualmente in anteprima tecnologica)
+** VMFS che utilizza il protocollo iSCSI o FC
 
 
 * Se si utilizza VMware Cloud SDDC, si applicano questi prerequisiti.
