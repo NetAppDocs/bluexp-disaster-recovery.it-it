@@ -26,8 +26,7 @@ Il collegamento Download è valido per sei ore.
 . Nella parte superiore della pagina, selezionare *Crea rapporto*.
 . Selezionare il tipo di formato del file e il periodo di tempo negli ultimi 7 giorni.
 . Selezionare *Crea*.
-
-
++
 
 NOTE: La visualizzazione del rapporto potrebbe richiedere alcuni minuti.
 
