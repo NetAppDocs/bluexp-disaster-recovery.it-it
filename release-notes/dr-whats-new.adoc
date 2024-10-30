@@ -4,7 +4,7 @@ permalink: release-notes/dr-whats-new.html
 keywords: disaster recovery, bluexp, disaster recovery, vmware, vcenter, draas 
 summary: Il disaster recovery di BlueXP è un servizio di disaster recovery basato sul cloud che automatizza i flussi di lavoro di disaster recovery. Grazie al disaster recovery di BlueXP per VMware, puoi replicare i carichi di lavoro VMware on-premise con lo storage ONTAP su un data center software-defined VMware in cloud pubblici come sito di disaster recovery usando il cloud storage NetApp. 
 ---
-= Novità
+= Novità di disaster recovery BlueXP 
 :hardbreaks:
 :allow-uri-read: 
 :icons: font
@@ -13,6 +13,61 @@ summary: Il disaster recovery di BlueXP è un servizio di disaster recovery basa
 
 [role="lead"]
 Scopri le novità del disaster recovery BlueXP.
+
+
+
+== 30 ottobre 2024
+
+Questa release di disaster recovery di BlueXP include i seguenti aggiornamenti:
+
+* *Reporting*: Con questa versione, è ora possibile generare e scaricare report per aiutarvi ad analizzare il vostro paesaggio. I report preprogettati riassumono i failover e i failback, mostrano i dettagli di replica su tutti i siti e mostrano i dettagli dei processi degli ultimi sette giorni.
++
+Fare riferimento alla https://docs.netapp.com/us-en/bluexp-disaster-recovery/use/reports.html["Creare report di disaster recovery"].
+
+* *Versione di prova gratuita di 30 giorni*: Con questa versione, è ora possibile registrarsi per una prova gratuita di 30 giorni di BlueXP  Disaster Recovery. In precedenza, le versioni di prova gratuite erano per 90 giorni.
++
+Fare riferimento alla https://docs.netapp.com/us-en/bluexp-disaster-recovery/get-started/dr-licensing.html["Impostare la licenza"].
+
+* *Disabilitare e abilitare i piani di replica*: Una versione precedente includeva aggiornamenti alla struttura di pianificazione dei test di failover, necessaria per supportare le pianificazioni giornaliere e settimanali. Questo aggiornamento richiede la disattivazione e la riattivazione di tutti i piani di replica esistenti in modo da poter utilizzare le nuove pianificazioni dei test di failover giornalieri e settimanali. Questo è un requisito una tantum.
++
+Ecco come:
+
++
+.. Dal menu superiore, selezionare *piani di replica*.
+.. Selezionare un piano e selezionare l'icona azioni per visualizzare il menu a discesa.
+.. Selezionare *Disable* (Disattiva).
+.. Dopo alcuni minuti, selezionare *Abilita*.
+
+
+* *Mappatura cartelle*: Quando si crea un piano di replica e si mappano le risorse di elaborazione, è ora possibile mappare le cartelle in modo che le macchine virtuali vengano recuperate in una cartella specificata per il data center, il cluster e l'host.
++
+Per ulteriori informazioni, fare riferimento a. https://docs.netapp.com/us-en/bluexp-disaster-recovery/use/drplan-create.html["Creare un piano di replica"].
+
+* *Dettagli VM disponibili per failover, failback e test failover*: Quando si verifica un errore e si avvia un failover, si esegue un failback o si verifica il failover, è ora possibile visualizzare i dettagli delle VM e identificare quali VM non sono state riavviate.
++
+Fare riferimento alla https://docs.netapp.com/us-en/bluexp-disaster-recovery/use/failover.html["Eseguire il failover delle applicazioni in un sito remoto"].
+
+* *Ritardo di avvio VM con sequenza di avvio ordinata*: Quando si crea un piano di replica, è ora possibile impostare un ritardo di avvio per ogni VM del piano. In questo modo è possibile impostare una sequenza per l'avvio delle macchine virtuali per garantire che tutte le macchine virtuali con priorità 1 vengano eseguite prima dell'avvio delle macchine virtuali con priorità successiva.
++
+Per ulteriori informazioni, fare riferimento a. https://docs.netapp.com/us-en/bluexp-disaster-recovery/use/drplan-create.html["Creare un piano di replica"].
+
+* *Informazioni sul sistema operativo VM*: Quando si crea un piano di replica, è ora possibile visualizzare il sistema operativo per ciascuna VM nel piano. Ciò è utile per decidere come raggruppare le VM in un gruppo di risorse.
++
+Per ulteriori informazioni, fare riferimento a. https://docs.netapp.com/us-en/bluexp-disaster-recovery/use/drplan-create.html["Creare un piano di replica"].
+
+* *Aliasing nome VM*: Quando si crea un piano di replica, è ora possibile aggiungere un prefisso e un suffisso ai nomi VM sul ripristino di emergenza SIT. Ciò consente di utilizzare un nome più descrittivo per le macchine virtuali nel piano.
++
+Per ulteriori informazioni, fare riferimento a. https://docs.netapp.com/us-en/bluexp-disaster-recovery/use/drplan-create.html["Creare un piano di replica"].
+
+* *Pulisci vecchie istantanee*: Con questa versione, puoi eliminare qualsiasi istantanea che non è più necessaria oltre il numero di copie memorizzate specificato. Gli snapshot possono accumularsi nel tempo quando si riduce il numero di conservazione degli snapshot, quindi è possibile rimuoverli per liberare spazio. È possibile eseguire questa operazione in qualsiasi momento on-demand o quando si elimina un piano di replica.
++
+Per ulteriori informazioni, fare riferimento alla https://docs.netapp.com/us-en/bluexp-disaster-recovery/use/manage.html["Gestisci siti, gruppi di risorse, piani di replica, datastore e informazioni sulle macchine virtuali"].
+
+* *Riconcilia istantanee*: Con questa versione, è ora possibile riconciliare gli snapshot che non sono sincronizzati tra l'origine e la destinazione. Questo può verificarsi se le snapshot vengono eliminate su una destinazione al di fuori del disaster recovery di BlueXP . Il servizio elimina automaticamente lo snapshot sulla sorgente ogni 24 ore. Tuttavia, è possibile eseguire questa operazione su richiesta. Questa funzione consente di garantire la coerenza delle istantanee in tutti i siti.
++
+Per ulteriori informazioni, fare riferimento alla https://docs.netapp.com/us-en/bluexp-disaster-recovery/use/manage.html["Gestire i piani di replica"].
+
+
 
 
 
@@ -74,9 +129,6 @@ Ecco come:
 .. Dal menu superiore, selezionare *piani di replica*.
 .. Selezionare il piano di replica, fare clic sulla scheda *mappatura di failover* e fare clic sull'icona *Modifica* matita.
 .. Fare clic sulla freccia *Datastores* per espanderla.
-+
-image:use/dr-plan-failover-edit.png["Modificare la pagina mappature di failover"]
-
 .. Annotare il valore del conteggio di conservazione nel piano di replica. Sarà necessario ripristinare questo valore originale al termine di questi passaggi.
 .. Ridurre il conteggio a 1.
 .. Avvia una snapshot on-demand. A tale scopo, nella pagina piano di replica, selezionare il piano, fare clic sull'icona azioni e selezionare *scatta istantanea adesso*.

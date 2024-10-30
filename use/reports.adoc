@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: use/reports.html 
 keywords: disaster recovery, bluexp disaster recovery, failover, failback, replicate, fail over, fail back, vmware, vcenter, monitor, bluexp, protection, reports 
-summary: 'Il disaster recovery di NetApp BlueXP è un servizio di disaster recovery basato sul cloud che automatizza i flussi di lavoro di disaster recovery. È possibile monitorare tutti i processi di ripristino di emergenza e determinarne l"avanzamento.' 
+summary: 'La revisione dei report sul disaster recovery può aiutarti ad analizzare la tua preparazione al disaster recovery. I report preprogettati includono un riepilogo di failover e failback, dettagli di replica su tutti i siti e dettagli sui processi relativi all"anno precedente.' 
 ---
 = Creare report di disaster recovery
 :hardbreaks:
@@ -12,54 +12,24 @@ summary: 'Il disaster recovery di NetApp BlueXP è un servizio di disaster recov
 
 
 [role="lead"]
-La revisione dei report sul disaster recovery può aiutarti ad analizzare la tua preparazione al disaster recovery. I report preprogettati includono un riepilogo di failover e failback, dettagli di replica su tutti i siti e dettagli sui processi relativi all'anno precedente. È inoltre possibile creare rapporti personalizzati.
+La revisione dei report sul disaster recovery può aiutarti ad analizzare la tua preparazione al disaster recovery. I report preprogettati includono un riepilogo dei failover dei test, dei dettagli del piano di replica e dei dettagli dei processi su tutti i siti all'interno di un account negli ultimi sette giorni.
 
-È possibile scaricare i report in formato PDF.
+È possibile scaricare report in formato HTML o JSON.
+
+
+TIP: È possibile convertire la pagina HTML in un PDF utilizzando le opzioni del browser.
+
+Il collegamento Download è valido per sei ore.
 
 .Fasi
-. Dal nav sinistro di BlueXP, seleziona *protezione* > *Disaster Recovery*.
-. Dal menu in alto, selezionare *Report*.
-+
-image:dr-reports.png["Pagina dei report"]
-
-. Prima di creare o scaricare un report, aggiornare i dati facendo clic sull'opzione *Aggiorna*.
-. Selezionare un rapporto dalla scheda *Pronto* o creare un rapporto personalizzato nella scheda *personalizzato*.
-. Scaricare un report facendo clic su *Download*.
+. Dal navigatore BlueXP  sinistro, selezionare *protezione* > *Disaster Recovery* > *piani di replica*.
+. Nella parte superiore della pagina, selezionare *Crea rapporto*.
+. Selezionare il tipo di formato del file e il periodo di tempo negli ultimi 7 giorni.
+. Selezionare *Crea*.
 
 
 
+NOTE: La visualizzazione del rapporto potrebbe richiedere alcuni minuti.
 
-== Creare un report di disaster recovery personalizzato
-
-È possibile creare un report personalizzato in cui specificare i siti, i piani di replica e i dati. È possibile specificare se includere riepiloghi di failover e failback per l'anno scorso, dettagli VM per ciascun piano di replica e dettagli sui processi per ciascun piano di replica per l'anno scorso.
-
-. Dal menu in alto, selezionare *Report*.
-. Prima di creare un report, aggiornare i dati facendo clic sull'opzione *Aggiorna*.
-. Selezionare la scheda *personalizzato*.
-. Selezionare *Aggiungi* per aggiungere un nuovo rapporto.
-+
-image:dr-reports-add.png["Finestra di dialogo Aggiungi rapporto personalizzato"]
-
-. Selezionare le opzioni per personalizzare il rapporto:
-+
-** Siti
-** Piani di replica
-** Dati
-+
-*** Riepilogo delle operazioni di failover e failback dell'anno scorso
-*** Dettagli VM per ciascun piano di replica
-*** Dettagli del processo per ciascun piano di replica dell'anno precedente
-
-
-
-
-. Selezionare *Aggiungi* per aggiungere un nuovo rapporto.
-+
-Il rapporto personalizzato viene visualizzato nell'elenco dei rapporti personalizzati.
-
-+
-
-TIP: Per visualizzare tutti i siti o i piani inclusi nel report, fare clic sul numero a destra del nome del report o dei nomi dei piani.
-
-. Scaricare il report personalizzato facendo clic su *Download*.
+. Per scaricare un report, selezionare *Scarica report* e selezionarlo nella cartella Download dell'amministratore.
 

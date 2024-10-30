@@ -72,7 +72,7 @@ IMPORTANT: Alcune versioni includono un'anteprima tecnologica. NetApp non ti add
 
 È possibile utilizzare i seguenti tipi di licenza:
 
-* Iscriviti per una prova gratuita di 90 giorni.
+* Iscriviti per una prova gratuita di 30 giorni.
 * Acquista un abbonamento pay-as-you-go (PAYGO) con Amazon Web Services (AWS) Marketplace.
 * BYOL (Bring Your Own License), ovvero un file di licenza NetApp (NLF) ottenuto dal rappresentante vendite NetApp Puoi utilizzare il numero di serie della licenza per attivare il BYOL nel Digital Wallet di BlueXP.
 
@@ -86,13 +86,13 @@ Per ulteriori informazioni sulla configurazione delle licenze per il disaster re
 
 
 
-== prova gratuita di 90 giorni
+== prova gratuita di 30 giorni
 
-Puoi provare il disaster recovery di BlueXP utilizzando una prova gratuita di 90 giorni.
+Puoi provare il disaster recovery di BlueXP utilizzando una prova gratuita di 30 giorni.
 
-Per continuare dopo la prova di 90 giorni, devi ottenere un abbonamento Pay-as-you-go (PAYGO) dal tuo cloud provider o acquistare una licenza BYOL da NetApp.
+Per continuare dopo la prova di 30 giorni, devi ottenere un abbonamento Pay-as-you-go (PAYGO) dal tuo cloud provider o acquistare una licenza BYOL da NetApp.
 
-Puoi acquistare una licenza in qualsiasi momento e non ti verrà addebitato alcun costo fino al termine del periodo di prova di 90 giorni.
+Puoi acquistare una licenza in qualsiasi momento e non ti verrà addebitato alcun costo fino al termine del periodo di prova di 30 giorni.
 
 
 

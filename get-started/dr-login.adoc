@@ -27,7 +27,7 @@ Viene visualizzata la pagina di accesso a NetApp BlueXP.
 Se questa è la prima volta che accedi a questo servizio, viene visualizzata la pagina di destinazione ed è possibile registrarsi per una prova gratuita.
 
 +
-image:draas-landing3-free-trial.png["Screenshot della landing page per il disaster recovery di BlueXP"]
+image:draas-landing4-free-trial.png["Screenshot della landing page per il disaster recovery di BlueXP"]
 
 +
 In caso contrario, verrà visualizzata la dashboard di disaster recovery di BlueXP.

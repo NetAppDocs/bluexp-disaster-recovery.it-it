@@ -71,7 +71,7 @@ image:../use/dr-plan-list2.png["Elenco dei piani di replica"]
 
 
 . Tornare all'elenco dei piani selezionando "piani di replica" nelle breadcrumb in alto a sinistra.
-. Per eseguire azioni con il piano, selezionare l'opzione *azioni* dall'elenco dei piani di replica image:../use/icon-horizontal-dots.png["Icona del menu Actions nel servizio di disaster recovery BlueXP"]  A destra del piano e selezionare una delle opzioni, come *Modifica pianificazioni*, *Test failover*, *fail over*, *fail back*, *Disable*, *Abilita* o *Elimina*.
+. Per eseguire azioni con il piano, dall'elenco dei piani di replica, selezionare l'opzione *azioni* image:../use/icon-horizontal-dots.png["Icona del menu Actions nel servizio di disaster recovery BlueXP"]a destra del piano e selezionare una delle opzioni, come *Modifica pianificazioni*, *Test failover*, *fail over*, *fail back*, *Migrate*, *Take snapshot now*, *Clean up old snapshot*, *Disable*, *Enable* o *Delete*.
 . Per impostare o modificare una pianificazione di failover di test o impostare il controllo della frequenza di conformità, selezionare l'opzione *azioni* image:../use/icon-horizontal-dots.png["Icona del menu Actions nel servizio di disaster recovery BlueXP"] a destra del piano e selezionare *Modifica pianificazioni*.
 +
 .. Nella pagina Modifica pianificazioni, immettere la frequenza in minuti in cui si desidera che venga eseguito il controllo di conformità del failover.
@@ -80,6 +80,39 @@ image:../use/dr-plan-list2.png["Elenco dei piani di replica"]
 .. Selezionare *Salva*.
 
 
+
+
+
+
+=== Riconciliare gli snapshot su richiesta
+
+È possibile riconciliare le istantanee non sincronizzate tra l'origine e la destinazione. Questo può verificarsi se le snapshot vengono eliminate su una destinazione al di fuori del disaster recovery di BlueXP . Il servizio elimina automaticamente lo snapshot sulla sorgente ogni 24 ore. Tuttavia, è possibile eseguire questa operazione su richiesta. Questa funzione consente di garantire la coerenza delle istantanee in tutti i siti.
+
+.Fasi
+. Dal menu superiore, selezionare *piani di replica*.
++
+image:../use/dr-plan-list2.png["Elenco dei piani di replica"]
+
+. Dall'elenco dei piani di replica, selezionare l'opzione *azioni* image:../use/icon-horizontal-dots.png["Icona del menu Actions nel servizio di disaster recovery BlueXP"]a destra del piano e selezionare *Riconcilia istantanee*.
+. Esaminare le informazioni di riconciliazione.
+. Selezionare *Riconcilia*.
+
+
+
+
+=== Eliminare un piano di replica
+
+È possibile eliminare un piano di replica se non è più necessario. Se si elimina un piano di replica, è anche possibile eliminare gli snapshot primari e secondari creati dal piano.
+
+.Fasi
+. Dal menu superiore, selezionare *piani di replica*.
++
+image:../use/dr-plan-list2.png["Elenco dei piani di replica"]
+
+. Selezionare l'opzione *azioni* image:../use/icon-horizontal-dots.png["Icona del menu Actions nel servizio di disaster recovery BlueXP"]a destra del piano e selezionare *Elimina*.
+. Selezionare se si desidera eliminare gli snapshot primari, secondari o solo i metadati creati dal piano.
+. Digitare "delete" per confermare l'eliminazione.
+. Selezionare *Delete* (Elimina).
 
 
 
@@ -95,6 +128,7 @@ image:../use/dr-plan-list2.png["Elenco dei piani di replica"]
 image:../use/dr-plan-failover-edit.png["Modificare la pagina mappature di failover"]
 
 . Modificare il valore del conteggio di conservazione nel piano di replica.
+. Con il piano di replica selezionato, selezionare il menu azioni, selezionare *Pulisci snapshot precedenti" per rimuovere le istantanee precedenti sulla destinazione in modo che corrispondano al nuovo conteggio di conservazione.
 
 
 

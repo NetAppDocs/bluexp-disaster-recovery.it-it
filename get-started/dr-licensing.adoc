@@ -16,7 +16,7 @@ Grazie al disaster recovery di BlueXP, puoi utilizzare diversi piani di licenza,
 
 È possibile utilizzare i seguenti tipi di licenza:
 
-* Iscriviti per una prova gratuita di 90 giorni.
+* Iscriviti per una prova gratuita di 30 giorni.
 * Acquista un abbonamento pay-as-you-go (PAYGO) con Amazon Web Services (AWS) Marketplace.
 * BYOL (Bring Your Own License), ovvero un file di licenza NetApp (NLF) ottenuto dal rappresentante vendite NetApp Puoi utilizzare il numero di serie della licenza per attivare il BYOL nel Digital Wallet di BlueXP.
 
@@ -35,14 +35,14 @@ Al termine della prova gratuita o alla scadenza della licenza, è comunque possi
 
 
 
-== Provalo con una prova gratuita di 90 giorni
+== Provalo con una prova gratuita di 30 giorni
 
-Puoi provare il disaster recovery di BlueXP utilizzando una prova gratuita di 90 giorni.
+Puoi provare il disaster recovery di BlueXP utilizzando una prova gratuita di 30 giorni.
 
 
 NOTE: Durante la prova non vengono applicati limiti di capacità.
 
-Puoi ottenere una licenza in qualsiasi momento e non ti verrà addebitato alcun costo fino al termine della prova di 90 giorni. Per continuare dopo la prova di 90 giorni, devi acquistare una licenza BYOL.
+Per continuare dopo la prova, dovrai acquistare una licenza BYOL o un abbonamento PAYGO AWS. Puoi ottenere una licenza in qualsiasi momento e non ti verrà addebitato alcun costo fino al termine della prova.
 
 Durante la prova, si dispone di tutte le funzionalità.
 
