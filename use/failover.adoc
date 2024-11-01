@@ -12,23 +12,25 @@ summary: Il disaster recovery di NetApp BlueXP è un servizio di disaster recove
 
 
 [role="lead"]
-In caso di disastro, esegui il failover del sito VMware on-premise primario in un altro sito VMware on-premise o in VMware Cloud on AWS.
+In caso di disastro, esegui il failover del sito VMware on-premise primario in un altro sito VMware on-premise o in VMware Cloud on AWS. È possibile testare il processo di failover per garantire il successo quando necessario.
 
-Durante il failover viene utilizzata la copia Snapshot di SnapMirror più recente. In alternativa, puoi selezionare una copia Snapshot specifica da una copia Snapshot point-in-time (per la politica di conservazione di SnapMirror). L'opzione point-in-time può essere utile in caso di eventi di danneggiamento come il ransomware, in cui le repliche più recenti sono già compromesse o crittografate. Il disaster recovery di BlueXP mostra tutti i punti disponibili in tempo.
+Durante un failover viene utilizzata la copia snapshot SnapMirror più recente. In alternativa, puoi selezionare uno snapshot specifico da uno snapshot point-in-time, in base alla politica di conservazione di SnapMirror. L'opzione point-in-time può essere utile in caso di eventi di danneggiamento come il ransomware, in cui le repliche più recenti sono già compromesse o crittografate. Il disaster recovery di BlueXP mostra tutti i punti disponibili in tempo.
 
-Questa procedura interrompe la relazione di replica, posiziona le macchine virtuali di origine vCenter offline e abilita la lettura/scrittura sul sito di destinazione.
+Questo processo varia a seconda che il sito di produzione sia integro e che si stia eseguendo un failover sul sito di disaster recovery per motivi diversi da un guasto critico dell'infrastruttura:
 
-È possibile includere script personalizzati in formato .sh, .bat o .ps1 come processi di post-failover. Grazie agli script personalizzati, puoi fare in modo che il disaster recovery di BlueXP esegua lo script dopo un processo di failover. Ad esempio, è possibile utilizzare uno script personalizzato per riprendere tutte le transazioni del database al termine del failover.
+* Guasto critico del sito di produzione nel quale il cluster vCenter o ONTAP di origine non è accessibile: Il disaster recovery di BlueXP  ti consente di selezionare qualsiasi snapshot disponibile da ripristinare.
+* L'ambiente di produzione è integro: È possibile "creare subito uno snapshot" o selezionare uno snapshot creato in precedenza.
 
-Prima di iniziare il failover, è possibile testare il processo, assicurandone la riuscita quando necessario. Il test non mette le macchine virtuali fuori linea.
+
+Questa procedura interrompe il rapporto di replica, posiziona le macchine virtuali di origine di vCenter offline, registra i volumi come datastore in vCenter di disaster recovery, riavvia le macchine virtuali protette utilizzando le regole di failover del piano e consente la lettura/scrittura sul sito di destinazione.
 
 
 
 == Verificare il processo di failover
 
-Prima di avviare un failover effettivo, è necessario verificare il processo di failover.
+Prima di avviare il failover, è possibile testare il processo. Il test non mette le macchine virtuali fuori linea.
 
-Durante un test di failover, le macchine virtuali vengono create temporaneamente. Il disaster recovery di BlueXP non mappa il volume di destinazione. Ma crea un nuovo volume FlexClone dalla Snapshot selezionata e un datastore temporaneo di backup del volume FlexClone viene mappato agli host ESXi.
+Durante un test di failover, le macchine virtuali vengono create temporaneamente. Il disaster recovery di BlueXP non mappa il volume di destinazione. Ma crea un nuovo volume FlexClone a partire dallo snapshot selezionato, mentre un datastore temporaneo di backup del volume FlexClone viene mappato agli host ESXi.
 
 Questo processo non consuma capacità fisica aggiuntiva nello storage ONTAP on-premise o in FSX per lo storage NetApp ONTAP in AWS. Il volume di origine originale non viene modificato e i processi di replica possono continuare anche durante il ripristino di emergenza.
 

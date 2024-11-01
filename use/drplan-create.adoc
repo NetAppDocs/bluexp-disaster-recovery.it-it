@@ -12,7 +12,7 @@ summary: Il disaster recovery di NetApp BlueXP è un servizio di disaster recove
 
 
 [role="lead"]
-Una volta aggiunti i siti vCenter, sarai pronto a creare un disaster recovery o un _piano di replica_. Selezionare i vCenter di origine e di destinazione, scegliere i gruppi di risorse e raggruppare le modalità di ripristino e accensione delle applicazioni. Ad esempio, è possibile raggruppare macchine virtuali associate a un'applicazione o raggruppare applicazioni con livelli simili.
+Una volta aggiunti i siti vCenter, sarai pronto a creare un disaster recovery o un _piano di replica_. Selezionare i vCenter di origine e di destinazione, scegliere i gruppi di risorse e raggruppare le modalità di ripristino e accensione delle applicazioni. Ad esempio, è possibile raggruppare macchine virtuali (VM) associate a un'applicazione o raggruppare applicazioni con livelli simili.
 
 Tali piani sono a volte chiamati _blueprint_.
 
@@ -25,7 +25,7 @@ Tali piani sono a volte chiamati _blueprint_.
 Una procedura guidata consente di eseguire le seguenti operazioni:
 
 * Seleziona i server vCenter.
-* Selezionare le macchine virtuali (VM) che si desidera replicare e assegnare i gruppi.
+* Selezionare le VM da replicare e assegnare gruppi.
 * Mappare la modalità di mappatura delle risorse dall'ambiente di origine alla destinazione.
 * Identificare la ricorrenza, eseguire uno script ospitato da guest, impostare l'ordine di avvio e selezionare l'obiettivo del punto di ripristino.
 * Rivedere il piano.
@@ -37,6 +37,13 @@ Durante la creazione del piano di replica, è possibile definire la relazione di
 * 1 a molti in un'architettura fan-out
 * Molti a 1 in un gruppo di coerenza
 * Molti a molti
+
+
+Quando si crea il piano, è necessario attenersi alle seguenti linee guida:
+
+* Utilizzare le stesse credenziali per tutte le VM del piano.
+* Utilizzare lo stesso script per tutte le VM del piano.
+* Utilizzare la stessa subnet, DNS e gateway per tutte le macchine virtuali del piano.
 
 
 .Prima di iniziare
@@ -71,7 +78,7 @@ Quando si selezionano le applicazioni nel piano di replica, è possibile visuali
 TIP: Ogni gruppo di risorse può includere una o più VM. Le macchine virtuali si accenderanno in base alla sequenza in cui vengono incluse.
 
 .Fasi
-. In alternativa, nella parte sinistra della pagina applicazioni, è possibile filtrare le macchine virtuali in base all'archivio dati.
+. In alternativa, nella parte sinistra della pagina applicazioni, è possibile filtrare le macchine virtuali in base all'archivio dati. È inoltre possibile cercare macchine virtuali specifiche per nome.
 . Sul lato sinistro della pagina applicazioni, selezionare le macchine virtuali che si desidera proteggere e assegnare al gruppo selezionato.
 +
 La VM selezionata viene aggiunta automaticamente al gruppo 1 e viene avviato un nuovo gruppo 2. Ogni volta che si aggiunge una macchina virtuale all'ultimo gruppo, viene aggiunto un altro gruppo.
@@ -126,13 +133,16 @@ TIP: Se un vCenter ha un DRS (Distributed Resource Scheduler) configurato per ge
 Se si apportano modifiche rispetto alle impostazioni predefinite, è necessario fornire le credenziali.
 
 +
-Selezionare la mappatura di rete per il segmento appropriato. I segmenti dovrebbero essere già forniti, quindi selezionare il segmento appropriato per mappare la macchina virtuale.
+Viene mappato il valore predefinito per le macchine virtuali. La mappatura utilizza le stesse impostazioni utilizzate dalle macchine virtuali nell'ambiente di produzione (stesso indirizzo IP, subnet mask e gateway).
+
++
+Selezionare la mappatura di rete per il segmento appropriato. I segmenti devono essere già forniti, quindi selezionare il segmento appropriato per mappare la VM.
 
 +
 In questa sezione potrebbero essere visualizzati campi diversi a seconda della selezione effettuata.
 
 +
-** *Tipo di indirizzo IP*: Quando si esegue il mapping della rete tra le posizioni di origine e di destinazione nella sezione macchine virtuali del piano di replica, BlueXP  Disaster Recovery offre due opzioni: DHCP o IP statico. Per gli IP statici, configurare la subnet, il gateway e i server DNS. Inoltre, immettere le credenziali per le macchine virtuali.
+** *Tipo di indirizzo IP*: Riconfigurare la configurazione delle VM in modo che corrisponda ai requisiti della rete virtuale di destinazione. Il disaster recovery di BlueXP  offre due opzioni: DHCP o IP statico. Per gli IP statici, configurare la subnet mask, il gateway e i server DNS. Inoltre, immettere le credenziali per le VM.
 +
 *** *DHCP*: Selezionare questa impostazione se si desidera che le macchine virtuali ottengano informazioni sulla configurazione di rete da un server DHCP. Se si sceglie questa opzione, è necessario fornire solo le credenziali per la macchina virtuale.
 *** *IP statico*: Selezionare questa impostazione se si desidera specificare manualmente le informazioni di configurazione IP. È possibile selezionare informazioni identiche o diverse dalla macchina virtuale di origine. Se si sceglie lo stesso come origine, non è necessario immettere le credenziali. D'altro canto, se si sceglie di utilizzare informazioni diverse dall'origine, è possibile fornire le credenziali, l'indirizzo IP della macchina virtuale, la subnet mask, il DNS e le informazioni del gateway. Le credenziali del sistema operativo guest delle VM devono essere fornite a livello globale o a ciascun livello di VM.
@@ -144,6 +154,7 @@ image:dr-plan-create-mapping-vms2.png["Schermata di aggiunta del piano di replic
 
 
 
+** *Scripts*: È possibile includere script personalizzati in formato .sh, .bat o .ps1 come processi di post-failover. Grazie agli script personalizzati, puoi fare in modo che il disaster recovery di BlueXP esegua lo script dopo un processo di failover. Ad esempio, è possibile utilizzare uno script personalizzato per riprendere tutte le transazioni del database al termine del failover.
 ** *Prefisso e suffisso VM di destinazione*: Nei dettagli delle macchine virtuali è possibile aggiungere un prefisso e un suffisso al nome VM.
 ** *CPU e RAM della VM di origine*: Nei dettagli delle macchine virtuali, è possibile ridimensionare facoltativamente i parametri della CPU e della RAM della VM.
 +
@@ -163,33 +174,37 @@ I numeri dell'ordine di avvio si applicano solo all'interno di un gruppo di riso
 
 TIP: Per ripristinare l'ordine di avvio predefinito, selezionare *Ripristina impostazioni VM predefinite*, quindi scegliere le impostazioni che si desidera ripristinare.
 
-** *Creazione di repliche coerenti con l'applicazione*: Indica se creare copie Snapshot coerenti con l'applicazione. Il servizio disattiverà l'applicazione, quindi acquisirà uno snapshot per ottenere uno stato coerente dell'applicazione. Questa funzionalità è supportata con Oracle in esecuzione su Windows e Linux e SQL Server in esecuzione su Windows.
+** *Crea repliche coerenti con l'applicazione*: Indica se creare copie snapshot coerenti con l'applicazione. Il servizio disattiverà l'applicazione, quindi acquisirà uno snapshot per ottenere uno stato coerente dell'applicazione. Questa funzionalità è supportata con Oracle in esecuzione su Windows e Linux e SQL Server in esecuzione su Windows.
 
 
-. *Datastores*: Nella scheda Mapping di failover, selezionare la freccia giù accanto a *Datastores*. In base alla selezione delle macchine virtuali, le mappature del datastore vengono selezionate automaticamente.
+. *Datastores*: Selezionare la freccia giù accanto a *Datastores*. In base alla selezione delle macchine virtuali, i mapping degli archivi dati vengono selezionati automaticamente.
 +
 Questa sezione potrebbe essere attivata o disattivata a seconda della selezione effettuata.
 
 +
-** *RPO*: Inserire l'obiettivo del punto di ripristino (RPO) per indicare la quantità di dati da recuperare (misurata nel tempo). Ad esempio, se inserisci un RPO di 60 minuti, il recovery deve avere dati non più vecchi di 60 minuti in ogni momento. In caso di emergenza, si può perdere fino a 60 minuti di dati. Inserire anche il numero di copie Snapshot da conservare per tutti i datastore.
+** *RPO*: Inserire l'obiettivo del punto di ripristino (RPO) per indicare la quantità di dati da recuperare (misurata nel tempo). Ad esempio, se inserisci un RPO di 60 minuti, il recovery deve avere dati non più vecchi di 60 minuti in ogni momento. In caso di emergenza, si può perdere fino a 60 minuti di dati. Inserire inoltre il numero di copie Snapshot da conservare per tutti i datastore.
 ** *Conteggio di conservazione*: Immettere il numero di istantanee che si desidera conservare.
-** *Datastore di origine e destinazione*: Se un volume ha già stabilito un rapporto SnapMirror, è possibile selezionare i datastore di origine e destinazione corrispondenti. Se selezioni un volume che non ha una relazione di SnapMirror, puoi crearne uno subito selezionando l'ambiente di lavoro e la relativa SVM peer.
+** *Datastore di origine e destinazione*: Se esistono più relazioni SnapMirror (fan-out), è possibile selezionare la destinazione da utilizzare. Se un volume ha già stabilito una relazione di SnapMirror, appariranno i datastore di origine e destinazione corrispondenti. Se un volume non ha una relazione SnapMirror, puoi crearne uno subito selezionando un cluster di destinazione, una SVM di destinazione e fornendo un nome del volume. Il servizio crea la relazione tra volume e SnapMirror.
 +
 
 NOTE: Per creare una relazione di SnapMirror in questo servizio, il cluster e il relativo peering SVM dovrebbero essere già stati impostati al di fuori del disaster recovery di BlueXP.
 
-+
-*** *Gruppi di coerenza*: Quando crei un piano di replica, puoi includere macchine virtuali provenienti da diversi volumi e SVM diverse. Il disaster recovery di BlueXP crea una snapshot del gruppo di coerenza.
-
-
-** Se si specifica l'obiettivo RPO (Recovery Point Objective), il servizio pianifica un backup primario in base all'RPO e aggiorna le destinazioni secondarie.
+** Quando si specifica l'obiettivo RPO (Recovery Point Objective), il servizio pianifica un backup primario in base all'RPO e aggiorna le destinazioni secondarie.
 ** Se le macchine virtuali provengono dallo stesso volume e dalla stessa SVM, il servizio esegue una snapshot ONTAP standard e aggiorna le destinazioni secondarie.
-** Se le macchine virtuali provengono da volumi diversi e dalla stessa SVM, il servizio crea una snapshot del gruppo di coerenza includendo tutti i volumi e aggiornando le destinazioni secondarie.
-** Se le macchine virtuali provengono da volumi diversi e da SVM diverse, il servizio esegue una fase di avvio del gruppo di coerenza e applica la fase Snapshot includendo tutti i volumi nello stesso cluster o in un cluster diverso e aggiorna le destinazioni secondarie.
-** Durante il failover, è possibile selezionare qualsiasi Snapshot. Se si seleziona l'ultima snapshot, il servizio crea un backup on-demand, aggiorna la destinazione e utilizza tale Snapshot per il failover.
+** Se le macchine virtuali provengono da volumi diversi e dalla stessa SVM, il servizio crea uno snapshot del gruppo di coerenza includendo tutti i volumi e aggiornando le destinazioni secondarie.
+** Se le VM provengono da volumi diversi e da SVM diverse, il servizio esegue una fase di avvio del gruppo di coerenza e applica la snapshot della fase includendo tutti i volumi nello stesso cluster o in un cluster diverso, quindi aggiorna le destinazioni secondarie.
+** Durante il failover, è possibile selezionare uno snapshot qualsiasi. Se si seleziona l'ultima snapshot, il servizio crea un backup on-demand, aggiorna la destinazione e utilizza tale Snapshot per il failover.
 
 
-. Per impostare diverse mappature per l'ambiente di test, deselezionare la casella e selezionare la scheda *mappature di test*. Passare attraverso ciascuna scheda come prima, ma questa volta per l'ambiente di test.
+
+
+
+
+=== Verificare le mappature
+
+.Fasi
+. Per impostare diverse mappature per l'ambiente di test, deselezionare la casella e selezionare la scheda *mappature di test*.
+. Passare attraverso ciascuna scheda come prima, ma questa volta per l'ambiente di test.
 +
 Nella scheda Mapping test, le mappature macchine virtuali e archivi dati sono disattivate.
 
