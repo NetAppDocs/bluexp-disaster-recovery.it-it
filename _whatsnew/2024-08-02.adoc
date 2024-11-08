@@ -1,0 +1,20 @@
+= Supporto per datastore VMFS VMware on-premise e on-premise per FC
+:allow-uri-read: 
+
+
+
+
+=== Supporto per datastore VMFS VMware on-premise e on-premise per FC
+
+Questa release include un'anteprima _tecnologica_ del supporto per le macchine virtuali montate su datastore VMFS (Virtual Machine file System) VMware vSphere per FC protetti nello storage on-premise. In precedenza, il servizio forniva un'anteprima tecnologica che supportava gli archivi dati VMFS per iSCSI.
+
+
+NOTE: NetApp non ti addebita alcun costo per la capacità dei workload in anteprima.
+
+
+
+=== Annullamento del processo
+
+Con questa versione, è ora possibile annullare un lavoro nell'interfaccia utente di Job Monitor.
+
+Fare riferimento alla https://docs.netapp.com/us-en/bluexp-disaster-recovery/use/monitor-jobs.html["Monitorare i lavori"].
