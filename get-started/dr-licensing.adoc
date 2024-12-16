@@ -22,7 +22,7 @@ Grazie al disaster recovery di BlueXP, puoi utilizzare diversi piani di licenza,
 
 
 
-NOTE: Le spese di disaster recovery di BlueXP si basano sulla capacità di provisioning dei datastore sul sito di origine, se c'è almeno una macchina virtuale che ha un piano di replica. La capacità di un datastore in failover non è inclusa nella capacità consentita. Per un BYOL, se i dati superano la capacità consentita, le operazioni del servizio sono limitate fino a quando non ottieni una licenza di capacità aggiuntiva o esegui l'upgrade della licenza nel Digital Wallet di BlueXP.
+NOTE: Le spese per il disaster recovery di BlueXP  si basano sulla capacità utilizzata degli archivi dati sul sito di origine quando vi è almeno una macchina virtuale con un piano di replica. La capacità di un datastore in failover non è inclusa nella capacità consentita. Per un BYOL, se i dati superano la capacità consentita, le operazioni del servizio sono limitate fino a quando non ottieni una licenza di capacità aggiuntiva o esegui l'upgrade della licenza nel Digital Wallet di BlueXP.
 
 Dopo aver configurato il BYOL, puoi vedere la licenza nella scheda *licenze servizio dati* del Digital Wallet di BlueXP.
 
