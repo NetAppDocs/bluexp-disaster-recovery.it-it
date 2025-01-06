@@ -335,7 +335,6 @@ Per l'URL, in un browser, immettere:<block ref="6db7b50bf17b27cbede9f07c4fbc973e
   <block id="26ff2655fb5643a3e76370d9248a31df" category="admonition">È possibile disattivare o eliminare il piano di replica in un secondo momento.</block>
   <block id="47324a4e5509aeccc192aa7b07cbcac7" category="list-text">Selezionare *Aggiungi piano*.</block>
   <block id="a9980df200522b9bbaa257521bc396fe" category="paragraph">Il piano viene aggiunto all'elenco dei piani.</block>
-  <block id="a9233ff25d3c8ffa3e005e6e453381fc" category="paragraph">Prima di poter creare un piano di disaster recovery, devi aggiungere un sito vCenter primario e un sito di disaster recovery vCenter di destinazione in BlueXP.</block>
   <block id="9809a26603cc2fbdd8049c848bf77835" category="paragraph">Una volta aggiunti, il disaster recovery di BlueXP esegue un rilevamento approfondito degli ambienti vCenter, inclusi cluster vCenter, host ESXi, datastore, impronta ecologica dello storage, dettagli della macchina virtuale, repliche SnapMirror e reti di macchine virtuali.</block>
   <block id="6df4f43f22118c6a361990f481e6ed83" category="list-text">Accedi a BlueXP e seleziona *protezione* &gt; *Disaster Recovery* dal navigatore di sinistra.</block>
   <block id="2f11fab4722695438910176065d838b4" category="paragraph">Ti atterrai alla pagina della dashboard di disaster recovery di BlueXP. Quando si inizia con il servizio, è necessario aggiungere le informazioni vCenter. Successivamente, il Dashboard visualizza i dati relativi ai siti e ai piani di replica.</block>
@@ -343,7 +342,6 @@ Per l'URL, in un browser, immettere:<block ref="6db7b50bf17b27cbede9f07c4fbc973e
   <block id="5a05572673bc07b0b94f07c482a67d13" category="inline-image-macro">Schermata Aggiungi vCenter server </block>
   <block id="c65c0c2ea94db5e745008fb8af0f7f2e" category="paragraph"><block ref="c65c0c2ea94db5e745008fb8af0f7f2e" category="inline-image-macro-rx" type="image"></block></block>
   <block id="0eb5074333c815ccb54d1f6917e8d217" category="list-text">Aggiungi un sito, seleziona il connettore BlueXP e fornisci credenziali vCenter.</block>
-  <block id="50a0d7853565af772351213d1b833aa4" category="list-text">Per accettare certificati autofirmati per vCenter di origine, selezionare la casella.</block>
   <block id="1909b7ffbea69e2cc7b387ed9d255c18" category="admonition">I certificati autofirmati non sono protetti come gli altri certificati. Se vCenter è *NON* configurato con certificati di autorità di certificazione (CA), selezionare questa casella; in caso contrario, la connessione a vCenter non funzionerà.</block>
   <block id="fa12509cfb8e8ccded16e2a254e988c4" category="list-text">Selezionare *Aggiungi*.</block>
   <block id="a0fa7543e8627767b57d6c2797fbbda9" category="paragraph">Successivamente, verrà aggiunto un vCenter di destinazione.</block>
@@ -1040,4 +1038,12 @@ Dopo aver acquistato la licenza di disaster recovery BlueXP dal rappresentante d
   <block id="a82971318b0c070daea6677a10d3473c" category="paragraph">Se si apportano modifiche rispetto alle impostazioni predefinite, è necessario modificare il campo IP di destinazione in "diverso dall'origine".</block>
   <block id="04b2f4a0441b492909bf4cd55502f663" category="admonition">Se si modificano le impostazioni in "diverso dall'origine", è necessario fornire le credenziali del sistema operativo guest della VM.</block>
   <block id="935b6ea2b85c115a6475786fc3f54c7b" category="admonition">Le spese per il disaster recovery di BlueXP  si basano sulla capacità utilizzata degli archivi dati sul sito di origine quando vi è almeno una macchina virtuale con un piano di replica. La capacità di un datastore in failover non è inclusa nella capacità consentita. Per un BYOL, se i dati superano la capacità consentita, le operazioni del servizio sono limitate fino a quando non ottieni una licenza di capacità aggiuntiva o esegui l'upgrade della licenza nel Digital Wallet di BlueXP.</block>
+  <block id="6264bc70be3baed8dcf906aafe1dfe41" category="list-text">VMware vSphere versione 7,0 Update 3 (7.0v3) o successiva</block>
+  <block id="cbbec7a47b1589919d37bd2c9f68a2dd" category="summary">Prima di poter creare un piano di disaster recovery, è necessario aggiungere un sito vCenter primario e un sito di disaster recovery vCenter di destinazione nel disaster recovery di BlueXP .</block>
+  <block id="7f7acb13c0fa74ab37cf6b6545c8b18a" category="doc">Aggiungere vCenter a un sito</block>
+  <block id="d7004fe84ddef44ffb8f6fd482ea7b17" category="paragraph">Prima di poter creare un piano di disaster recovery, è necessario aggiungere un server vCenter primario a un sito e un sito di disaster recovery vCenter di destinazione in BlueXP .</block>
+  <block id="1a575de6e97bed53905ae3b55c22dd29" category="admonition">Vengono visualizzati campi diversi a seconda del tipo di sito che si sta aggiungendo.</block>
+  <block id="7dbf01d6d33098287eb82c71ea10ea1e" category="list-text">(Valido solo per i siti on-premise) per accettare certificati autofirmati per il vCenter di origine, selezionare la casella.</block>
+  <block id="c2a573f83674b01d424b4f0c10fdc5f1" category="list-text">(Si applica solo ai siti cloud) *token API*: Immettere il token API per autorizzare l'accesso al servizio per l'organizzazione. Creare il token API fornendo ruoli di organizzazione e servizio specifici.</block>
+  <block id="92d0331e97c92cd07178f7a7c2ab56da" category="list-text">(Applicabile solo ai siti cloud) *Long Organization ID*: Immettere l'ID univoco per l'organizzazione. È possibile identificare questo ID facendo clic sul nome utente nella sezione account della console BlueXP .</block>
 </blocks>
