@@ -452,7 +452,6 @@ Per l'URL, in un browser, immettere:<block ref="6db7b50bf17b27cbede9f07c4fbc973e
   <block id="901540dd7e45eaf2226327527c8d78b4" category="list-text">*Fonte*: Selezionare *Scopri i server vCenter* per inserire le informazioni sul sito vCenter di origine.</block>
   <block id="bc7f3cb185f48d451eb5ef976e8ad82d" category="list-text">*Destinazione*:</block>
   <block id="d23a9d83c87c6eacef309f00a2beb5d3" category="inline-image-macro">Schermata della pagina dei siti</block>
-  <block id="28f8c0c78028f2e899f7af50ce138e1b" category="paragraph"><block ref="28f8c0c78028f2e899f7af50ce138e1b" category="inline-image-macro-rx" type="image"></block></block>
   <block id="6f5e3fdfa73285ac2283ba492cf2d47b" category="list-text">VMware Cloud (VMC) su AWS con Amazon FSX per NetApp ONTAP o.</block>
   <block id="b374472b15e644f23d1e6b059b5216b9" category="list-text">Un altro ambiente VMware on-premise basato su NFS con storage ONTAP</block>
   <block id="53c1c0c22e2a647591a0b52427852850" category="paragraph"><block ref="53c1c0c22e2a647591a0b52427852850" category="inline-image-macro-rx" type="image"></block></block>
@@ -1046,4 +1045,5 @@ Dopo aver acquistato la licenza di disaster recovery BlueXP dal rappresentante d
   <block id="7dbf01d6d33098287eb82c71ea10ea1e" category="list-text">(Valido solo per i siti on-premise) per accettare certificati autofirmati per il vCenter di origine, selezionare la casella.</block>
   <block id="c2a573f83674b01d424b4f0c10fdc5f1" category="list-text">(Si applica solo ai siti cloud) *token API*: Immettere il token API per autorizzare l'accesso al servizio per l'organizzazione. Creare il token API fornendo ruoli di organizzazione e servizio specifici.</block>
   <block id="92d0331e97c92cd07178f7a7c2ab56da" category="list-text">(Applicabile solo ai siti cloud) *Long Organization ID*: Immettere l'ID univoco per l'organizzazione. È possibile identificare questo ID facendo clic sul nome utente nella sezione account della console BlueXP .</block>
+  <block id="15a58a3d11cafa89812a0ab9b55e93b0" category="paragraph"><block ref="15a58a3d11cafa89812a0ab9b55e93b0" category="inline-image-macro-rx" type="image"></block></block>
 </blocks>
