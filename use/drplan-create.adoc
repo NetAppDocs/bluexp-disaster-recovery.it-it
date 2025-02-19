@@ -191,7 +191,7 @@ NOTE: Per creare una relazione di SnapMirror in questo servizio, il cluster e il
 ** Se le macchine virtuali provengono dallo stesso volume e dalla stessa SVM, il servizio esegue una snapshot ONTAP standard e aggiorna le destinazioni secondarie.
 ** Se le macchine virtuali provengono da volumi diversi e dalla stessa SVM, il servizio crea uno snapshot del gruppo di coerenza includendo tutti i volumi e aggiornando le destinazioni secondarie.
 ** Se le VM provengono da volumi diversi e da SVM diverse, il servizio esegue una fase di avvio del gruppo di coerenza e applica la snapshot della fase includendo tutti i volumi nello stesso cluster o in un cluster diverso, quindi aggiorna le destinazioni secondarie.
-** Durante il failover, è possibile selezionare uno snapshot qualsiasi. Se si seleziona l'ultima snapshot, il servizio crea un backup on-demand, aggiorna la destinazione e utilizza tale Snapshot per il failover.
+** Durante il failover, è possibile selezionare uno snapshot qualsiasi. Se si seleziona la snapshot più recente, il servizio crea un backup on-demand, aggiorna la destinazione e utilizza tale snapshot per il failover.
 
 
 

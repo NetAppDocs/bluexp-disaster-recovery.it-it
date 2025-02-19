@@ -28,6 +28,6 @@ In questo workflow, il disaster recovery di BlueXP replica (risincronizza) quals
 . Selezionare il piano di replica.
 . A destra, selezionare l'opzione *azioni* image:../use/icon-horizontal-dots.png["Icona del menu Actions nel servizio di disaster recovery BlueXP"]  E selezionare *fail back*.
 . Immettere il nome del piano di replica per confermare e avviare il failback.
-. Scegliere la Snapshot per il datastore da cui ripristinare.  L'impostazione predefinita è l'ultima.
+. Scegliere lo snapshot per il datastore da cui eseguire il ripristino. L'impostazione predefinita è l'ultima.
 . Per verificare l'avanzamento, nel menu superiore, selezionare *monitoraggio processi*.
 

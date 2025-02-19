@@ -100,7 +100,7 @@ Puoi acquistare una licenza in qualsiasi momento e non ti verrà addebitato alcu
 
 Il disaster recovery di BlueXP può ripristinare i workload replicati da un sito on-premise su Amazon FSX per ONTAP o in un altro sito on-premise. Questo servizio automatizza il ripristino dal livello di SnapMirror, tramite la registrazione della macchina virtuale al Virtual Machine Cloud (VMC) e alle mappature di rete direttamente sulla piattaforma di sicurezza e virtualizzazione della rete di VMware, NSX-T. Questa funzione è inclusa in tutti gli ambienti Virtual Machine Cloud.
 
-Il disaster recovery di BlueXP sfrutta la tecnologia ONTAP SnapMirror, che offre una replica altamente efficiente e mantiene le efficienze di Snapshot incrementali da sempre di ONTAP. La replica SnapMirror garantisce che le copie Snapshot coerenti con l'applicazione siano sempre sincronizzate e i dati siano utilizzabili subito dopo un failover.
+Il disaster recovery di BlueXP  sfrutta la tecnologia ONTAP SnapMirror, che offre una replica altamente efficiente e mantiene l'efficienza delle snapshot nelle operazioni incrementali e senza fine di ONTAP. La replica SnapMirror garantisce che le copie snapshot coerenti con l'applicazione siano sempre sincronizzate e i dati siano utilizzabili subito dopo un failover.
 
 image:dr-architecture-diagram-70-2.png["Diagramma che mostra l'architettura del disaster recovery di BlueXP per l'infrastruttura di servizi VMware"]
 
@@ -112,7 +112,7 @@ In caso di disastro, questo servizio aiuta a ripristinare macchine virtuali nell
 
 * Il servizio consente inoltre di eseguire il failback delle macchine virtuali nel percorso di origine.
 * È possibile verificare il processo di failover del disaster recovery senza interrompere le macchine virtuali originali. Il test ripristina le macchine virtuali in una rete isolata creando un FlexClone del volume.
-* Per il processo di failover o di test del failover, è possibile scegliere l'Snapshot più recente (predefinito) o selezionata da cui ripristinare la macchina virtuale.
+* Per il processo di failover o di test del failover, è possibile scegliere l'ultimo (predefinito) o lo snapshot selezionato da cui ripristinare la macchina virtuale.
 
 
 
