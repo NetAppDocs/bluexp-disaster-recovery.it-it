@@ -24,7 +24,7 @@ Grazie al disaster recovery di BlueXP, puoi utilizzare diversi piani di licenza,
 
 NOTE: Le spese per il disaster recovery di BlueXP  si basano sulla capacità utilizzata degli archivi dati sul sito di origine quando vi è almeno una macchina virtuale con un piano di replica. La capacità di un datastore in failover non è inclusa nella capacità consentita. Per un BYOL, se i dati superano la capacità consentita, le operazioni del servizio sono limitate fino a quando non ottieni una licenza di capacità aggiuntiva o esegui l'upgrade della licenza nel Digital Wallet di BlueXP.
 
-Dopo aver configurato il BYOL, puoi vedere la licenza nella scheda *licenze servizio dati* del Digital Wallet di BlueXP.
+link:https://docs.netapp.com/us-en/bluexp-digital-wallet/concept-digital-wallet.html["Ulteriori informazioni sul Digital Wallet"^].
 
 Al termine della prova gratuita o alla scadenza della licenza, è comunque possibile effettuare le seguenti operazioni nel servizio:
 
@@ -79,10 +79,7 @@ Al termine della prova gratuita, puoi acquistare una licenza da NetApp o iscrive
 . In AWS Marketplace, selezionare *Visualizza opzioni di acquisto*. USA AWS Marketplace per iscriversi al disaster recovery di BlueXP.
 . Quando torni al disaster recovery di BlueXP, un messaggio indica che sei iscritto.
 +
-Per visualizzare i dettagli dell'abbonamento nel Digital Wallet di BlueXP, seleziona *Visualizza i dettagli dell'abbonamento* e visualizza l'abbonamento attivo nella pagina *Sottoscrizioni*.
-
-+
-image:digital-wallet-subscriptions2.png["Scheda Abbonamenti al Digital Wallet di BlueXP"]
+Puoi visualizzare i dettagli dell'abbonamento nel portafoglio digitale di BlueXP . link:https://docs.netapp.com/us-en/bluexp-digital-wallet/task-homepage.html["Scopri di più sulla gestione delle iscrizioni con il Digital Wallet"^].
 
 
 
@@ -94,33 +91,9 @@ Al termine della prova, è possibile acquistare una licenza tramite il proprio r
 
 Se porti la tua licenza BYOL, il setup include l'acquisto della licenza, il reperimento del file di licenza NetApp e l'aggiunta della licenza al Digital Wallet di BlueXP.
 
-*Attivare la licenza*
-Dopo aver acquistato la licenza di disaster recovery BlueXP dal rappresentante di vendita NetApp, si attiva la licenza inserendo il numero di serie del disaster recovery di BlueXP e le informazioni dell'account del sito di supporto NetApp (NSS).
+*Aggiungi la licenza al portafoglio digitale BlueXP ** dopo aver acquistato la licenza di disaster recovery BlueXP  dal rappresentante di vendita NetApp, puoi gestire la licenza nel portafoglio digitale.
 
-È necessario il numero di serie del ripristino di emergenza BlueXP . Individua questo numero nell'ordine di vendita o contatta l'account team per ottenere queste informazioni.
-
-*Aggiungere la licenza al portafoglio digitale BlueXP * dopo aver acquistato una licenza di disaster recovery BlueXP , è necessario aggiungere la licenza al portafoglio digitale BlueXP .
-
-. Una volta ottenuta la licenza, tornare al disaster recovery di BlueXP. Seleziona l'opzione *Visualizza metodi di pagamento* in alto a destra. Oppure, nel messaggio che la prova gratuita sta per scadere, seleziona *Sottoscrivi o acquista una licenza*.
-+
-image:draas-license-subscribe2.png["La pagina relativa ai metadati di pagamento per il disaster recovery di BlueXP"]
-
-. Selezionare *Aggiungi licenza ad BlueXP*. Verrai indirizzato al Digital Wallet di BlueXP.
-+
-image:digital-wallet-data-services-licenses-tab3.png["Scheda licenze servizi dati del Digital Wallet di BlueXP"]
-
-. Nel Digital Wallet di BlueXP, dalla scheda *licenze servizi dati*, seleziona *Aggiungi licenza*.
-. Nella pagina Aggiungi licenza, immettere il numero di serie e le informazioni sull'account del sito di assistenza NetApp.
-+
-image:byol-digital-wallet-license-add2.png["Pagina licenza aggiunta portafoglio digitale BlueXP"]
-
-. Selezionare *Aggiungi licenza*.
-
-
-.Risultato
-Il Digital Wallet di BlueXP mostra il disaster recovery con una licenza.
-
-image:byol-digital-wallet-licenses-added.png["Digital Wallet di NetApp BlueXP"]
+https://docs.netapp.com/us-en/bluexp-digital-wallet/task-manage-data-services-licenses.html["Scopri come aggiungere licenze con il Digital Wallet"^].
 
 
 
@@ -131,19 +104,7 @@ Se il termine in licenza si avvicina alla data di scadenza o se la capacità con
 
 TIP: Questo messaggio viene visualizzato anche nel Digital Wallet di BlueXP e in https://docs.netapp.com/us-en/bluexp-setup-admin/task-monitor-cm-operations.html#monitoring-operations-status-using-the-notification-center["Notifiche"].
 
-.Fasi
-. Seleziona l'icona della chat in basso a destra di BlueXP per richiedere un'estensione del termine o capacità aggiuntiva alla licenza per il numero di serie specifico. È anche possibile inviare un'e-mail per richiedere un aggiornamento della licenza.
-+
-Dopo aver pagato la licenza e averla registrata nel NetApp Support Site, BlueXP aggiorna automaticamente la licenza nel portafoglio digitale BlueXP e la pagina licenze servizi dati rifletterà la modifica tra 5 e 10 minuti.
-
-. Se BlueXP non riesce ad aggiornare automaticamente la licenza (ad esempio, se installata in un sito buio), sarà necessario caricare manualmente il file di licenza.
-+
-.. È possibile ottenere il file di licenza dal sito di assistenza NetApp.
-.. Accedi al Digital Wallet di BlueXP.
-.. Selezionare la scheda *licenze servizi dati*, selezionare l'icona *azioni ...* per il numero di serie del servizio che si sta aggiornando, quindi selezionare *Aggiorna licenza*.
-
-
-
+https://docs.netapp.com/us-en/bluexp-digital-wallet/task-manage-data-services-licenses.html["Ulteriori informazioni sull'aggiornamento delle licenze con il portafoglio digitale"^].
 
 
 

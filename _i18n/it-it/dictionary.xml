@@ -481,8 +481,6 @@ Per l'URL, in un browser, immettere:<block ref="6db7b50bf17b27cbede9f07c4fbc973e
   <block id="e6e80588e9fe7cf89218fea44300f7ca" category="inline-link">Scopri di più sui connettori</block>
   <block id="7530875db6f7eceea689fdfeb6a12778" category="paragraph">Per aggiungere un connettore, fare riferimento a.<block ref="d6df7dcc2fc3105e10967a9194806ce5" category="inline-link-rx"></block>.</block>
   <block id="ee6d03e51dd7b0fc10c6b3c8fcab3718" category="section-title">Al termine della prova, acquista una licenza BYOL tramite NetApp</block>
-  <block id="b11106bafac141be455d28549bfe177d" category="list-text">Selezionare *Aggiungi licenza ad BlueXP*. Verrai indirizzato al Digital Wallet di BlueXP.</block>
-  <block id="d2ec998008b95e1189b9d8f3dbc6ed64" category="inline-image-macro">Pagina licenza aggiunta portafoglio digitale BlueXP</block>
   <block id="8d4d6551ee286317b2a4f297766952f5" category="section-title">Termina la prova gratuita</block>
   <block id="859b0ef2563ddd8c6712d419656bde38" category="paragraph">È possibile interrompere la prova gratuita in qualsiasi momento o attendere la scadenza.</block>
   <block id="d940bc2868fa1d10a5c804aa0df8fd1b" category="list-text">Nel disaster recovery di BlueXP, in alto a destra, seleziona *prova gratuita - Visualizza dettagli*.</block>
@@ -494,19 +492,10 @@ Per l'URL, in un browser, immettere:<block ref="6db7b50bf17b27cbede9f07c4fbc973e
   <block id="c3964fe08c9dd95815cc67d8aaee9323" category="list-text">Digitare "fine prova" nella casella di testo.</block>
   <block id="44a320573c319d1f30b840c2d11a4e26" category="list-text">Selezionare *fine*.</block>
   <block id="3906249fde1cef9339402436007bb4f7" category="paragraph">Se porti la tua licenza BYOL, il setup include l'acquisto della licenza, il reperimento del file di licenza NetApp e l'aggiunta della licenza al Digital Wallet di BlueXP.</block>
-  <block id="c8508c0ce4da6dc634b7c66b1df15681" category="list-text">Selezionare *Aggiungi licenza*.</block>
-  <block id="8eea62084ca7e541d918e823422bd82e" category="paragraph-title">Risultato</block>
-  <block id="7c8c5dfa7e1cbe0ce55b88149d634d69" category="paragraph">Il Digital Wallet di BlueXP mostra il disaster recovery con una licenza.</block>
-  <block id="72e3dbb78819e204c1d67c9aaba1d190" category="inline-image-macro">Digital Wallet di NetApp BlueXP</block>
-  <block id="0cc39117ac352982de03de8143c8e3f5" category="paragraph"><block ref="0cc39117ac352982de03de8143c8e3f5" category="inline-image-macro-rx" type="image"></block></block>
   <block id="53ea2f641b462d658be2f78d3070c4e8" category="section-title">Aggiorna la tua licenza BlueXP alla scadenza</block>
   <block id="847676092f852cc523c768a478d757f1" category="paragraph">Se il termine in licenza si avvicina alla data di scadenza o se la capacità concessa in licenza sta raggiungendo il limite, riceverai una notifica nell'interfaccia utente di disaster recovery di BlueXP. Puoi aggiornare la licenza di disaster recovery di BlueXP prima che scada, in modo che non si verifichino interruzioni nella capacità di accesso ai dati sottoposti a scansione.</block>
   <block id="a274f4d4670213a9045ce258c6c56b80" category="inline-link">Notifiche</block>
   <block id="9cb535dcfcda2b04cab5b48ce4b5044b" category="admonition">Questo messaggio viene visualizzato anche nel Digital Wallet di BlueXP e in<block ref="b553b83f4f3ab8ad7adf12f36cefd6a6" category="inline-link-rx"></block>.</block>
-  <block id="2f3cc4968532c87cc8b40e840f800717" category="list-text">Seleziona l'icona della chat in basso a destra di BlueXP per richiedere un'estensione del termine o capacità aggiuntiva alla licenza per il numero di serie specifico. È anche possibile inviare un'e-mail per richiedere un aggiornamento della licenza.</block>
-  <block id="b23b97d3c26b0f7e2265329756cea9ca" category="paragraph">Dopo aver pagato la licenza e averla registrata nel NetApp Support Site, BlueXP aggiorna automaticamente la licenza nel portafoglio digitale BlueXP e la pagina licenze servizi dati rifletterà la modifica tra 5 e 10 minuti.</block>
-  <block id="5810a6765696da7b12979cf90b9b287c" category="list-text">Se BlueXP non riesce ad aggiornare automaticamente la licenza (ad esempio, se installata in un sito buio), sarà necessario caricare manualmente il file di licenza.</block>
-  <block id="147b35ab5352426bba38d99d810db4ed" category="list-text">È possibile ottenere il file di licenza dal sito di assistenza NetApp.</block>
   <block id="3a46f989d3db91bd2030de32947cd608" category="section-title">Vantaggi dell'utilizzo di BlueXP per il disaster recovery per VMware</block>
   <block id="cce8630c08ede8fc88504929ae963b37" category="paragraph">Il disaster recovery di BlueXP offre i seguenti benefici:</block>
   <block id="208ae1835c38717d827d78f2184f1eb8" category="paragraph">NetApp non ti addebita i costi per l'utilizzo della versione di prova del disaster recovery di BlueXP.</block>
@@ -577,12 +566,7 @@ Per un accesso completo è necessaria una licenza di disaster recovery BlueXP. T
   <block id="1594f78ebbb281f7b5359eb6d2b89912" category="list-text">Eseguire tutte le operazioni pianificate create durante il periodo di prova o sotto la licenza.</block>
   <block id="01c014f2e37e5bf6d3ce893bea0197cb" category="list-text">Dopo aver configurato un connettore, nella landing page di disaster recovery di BlueXP, il pulsante per aggiungere un connettore diventa un pulsante per iniziare una prova gratuita. Selezionare *Avvia prova gratuita*.</block>
   <block id="b9ef842238fa8d82db6b7559f33adc6c" category="paragraph">Al termine della prova, è possibile acquistare una licenza tramite il proprio rappresentante NetApp</block>
-  <block id="9bdfa376bcb2fa79aff92c39d0b24fcd" category="list-text">Una volta ottenuta la licenza, tornare al disaster recovery di BlueXP. Seleziona l'opzione *Visualizza metodi di pagamento* in alto a destra. Oppure, nel messaggio che la prova gratuita sta per scadere, seleziona *Sottoscrivi o acquista una licenza*.</block>
-  <block id="d2a39678e393e2b473354681a2c1e5f4" category="inline-image-macro">Scheda licenze servizi dati del Digital Wallet di BlueXP</block>
-  <block id="7578ebad24c71aee2f2992e5efe1118d" category="list-text">Nella pagina Aggiungi licenza, immettere il numero di serie e le informazioni sull'account del sito di assistenza NetApp.</block>
-  <block id="c6711fc66daa9915490ca9f9bdc7f08f" category="paragraph"><block ref="c6711fc66daa9915490ca9f9bdc7f08f" category="inline-image-macro-rx" type="image"></block></block>
   <block id="be94b7e6fbf892064754b145ecdeb994" category="paragraph"><block ref="be94b7e6fbf892064754b145ecdeb994" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="9fc7e8cb24850b1f0912cebc8da32620" category="list-text">Accedi al Digital Wallet di BlueXP.</block>
   <block id="be976ba4e18c887ae57e14f6ebfbbab3" category="sidebar">Il disaster recovery nel cloud rappresenta un modo resiliente e conveniente di proteggere i carichi di lavoro da fuori servizio del sito ed eventi di corruzione dei dati (ad esempio, il ransomware). Grazie al disaster recovery di BlueXP per VMware, puoi replicare i carichi di lavoro VMware on-premise con lo storage ONTAP in un data center software-defined VMware in un cloud pubblico o in un altro sito on-premise come sito di disaster recovery.</block>
   <block id="93716955add4f66b2af685a33bac4789" category="section-title">15 maggio 2024</block>
   <block id="9df62cb4d6f151b560e84723841bd523" category="paragraph">Questa release di disaster recovery di BlueXP include i seguenti aggiornamenti:</block>
@@ -591,7 +575,6 @@ Per un accesso completo è necessaria una licenza di disaster recovery BlueXP. T
   <block id="dd1ef091f49695b9c14e0e34da748ab7" category="list-text">Se non hai ancora aggiunto un connettore BlueXP, dovrai aggiungere un connettore. Per aggiungere un connettore, fare riferimento a.<block ref="d6df7dcc2fc3105e10967a9194806ce5" category="inline-link-rx"></block>.</block>
   <block id="e2066cd1f4f96874fad4da9c48f8715b" category="list-text">Se si sta già utilizzando il servizio, quando si seleziona "Disaster Recovery" viene visualizzato il dashboard.</block>
   <block id="7cc1b1d71d565ea421a16ed9422fe6c2" category="list-text">Acquista un abbonamento pay-as-you-go (PAYGO) con Amazon Web Services (AWS) Marketplace.</block>
-  <block id="23c019f17394a366e5bf51ef8a23b0a8" category="paragraph">Dopo aver configurato il BYOL, puoi vedere la licenza nella scheda *licenze servizio dati* del Digital Wallet di BlueXP.</block>
   <block id="4701248bbe25ed364a5f0c79467e9f29" category="list-text">Iniziare con l'aggiunta di vCenter.</block>
   <block id="d780b26d8f0dcbe5b2593febbaacdb60" category="paragraph">Per ulteriori informazioni, vedere <block ref="84d66f7662bc8a91a68e93706653efe2" category="inline-link-macro-rx"></block>.</block>
   <block id="ad7911fdd21ff5752d10300d0446de95" category="section-title">Al termine della prova, iscriviti attraverso AWS Marketplace</block>
@@ -599,16 +582,6 @@ Per un accesso completo è necessaria una licenza di disaster recovery BlueXP. T
   <block id="acce4a6c25bc51b4930085d68e3cb0cd" category="list-text">Nel disaster recovery di BlueXP, viene visualizzato un messaggio che informa che la prova gratuita sta per scadere. Nel messaggio, selezionare *Sottoscrivi o acquista una licenza*.</block>
   <block id="584a50ae29d097d233ebd86ad952d305" category="list-text">Seleziona *Iscriviti in AWS Marketplace*.</block>
   <block id="717132172ed170ccb94cc8674c35dfbd" category="list-text">Quando torni al disaster recovery di BlueXP, un messaggio indica che sei iscritto.</block>
-  <block id="6678054c83157276d9287735dd3e1d92" category="paragraph">Per visualizzare i dettagli dell'abbonamento nel Digital Wallet di BlueXP, seleziona *Visualizza i dettagli dell'abbonamento* e visualizza l'abbonamento attivo nella pagina *Sottoscrizioni*.</block>
-  <block id="0a504e78221db1ccaf51b7ad21bc16ce" category="inline-image-macro">Scheda Abbonamenti al Digital Wallet di BlueXP</block>
-  <block id="f3688cd67baeb83949d8b3d8688cda8b" category="paragraph"><block ref="f3688cd67baeb83949d8b3d8688cda8b" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="4052ab6997dacca028b4d726754818d5" category="paragraph">*Attivare la licenza*
-Dopo aver acquistato la licenza di disaster recovery BlueXP dal rappresentante di vendita NetApp, si attiva la licenza inserendo il numero di serie del disaster recovery di BlueXP e le informazioni dell'account del sito di supporto NetApp (NSS).</block>
-  <block id="e4822c1e77f0d7746ffdde4c031a2109" category="inline-image-macro">La pagina relativa ai metadati di pagamento per il disaster recovery di BlueXP</block>
-  <block id="5646d601e859bd392516de29f6a97047" category="paragraph"><block ref="5646d601e859bd392516de29f6a97047" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="595da0c0edf936a84fa3d6a69bbbb4e5" category="paragraph"><block ref="595da0c0edf936a84fa3d6a69bbbb4e5" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="5d50de45dd75ac0ea74e9c427687d113" category="list-text">Nel Digital Wallet di BlueXP, dalla scheda *licenze servizi dati*, seleziona *Aggiungi licenza*.</block>
-  <block id="7744384d0e7b78819bc53ca36ef36369" category="list-text">Selezionare la scheda *licenze servizi dati*, selezionare l'icona *azioni ...* per il numero di serie del servizio che si sta aggiornando, quindi selezionare *Aggiorna licenza*.</block>
   <block id="d66d706cd022ab39ed6479a713135515" category="paragraph"><block ref="d66d706cd022ab39ed6479a713135515" category="inline-image-macro-rx" type="image"></block></block>
   <block id="991e816286764c3a5ea9b023c35e1d77" category="paragraph"><block ref="991e816286764c3a5ea9b023c35e1d77" category="inline-image-macro-rx" type="image"></block></block>
   <block id="b45dfe874eaba6a97e58e0436eba2402" category="sidebar">Guida introduttiva al Disaster Recovery as a Service Lab on Demand di BlueXP</block>
@@ -801,8 +774,6 @@ Dopo aver acquistato la licenza di disaster recovery BlueXP dal rappresentante d
   <block id="8e635b1aadad234871ba0e012309361f" category="list-text">Identificare la ricorrenza, eseguire uno script ospitato da guest, impostare l'ordine di avvio e selezionare l'obiettivo del punto di ripristino.</block>
   <block id="1c10305a999dce53cb52dd4f6b8d89ff" category="list-text">Rivedere il piano.</block>
   <block id="054b753af44fc4eeee43c9ba6037caaa" category="doc">Creare report di disaster recovery</block>
-  <block id="fca90381d84b0e9a022fdeac2012d4ab" category="paragraph">È necessario il numero di serie del ripristino di emergenza BlueXP . Individua questo numero nell'ordine di vendita o contatta l'account team per ottenere queste informazioni.</block>
-  <block id="20efb062527877ed8fd82ba191b8951b" category="paragraph">*Aggiungere la licenza al portafoglio digitale BlueXP * dopo aver acquistato una licenza di disaster recovery BlueXP , è necessario aggiungere la licenza al portafoglio digitale BlueXP .</block>
   <block id="61b173efd5c260fd3e3f446d9d4b37e7" category="section-title">Inizia a utilizzare BlueXP</block>
   <block id="eb596a544acd0e757253fec1e32880e2" category="inline-link">Registrati a BlueXP  e crea un'organizzazione</block>
   <block id="5c162fb1edd17998f73f4b49374c4871" category="paragraph">Se non l'avete già fatto,<block ref="6286584d7da60f5fb185c973c7a25fca" category="inline-link-rx"></block></block>
@@ -1055,4 +1026,13 @@ Dopo aver acquistato la licenza di disaster recovery BlueXP dal rappresentante d
   <block id="2b56dea239dc4c074a14290431d91d6a" category="list-text">Se è stato selezionato l'ultimo snapshot, viene eseguito l'aggiornamento SnapMirror per replicare le ultime modifiche.</block>
   <block id="380342b2d65f473fe650200caef78e53" category="list-text">In base alla selezione dello snapshot, il file system attivo viene ripristinato allo snapshot specificato (ultimo o selezionato)</block>
   <block id="c05fbe62f8e4ec67f1b21ca8610fda50" category="list-text">Nella pagina di failover, avviare uno snapshot ora o scegliere lo snapshot per il datastore da cui ripristinare. L'impostazione predefinita è l'ultima.</block>
+  <block id="2847599cd91bec7d486721243d329494" category="inline-link-macro">Ulteriori informazioni sul Digital Wallet</block>
+  <block id="2b04b3177ca047bdf9530f96b48dc58a" category="paragraph"><block ref="177b16e5e66adf0c0c4922a109055a31" category="inline-link-macro-rx"></block>.</block>
+  <block id="9e8edb5d154a8f2c2ab3efde5a90b95d" category="inline-link-macro">Scopri di più sulla gestione delle iscrizioni con il Digital Wallet</block>
+  <block id="61ebc53e0bf68b97af4405116db69639" category="paragraph">Puoi visualizzare i dettagli dell'abbonamento nel portafoglio digitale di BlueXP . <block ref="c076e949682edba51af0e34c4227dbba" category="inline-link-macro-rx"></block>.</block>
+  <block id="745499562c1b6475b616a3cdf246c3d8" category="paragraph">*Aggiungi la licenza al portafoglio digitale BlueXP ** dopo aver acquistato la licenza di disaster recovery BlueXP  dal rappresentante di vendita NetApp, puoi gestire la licenza nel portafoglio digitale.</block>
+  <block id="2fb18b7eb7edfd6ac0fa8586ecbd9a12" category="inline-link">Scopri come aggiungere licenze con il Digital Wallet</block>
+  <block id="e2a36029181f04d6208811edf66b0c62" category="paragraph"><block ref="039fd09b60dad6f86188402eac2ef738" category="inline-link-rx"></block>.</block>
+  <block id="5d3579189b9441a8b42010228d169cbc" category="inline-link">Ulteriori informazioni sull'aggiornamento delle licenze con il portafoglio digitale</block>
+  <block id="597c7a7ee6e647859f8aa98b20be3cb0" category="paragraph"><block ref="1180f9bbf40cd0c05f379b347ef1d8f9" category="inline-link-rx"></block>.</block>
 </blocks>
