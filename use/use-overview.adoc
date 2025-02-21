@@ -14,8 +14,9 @@ summary: Il disaster recovery di NetApp BlueXP è un servizio di disaster recove
 [role="lead"]
 Il disaster recovery di BlueXP ti permette di raggiungere i seguenti obiettivi:
 
-* link:../use/dashboard-view.html["Visualizzare lo stato dei piani di disaster recovery"]
+* link:../use/dashboard-view.html["Visualizzare lo stato dei piani di disaster recovery"].
 * link:../use/sites-add.html["Aggiungere siti vCenter"].
+* link:../use/resource-group.html["Creare gruppi di risorse per organizzare insieme le VM"]
 * link:../use/drplan-create.html["Creare un piano di disaster recovery"].
 * link:../use/replicate.html["Replica delle applicazioni VMware"] Sul tuo sito primario in un sito remoto di disaster recovery nel cloud usando la replica SnapMirror.
 * link:../use/migrate.html["Migrazione delle applicazioni VMware"] sul sito primario in un altro sito.

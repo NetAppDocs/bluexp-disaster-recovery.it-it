@@ -1,0 +1,82 @@
+---
+sidebar: sidebar 
+permalink: use/resource-group.html 
+keywords: disaster recovery, bluexp disaster recovery, failover, failback, replicate, fail over, fail back, vmware, vcenter, replication plan, protection, disaster, recovery, virtual machines, vm 
+summary: Il disaster recovery di NetApp BlueXP è un servizio di disaster recovery basato sul cloud che automatizza i flussi di lavoro di disaster recovery. Una volta aggiunti i siti vCenter, potrai creare un piano di disaster recovery o replica. 
+---
+= Creare un gruppo di risorse per organizzare le VM insieme
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/use/
+
+
+[role="lead"]
+Una volta aggiunti i siti vCenter, potresti voler creare gruppi di risorse che raggruppano le macchine virtuali. I gruppi di risorse consentono di organizzare una serie di macchine virtuali dipendenti in gruppi logici che soddisfano le proprie esigenze. Ad esempio, è possibile raggruppare le macchine virtuali associate a un'applicazione oppure raggruppare le applicazioni con livelli simili. Come altro esempio, i gruppi potrebbero contenere ordini di avvio ritardati che possono essere eseguiti al momento del ripristino.
+
+È possibile creare gruppi di risorse utilizzando i seguenti metodi:
+
+* Dalla scheda gruppi di risorse
+* Durante la creazione di un piano di disaster recovery o di _replica_. Se si dispone di molte macchine virtuali ospitate da un cluster vCenter di origine, potrebbe essere più semplice creare i gruppi di risorse durante la creazione del piano di replica. Per istruzioni sulla creazione di gruppi di risorse durante la creazione di un piano di replica, vedere link:dr-plan-create.html["Creare un piano di replica"].
+
+
+
+TIP: Ogni gruppo di risorse può includere una o più VM. Le macchine virtuali si accenderanno in base alla sequenza in cui vengono incluse nel piano di replica. È possibile modificare l'ordine trascinando le VM verso l'alto o verso il basso nell'elenco dei gruppi di risorse.
+
+.Informazioni sui gruppi di risorse
+I gruppi di risorse consentono di combinare le macchine virtuali correlate a livello operativo e che devono essere protette come una singola unità.
+
+Ad esempio, un'applicazione point-of-sale potrebbe essere costituita da diverse macchine virtuali che ospitano database, diverse macchine virtuali che ospitano la gestione delle regole della logica aziendale e diverse macchine virtuali che fungono da storefront basato su webserver. Gestire la disponibilità dell'intera applicazione con un singolo processo di protezione può essere vantaggioso collocare queste VM in un singolo gruppo di risorse.
+
+Con i gruppi di risorse impostati, è possibile applicare le regole del piano di replica per l'ordine di avvio corretto della VM, la connessione di rete e altro ancora per garantire il ripristino corretto di tutte le VM richieste per l'applicazione.
+
+.Come funziona?
+Il disaster recovery di BlueXP  protegge le macchine virtuali replicando i volumi ONTAP sottostanti e i LUN che ospitano le macchine virtuali nel gruppo di risorse. A tale scopo, il sistema esegue una query in vCenter per individuare il nome di ciascun datastore che ospita le macchine virtuali in un gruppo di risorse. Il disaster recovery di BlueXP  identifica quindi il volume ONTAP di origine o la LUN che ospita quel datastore. Tutta la protezione viene eseguita a livello di volume ONTAP utilizzando la replica SnapMirror.
+
+Se le VM nel gruppo di risorse sono ospitate in diversi datastore, il disaster recovery di BlueXP  utilizza uno dei seguenti metodi per creare una snapshot coerente con i dati dei volumi ONTAP o delle LUN.
+
+[cols="30,65a"]
+|===
+| Posizione relativa dei volumi FlexVol | Processo di replica Snapshot 
+
+
+| Archivi dati multipli - volumi FlexVol nella *stessa SVM*  a| 
+* Gruppo di coerenza ONTAP creato
+* Istantanee del gruppo di coerenza acquisite
+* Esecuzione della replica SnapMirror con ambito di volume
+
+
+
+
+| Archivi di dati multipli - volumi FlexVol in *più SVM*  a| 
+* API ONTAP: `cg_start`. Consente di chiudere tutti i volumi in modo da creare snapshot e avviare snapshot con ambito di volume di tutti i volumi dei gruppi di risorse.
+* API ONTAP: `cg_end`. Riprende l'i/o su tutti i volumi e consente la replica SnapMirror con ambito di volume dopo la creazione di snapshot.
+
+
+|===
+Quando si creano gruppi di risorse, considerare i seguenti aspetti:
+
+* Un singolo datastore non deve ospitare macchine virtuali protette da più di un piano di replica.
+* Non ospitare macchine virtuali protette e non protette sullo stesso datastore. Se macchine virtuali protette e non protette vengono ospitate nello stesso datastore, possono verificarsi i seguenti problemi:
++
+** Poiché il disaster recovery di BlueXP  utilizza SnapMirror e il sistema replica interi ONTAP Volume, la capacità utilizzata di quel volume viene utilizzata per prendere in considerazione la licenza. In questo caso, lo spazio del volume occupato dalle macchine virtuali protette e non protette sarebbe incluso in questo calcolo.
+** Se è necessario eseguire il failover del gruppo di risorse e degli archivi dati associati nel sito di disaster recovery, qualsiasi macchina virtuale non protetta (macchine virtuali non appartenenti al gruppo di risorse ma ospitate nel volume ONTAP) non esisterà più sul sito di origine dal processo di failover, con conseguente guasto di macchine virtuali non protette nel sito di origine. Inoltre, il disaster recovery di BlueXP  non avvierà le macchine virtuali non protette sul sito vCenter di failover.
+
+
+* Per avere una VM protetta, deve essere inclusa in un gruppo di risorse.
+
+
+*BEST PRACTICE*: Organizzare le macchine virtuali prima di implementare il disaster recovery di BlueXP  per ridurre al minimo la "proliferazione dei datastore". Posiziona le macchine virtuali che richiedono protezione su un sottoinsieme di archivi dati e posiziona le macchine virtuali che non devono essere protette in un altro sottoinsieme di archivi dati. Assicurarsi che le macchine virtuali di un determinato archivio dati non siano protette da piani di replica diversi.
+
+.Fasi
+. Dal menu disaster recovery di BlueXP , selezionare *gruppi di risorse*.
+. Selezionare *Aggiungi*.
+. Immettere un nome per il gruppo di risorse.
+. Selezionare il cluster vCenter di origine in cui si trovano le VM.
+. Sul lato sinistro della pagina Aggiungi gruppi di risorse, selezionare le macchine virtuali che si desidera proteggere.
++
+image:dr-resource-groups-add.png["Schermata che mostra la pagina Aggiungi gruppi di risorse"]
+
+. Facoltativamente, modificare l'ordine delle VM a destra trascinando ciascuna VM verso l'alto o verso il basso nell'elenco. Le VM si accenderanno in base alla sequenza in cui vengono incluse.
+. Selezionare *Aggiungi*.
+
