@@ -37,7 +37,13 @@ Puoi modificare il nome del sito vCenter e il tipo di sito (on-premise o AWS).
 
 == Gestire i gruppi di risorse
 
-Sebbene sia possibile aggiungere un gruppo di risorse come parte della creazione di un piano di replica, potrebbe essere più conveniente aggiungere i gruppi separatamente e in seguito utilizzare tali gruppi nel piano.
+Sebbene sia possibile aggiungere un gruppo di risorse come parte della creazione di un piano di replica, potrebbe essere più conveniente aggiungere i gruppi separatamente e in seguito utilizzare tali gruppi nel piano. Puoi creare gruppi di risorse per macchine virtuali o datastore.
+
+È possibile creare un gruppo di risorse per datastore nei seguenti modi:
+
+* Quando si aggiunge un gruppo di risorse tramite datastore, è possibile visualizzare un elenco di datastore. È possibile selezionare uno o più datastore per creare un gruppo di risorse.
+* Quando si crea un piano di replica e si crea un gruppo di risorse all'interno del piano, è possibile visualizzare le macchine virtuali negli archivi dati.
+
 
 È inoltre possibile modificare ed eliminare i gruppi di risorse.
 

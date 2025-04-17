@@ -12,7 +12,7 @@ summary: Il disaster recovery nel cloud rappresenta un modo conveniente e resili
 
 
 [role="lead"]
-Il disaster recovery nel cloud rappresenta un modo conveniente e resiliente per proteggere i carichi di lavoro da fuori servizio del sito e eventi di corruzione dei dati. Grazie al disaster recovery di BlueXP per VMware, puoi replicare i carichi di lavoro VMware on-premise con lo storage ONTAP su un data center software-defined VMware in un cloud pubblico utilizzando il cloud storage NetApp o in un altro ambiente VMware on-premise con lo storage ONTAP come sito di disaster recovery.
+Il disaster recovery nel cloud rappresenta un modo conveniente e resiliente per proteggere i carichi di lavoro da fuori servizio del sito e eventi di corruzione dei dati. Con il disaster recovery di BlueXP  per VMware, puoi replicare i carichi di lavoro di datastore o macchine virtuali VMware on-premise che eseguono lo storage ONTAP su un data center software-defined VMware in un cloud pubblico utilizzando il cloud storage NetApp o in un altro ambiente VMware on-premise con lo storage ONTAP come sito di disaster recovery.
 
 Il disaster recovery di BlueXP è un servizio di disaster recovery basato sul cloud che automatizza i flussi di lavoro di disaster recovery. Grazie al servizio di disaster recovery BlueXP , puoi proteggere i tuoi carichi di lavoro on-premise basati su NFS e gli archivi dati VMFS (Virtual Machine file System) di VMware vSphere per iSCSI e FC che eseguono lo storage NetApp in uno dei seguenti modi:
 
@@ -48,8 +48,8 @@ Il disaster recovery di BlueXP ti fornisce l'utilizzo completo di diverse tecnol
 * Replica le app VMware sul sito di produzione on-premise in un sito remoto di disaster recovery nel cloud o on-premise utilizzando la replica SnapMirror.
 * Eseguire la migrazione dei carichi di lavoro VMware dal sito originale a un altro sito.
 * Eseguire un test di failover; le macchine virtuali vengono create temporaneamente. Il disaster recovery di BlueXP  crea un nuovo volume FlexClone dalla snapshot selezionata e un datastore temporaneo di backup del volume FlexClone viene mappato agli host ESXi. Questo processo non consuma capacità fisica aggiuntiva nello storage ONTAP on-premise o in FSX per lo storage NetApp ONTAP in AWS. Il volume di origine originale non viene modificato e i processi di replica possono continuare anche durante il ripristino di emergenza.
-* In caso di disastro, effettua il failover on-demand nel sito di disaster recovery, che può essere VMware Cloud su AWS con FSX per NetApp ONTAP o un ambiente VMware on-premise con ONTAP.
-* Una volta risolto il disastro, è possibile eseguire il failback on-demand dal sito di disaster recovery al sito primario.
+* In caso di disastro, effettua il failover on-demand nel sito di disaster recovery, che può essere VMware Cloud su AWS con Amazon FSX per NetApp ONTAP o un ambiente VMware on-premise con ONTAP.
+* Una volta risolto il disastro, è possibile eseguire il failback on-demand dal sito di disaster recovery al sito primario. *Raggruppare le macchine virtuali o i datastore in gruppi di risorse logiche per una gestione efficiente.
 
 
 

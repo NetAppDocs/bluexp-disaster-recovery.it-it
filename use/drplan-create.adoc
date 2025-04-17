@@ -20,6 +20,13 @@ Tali piani sono a volte chiamati _blueprint_.
 
 Puoi proteggere più VM su datastore multipli. Il disaster recovery di BlueXP  crea gruppi di coerenza ONTAP per tutti i volumi ONTAP che ospitano datastore di macchine virtuali protetti.
 
+Le macchine virtuali possono essere protette solo se il piano di replica si trova in uno dei seguenti stati:
+
+* Pronti
+* Failback confermata
+* Verifica failover confermata
+
+
 
 
 == Creare il piano
@@ -27,7 +34,7 @@ Puoi proteggere più VM su datastore multipli. Il disaster recovery di BlueXP  
 Una procedura guidata consente di eseguire le seguenti operazioni:
 
 * Seleziona i server vCenter.
-* Selezionare le VM da replicare e assegnare gruppi.
+* Seleziona le macchine virtuali o gli archivi dati che desideri replicare e assegnare gruppi di risorse.
 * Mappare la modalità di mappatura delle risorse dall'ambiente di origine alla destinazione.
 * Identificare la ricorrenza, eseguire uno script ospitato da guest, impostare l'ordine di avvio e selezionare l'obiettivo del punto di ripristino.
 * Rivedere il piano.
@@ -64,27 +71,54 @@ image:dr-plan-create-name.png["Schermata che mostra la pagina Aggiungi piano di 
 
 === Selezionare le applicazioni da replicare e assegnare gruppi di risorse
 
-Il passaggio successivo consiste nel raggruppare le VM richieste in gruppi di risorse funzionali. I gruppi di risorse consentono di raggruppare una serie di macchine virtuali dipendenti in gruppi logici che soddisfano i propri requisiti. Ad esempio, i gruppi potrebbero contenere ordini di avvio ritardati che possono essere eseguiti al momento del ripristino.
+La fase successiva consiste nel raggruppare le VM o i datastore richiesti in gruppi di risorse funzionali. I gruppi di risorse consentono di raggruppare una serie di macchine virtuali o datastore dipendenti in gruppi logici in grado di soddisfare i tuoi requisiti. Ad esempio, i gruppi potrebbero contenere ordini di avvio ritardati che possono essere eseguiti al momento del ripristino.
 
-Quando si selezionano le applicazioni nel piano di replica, è possibile visualizzare il sistema operativo per ciascuna VM del piano. Ciò è utile per decidere come raggruppare le VM in un gruppo di risorse.
+Quando selezioni le applicazioni nel piano di replica, puoi vedere il sistema operativo per ogni macchina virtuale o datastore nel piano. Che è utile per decidere come raggruppare macchine virtuali o datastore in un gruppo di risorse.
 
 
-TIP: Ogni gruppo di risorse può includere una o più VM. Le macchine virtuali si accenderanno in base alla sequenza in cui vengono incluse.
+TIP: Ogni gruppo di risorse può includere una o più macchine virtuali o datastore. Le macchine virtuali si accenderanno in base alla sequenza in cui vengono incluse.
+
+Quando si creano gruppi di risorse, considerare i seguenti aspetti:
+
+* Prima di aggiungere datastore ai gruppi di risorse, avviare prima un rilevamento manuale o un rilevamento pianificato delle macchine virtuali. In questo modo si garantisce che le VM vengano rilevate ed elencate nel gruppo di risorse. Se non si attiva una ricerca manuale, le VM potrebbero non essere elencate nel gruppo di risorse.
+* Assicurarsi che nel datastore sia presente almeno una macchina virtuale. Se nel datastore non sono presenti macchine virtuali, il datastore non verrà rilevato.
+* Un singolo datastore non deve ospitare macchine virtuali protette da più di un piano di replica.
+* Non ospitare macchine virtuali protette e non protette nello stesso datastore. Se le macchine virtuali protette e non protette sono ospitate nello stesso datastore, possono verificarsi i seguenti problemi:
++
+** Poiché il disaster recovery di BlueXP  utilizza SnapMirror e il sistema replica interi ONTAP Volume, la capacità utilizzata di quel volume viene utilizzata per prendere in considerazione la licenza. In questo caso, lo spazio del volume occupato dalle macchine virtuali protette e non protette sarebbe incluso in questo calcolo.
+** Se il gruppo di risorse e i datastore associati devono essere sottoposti a failover nel sito di disaster recovery, qualsiasi macchina virtuale non protetta (macchine virtuali non appartenenti al gruppo di risorse ma ospitate nel volume ONTAP) non esisterà più sul sito di origine dal processo di failover, con conseguente guasto di macchine virtuali non protette nel sito di origine. Inoltre, il disaster recovery di BlueXP  non avvierà le macchine virtuali non protette sul sito vCenter di failover.
+
+
+* Per avere una VM protetta, deve essere inclusa in un gruppo di risorse.
+
+
+*BEST PRACTICE*: Organizzare le macchine virtuali prima di implementare il disaster recovery di BlueXP  per ridurre al minimo la "proliferazione dei datastore". Posiziona le macchine virtuali che richiedono protezione su un sottoinsieme di datastore e posiziona le macchine virtuali che non verranno protette in un altro sottoinsieme di datastore. Assicurarsi che le macchine virtuali di un determinato datastore non siano protette da piani di replica diversi.
 
 .Fasi
-. In alternativa, nella parte sinistra della pagina applicazioni, è possibile filtrare le macchine virtuali in base all'archivio dati. È inoltre possibile cercare macchine virtuali specifiche per nome.
-. Sul lato sinistro della pagina applicazioni, selezionare le macchine virtuali che si desidera proteggere e assegnare al gruppo selezionato.
+. Selezionare *macchine virtuali* o *archivi dati*.
+. È possibile cercare una macchina virtuale o un datastore specifici per nome.
+. Sul lato sinistro della pagina applicazioni, selezionare le macchine virtuali o gli archivi dati che si desidera proteggere e assegnare al gruppo selezionato.
 +
-La VM selezionata viene aggiunta automaticamente al gruppo 1 e viene avviato un nuovo gruppo 2. Ogni volta che si aggiunge una macchina virtuale all'ultimo gruppo, viene aggiunto un altro gruppo.
+La risorsa selezionata viene aggiunta automaticamente al gruppo 1 e viene avviato un nuovo gruppo 2. Ogni volta che si aggiunge una risorsa all'ultimo gruppo, viene aggiunto un altro gruppo.
 
 +
-image:dr-plan-create-apps-vms5.png["Schermata che mostra la pagina Aggiungi piano di replica > applicazioni da replicare"]
+image:dr-plan-create-apps-vms6.png["Schermata che mostra la pagina Aggiungi piano di replica > applicazioni da replicare"]
+
++
+Oppure, per i datastore:
+
++
+image:dr-plan-create-apps-datastores.png["Schermata che mostra la pagina Aggiungi piano di replica > applicazioni da replicare"]
 
 . Facoltativamente, eseguire una delle seguenti operazioni:
 +
 ** Per modificare il nome del gruppo, fare clic sull'icona *Modifica* del gruppoimage:icon-pencil.png["Icona a forma di matita"].
-** Per rimuovere una macchina virtuale da un gruppo, selezionare *X* accanto alla macchina virtuale.
-** Per spostare una macchina virtuale in un gruppo diverso, trascinarla e rilasciarla nel nuovo gruppo.
+** Per rimuovere una risorsa da un gruppo, selezionare *X* accanto alla risorsa.
+** Per spostare una risorsa in un gruppo diverso, trascinarla e rilasciarla nel nuovo gruppo.
++
+
+TIP: Per spostare un datastore in un gruppo di risorse diverso, deselezionare l'archivio dati indesiderato e inviare il piano di replica. Quindi, creare o modificare l'altro piano di replica e riselezionare l'archivio dati.
+
 
 
 . Quando si dispone di più gruppi di risorse, assicurarsi che la sequenza dei gruppi corrisponda alla sequenza operativa che dovrebbe verificarsi.

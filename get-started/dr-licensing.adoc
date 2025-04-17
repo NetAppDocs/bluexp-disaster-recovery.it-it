@@ -118,13 +118,13 @@ https://docs.netapp.com/us-en/bluexp-digital-wallet/task-manage-data-services-li
 +
 image:draas-trial-end3.png["Termina la pagina di prova gratuita"]
 
-. Se si desidera eliminare tutti i dati, selezionare *Elimina tutti i dati al termine della prova*.
+. Se si desidera eliminare tutti i dati, selezionare *Elimina dati immediatamente dopo aver terminato la prova gratuita*.
 +
 In questo modo verranno eliminate tutte le pianificazioni, i piani di replica, i gruppi di risorse, i centri virtuali e i siti. I dati di controllo, i registri delle operazioni e la cronologia dei processi vengono conservati fino alla fine del ciclo di vita del prodotto.
 
 +
 
-NOTE: Se termina la prova gratuita e non ti viene chiesto di eliminare i dati e non acquisti una licenza o un abbonamento, 60 giorni dopo la fine della prova gratuita, il disaster recovery di BlueXP elimina tutti i dati.
+NOTE: Se si termina la prova gratuita, non si è chiesto di eliminare i dati e non si acquista una licenza o un abbonamento, il ripristino d'emergenza BlueXP  elimina tutti i dati 60 giorni dopo la fine della prova gratuita.
 
 . Digitare "fine prova" nella casella di testo.
 . Selezionare *fine*.

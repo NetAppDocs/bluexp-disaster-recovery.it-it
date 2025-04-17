@@ -12,19 +12,21 @@ summary: Il disaster recovery di NetApp BlueXP è un servizio di disaster recove
 
 
 [role="lead"]
-Una volta aggiunti i siti vCenter, potresti voler creare gruppi di risorse che raggruppano le macchine virtuali. I gruppi di risorse consentono di organizzare una serie di macchine virtuali dipendenti in gruppi logici che soddisfano le proprie esigenze. Ad esempio, è possibile raggruppare le macchine virtuali associate a un'applicazione oppure raggruppare le applicazioni con livelli simili. Come altro esempio, i gruppi potrebbero contenere ordini di avvio ritardati che possono essere eseguiti al momento del ripristino.
+Una volta aggiunti siti vCenter, potresti voler creare gruppi di risorse che raggruppano le macchine virtuali in base alle macchine virtuali o ai datastore. I gruppi di risorse consentono di organizzare una serie di macchine virtuali dipendenti in gruppi logici che soddisfano le proprie esigenze. Ad esempio, è possibile raggruppare le macchine virtuali associate a un'applicazione oppure raggruppare le applicazioni con livelli simili. Come altro esempio, i gruppi potrebbero contenere ordini di avvio ritardati che possono essere eseguiti al momento del ripristino.
+
+Puoi raggruppare macchine virtuali in maniera autonoma o macchine virtuali in datastore.
 
 È possibile creare gruppi di risorse utilizzando i seguenti metodi:
 
 * Dalla scheda gruppi di risorse
-* Durante la creazione di un piano di disaster recovery o di _replica_. Se si dispone di molte macchine virtuali ospitate da un cluster vCenter di origine, potrebbe essere più semplice creare i gruppi di risorse durante la creazione del piano di replica. Per istruzioni sulla creazione di gruppi di risorse durante la creazione di un piano di replica, vedere link:dr-plan-create.html["Creare un piano di replica"].
+* Durante la creazione di un piano di disaster recovery o di _replica_. Se si dispone di molte macchine virtuali ospitate da un cluster vCenter di origine, potrebbe essere più semplice creare i gruppi di risorse durante la creazione del piano di replica. Per istruzioni sulla creazione di gruppi di risorse durante la creazione di un piano di replica, vedere link:drplan-create.html["Creare un piano di replica"].
 
 
 
-TIP: Ogni gruppo di risorse può includere una o più VM. Le macchine virtuali si accenderanno in base alla sequenza in cui vengono incluse nel piano di replica. È possibile modificare l'ordine trascinando le VM verso l'alto o verso il basso nell'elenco dei gruppi di risorse.
+TIP: Ogni gruppo di risorse può includere una o più macchine virtuali o datastore. Le macchine virtuali si accenderanno in base alla sequenza in cui vengono incluse nel piano di replica. È possibile modificare l'ordine trascinando le macchine virtuali o gli archivi dati verso l'alto o verso il basso nell'elenco dei gruppi di risorse.
 
 .Informazioni sui gruppi di risorse
-I gruppi di risorse consentono di combinare le macchine virtuali correlate a livello operativo e che devono essere protette come una singola unità.
+I gruppi di risorse consentono di combinare macchine virtuali o datastore che includono macchine virtuali correlate a livello operativo e che devono essere protette come una singola unità.
 
 Ad esempio, un'applicazione point-of-sale potrebbe essere costituita da diverse macchine virtuali che ospitano database, diverse macchine virtuali che ospitano la gestione delle regole della logica aziendale e diverse macchine virtuali che fungono da storefront basato su webserver. Gestire la disponibilità dell'intera applicazione con un singolo processo di protezione può essere vantaggioso collocare queste VM in un singolo gruppo di risorse.
 
@@ -56,26 +58,33 @@ Se le VM nel gruppo di risorse sono ospitate in diversi datastore, il disaster r
 |===
 Quando si creano gruppi di risorse, considerare i seguenti aspetti:
 
+* Prima di aggiungere datastore ai gruppi di risorse, avviare prima un rilevamento manuale o un rilevamento pianificato delle macchine virtuali. In questo modo si garantisce che le VM vengano rilevate ed elencate nel gruppo di risorse. Se non si attiva una ricerca manuale, le VM potrebbero non essere elencate nel gruppo di risorse.
+* Assicurarsi che nel datastore sia presente almeno una macchina virtuale. Se nel datastore non sono presenti macchine virtuali, il datastore non verrà rilevato.
 * Un singolo datastore non deve ospitare macchine virtuali protette da più di un piano di replica.
-* Non ospitare macchine virtuali protette e non protette sullo stesso datastore. Se macchine virtuali protette e non protette vengono ospitate nello stesso datastore, possono verificarsi i seguenti problemi:
+* Non ospitare macchine virtuali protette e non protette nello stesso datastore. Se le macchine virtuali protette e non protette sono ospitate nello stesso datastore, possono verificarsi i seguenti problemi:
 +
 ** Poiché il disaster recovery di BlueXP  utilizza SnapMirror e il sistema replica interi ONTAP Volume, la capacità utilizzata di quel volume viene utilizzata per prendere in considerazione la licenza. In questo caso, lo spazio del volume occupato dalle macchine virtuali protette e non protette sarebbe incluso in questo calcolo.
-** Se è necessario eseguire il failover del gruppo di risorse e degli archivi dati associati nel sito di disaster recovery, qualsiasi macchina virtuale non protetta (macchine virtuali non appartenenti al gruppo di risorse ma ospitate nel volume ONTAP) non esisterà più sul sito di origine dal processo di failover, con conseguente guasto di macchine virtuali non protette nel sito di origine. Inoltre, il disaster recovery di BlueXP  non avvierà le macchine virtuali non protette sul sito vCenter di failover.
+** Se il gruppo di risorse e i datastore associati devono essere sottoposti a failover nel sito di disaster recovery, qualsiasi macchina virtuale non protetta (macchine virtuali non appartenenti al gruppo di risorse ma ospitate nel volume ONTAP) non esisterà più sul sito di origine dal processo di failover, con conseguente guasto di macchine virtuali non protette nel sito di origine. Inoltre, il disaster recovery di BlueXP  non avvierà le macchine virtuali non protette sul sito vCenter di failover.
 
 
 * Per avere una VM protetta, deve essere inclusa in un gruppo di risorse.
 
 
-*BEST PRACTICE*: Organizzare le macchine virtuali prima di implementare il disaster recovery di BlueXP  per ridurre al minimo la "proliferazione dei datastore". Posiziona le macchine virtuali che richiedono protezione su un sottoinsieme di archivi dati e posiziona le macchine virtuali che non devono essere protette in un altro sottoinsieme di archivi dati. Assicurarsi che le macchine virtuali di un determinato archivio dati non siano protette da piani di replica diversi.
+*BEST PRACTICE*: Organizzare le macchine virtuali prima di implementare il disaster recovery di BlueXP  per ridurre al minimo la "proliferazione dei datastore". Posiziona le macchine virtuali che richiedono protezione su un sottoinsieme di datastore e posiziona le macchine virtuali che non verranno protette in un altro sottoinsieme di datastore. Assicurarsi che le macchine virtuali di un determinato datastore non siano protette da piani di replica diversi.
 
 .Fasi
 . Dal menu disaster recovery di BlueXP , selezionare *gruppi di risorse*.
 . Selezionare *Aggiungi*.
 . Immettere un nome per il gruppo di risorse.
 . Selezionare il cluster vCenter di origine in cui si trovano le VM.
+. Selezionare *macchine virtuali* o *Datastores* a seconda della modalità di ricerca.
+. Selezionare la scheda *Aggiungi gruppi di risorse*. Il sistema elenca tutti i datastore o le macchine virtuali nel cluster vCenter selezionato. Se è stato selezionato *Datastores*, il sistema elenca tutti gli archivi dati nel cluster vCenter selezionato. Se si seleziona *macchine virtuali*, il sistema elenca tutte le macchine virtuali nel cluster vCenter selezionato.
 . Sul lato sinistro della pagina Aggiungi gruppi di risorse, selezionare le macchine virtuali che si desidera proteggere.
 +
 image:dr-resource-groups-add.png["Schermata che mostra la pagina Aggiungi gruppi di risorse"]
+
++
+image:dr-resource-groups-datastores-add.png["Schermata che mostra la pagina Aggiungi gruppi di risorse"]
 
 . Facoltativamente, modificare l'ordine delle VM a destra trascinando ciascuna VM verso l'alto o verso il basso nell'elenco. Le VM si accenderanno in base alla sequenza in cui vengono incluse.
 . Selezionare *Aggiungi*.

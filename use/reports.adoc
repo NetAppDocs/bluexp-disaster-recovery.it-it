@@ -14,10 +14,7 @@ summary: 'La revisione dei report sul disaster recovery può aiutarti ad analizz
 [role="lead"]
 La revisione dei report sul disaster recovery può aiutarti ad analizzare la tua preparazione al disaster recovery. I report preprogettati includono un riepilogo dei failover dei test, dei dettagli del piano di replica e dei dettagli dei processi su tutti i siti all'interno di un account negli ultimi sette giorni.
 
-È possibile scaricare report in formato HTML o JSON.
-
-
-TIP: È possibile convertire la pagina HTML in un PDF utilizzando le opzioni del browser.
+È possibile scaricare i report in formato PDF, HTML o JSON.
 
 Il collegamento Download è valido per sei ore.
 

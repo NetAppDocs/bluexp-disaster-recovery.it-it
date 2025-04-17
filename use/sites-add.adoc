@@ -14,7 +14,23 @@ summary: Prima di poter creare un piano di disaster recovery, è necessario aggi
 [role="lead"]
 Prima di poter creare un piano di disaster recovery, è necessario aggiungere un server vCenter primario a un sito e un sito di disaster recovery vCenter di destinazione in BlueXP .
 
-Una volta aggiunti, il disaster recovery di BlueXP esegue un rilevamento approfondito degli ambienti vCenter, inclusi cluster vCenter, host ESXi, datastore, impronta ecologica dello storage, dettagli della macchina virtuale, repliche SnapMirror e reti di macchine virtuali.
+Una volta aggiunti i vCenter, il disaster recovery di BlueXP  esegue un rilevamento approfondito degli ambienti vCenter, inclusi cluster vCenter, host ESXi, datastore, impronta ecologica dello storage, dettagli delle macchine virtuali, repliche SnapMirror e reti di macchine virtuali.
+
+Se nelle release precedenti sono stati aggiunti vCenter e si desidera personalizzare la pianificazione del rilevamento, è necessario modificare il sito del server vCenter e impostare la pianificazione.
+
+
+TIP: Il disaster recovery di BlueXP  esegue il rilevamento ogni 24 ore. Dopo aver configurato un sito, è possibile modificare vCenter in un secondo momento per personalizzare la pianificazione di rilevamento che soddisfa le proprie esigenze. Ad esempio, se si dispone di un numero elevato di macchine virtuali, è possibile impostare la pianificazione del rilevamento in modo che venga eseguita ogni 23 ore e 59 minuti. Se si dispone di un numero limitato di macchine virtuali, è possibile impostare la pianificazione del rilevamento in modo che venga eseguita ogni 12 ore. L'intervallo minimo è di 30 minuti e il massimo è di 24 ore.
+
+Per ottenere le informazioni più aggiornate sull'ambiente in uso, è necessario innanzitutto effettuare alcune ricerche manuali. Successivamente, è possibile impostare l'esecuzione automatica della pianificazione.
+
+Le macchine virtuali appena aggiunte o eliminate vengono riconosciute nel successivo rilevamento pianificato o durante un rilevamento manuale immediato.
+
+Le macchine virtuali possono essere protette solo se il piano di replica si trova in uno dei seguenti stati:
+
+* Pronti
+* Failback confermata
+* Verifica failover confermata
+
 
 .Fasi
 . Accedi a BlueXP e seleziona *protezione* > *Disaster Recovery* dal navigatore di sinistra.
@@ -64,4 +80,38 @@ image:sites-list2.png["Schermata della pagina dei siti"]
 
 
 . Per visualizzare lo stato di avanzamento dell'operazione, dal menu superiore, selezionare *monitoraggio processi*.
+
+
+
+
+== Modificare il sito del server vCenter e personalizzare la pianificazione del rilevamento
+
+È possibile modificare il sito del server vCenter per personalizzare la pianificazione del rilevamento. Ad esempio, se si dispone di un numero elevato di macchine virtuali, è possibile impostare la pianificazione del rilevamento in modo che venga eseguita ogni 23 ore e 59 minuti. Se si dispone di un numero limitato di macchine virtuali, è possibile impostare la pianificazione del rilevamento in modo che venga eseguita ogni 12 ore.
+
+Se nelle release precedenti sono stati aggiunti vCenter e si desidera personalizzare la pianificazione del rilevamento, è necessario modificare il sito del server vCenter e impostare la pianificazione.
+
+Se non si desidera pianificare la ricerca, è possibile disattivare l'opzione di ricerca pianificata e aggiornare la ricerca manualmente in qualsiasi momento.
+
+.Fasi
+. Dal menu di ripristino di emergenza di BlueXP , selezionare *Siti*.
+. Selezionare il sito che si desidera modificare.
+. Selezionare l'icona azioni image:icon-vertical-dots.png["Icona delle azioni"] a destra e selezionare *Modifica*.
+. Nella pagina Modifica server vCenter, modificare i campi in base alle esigenze.
+. Per personalizzare la pianificazione della ricerca, selezionare la casella *Abilita ricerca pianificata* e selezionare la data e l'intervallo di tempo desiderati.
++
+image:sites-edit-schedule.png["Schermata Modifica pianificazione rilevamento"]
+
+. Selezionare *Salva*.
+
+
+
+
+== Aggiornare la ricerca manualmente
+
+È possibile aggiornare la ricerca manualmente in qualsiasi momento. Ciò è utile se sono state aggiunte o rimosse macchine virtuali e si desidera aggiornare le informazioni in BlueXP  Disaster Recovery.
+
+.Fasi
+. Dal menu di ripristino di emergenza di BlueXP , selezionare *Siti*.
+. Selezionare il sito che si desidera aggiornare.
+. Selezionare l'icona azioni image:icon-vertical-dots.png["Icona delle azioni"] a destra e selezionare *Aggiorna*.
 
