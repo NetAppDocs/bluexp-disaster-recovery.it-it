@@ -99,6 +99,7 @@ TIP: Utilizza il connettore BlueXP on-premise per quanto riguarda da on-premise 
 +
 Vedere https://docs.netapp.com/us-en/bluexp-ontap-onprem/task-discovering-ontap.html["Scopri i cluster ONTAP on-premise"^].
 
+* Per informazioni sulla configurazione di un proxy intelligente per il ripristino di emergenza BlueXP , vedere link:../get-started/dr-setup.html["Configura l'infrastruttura per il disaster recovery di BlueXP"].
 
 
 

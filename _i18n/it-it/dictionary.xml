@@ -1067,7 +1067,6 @@ Per un accesso completo è necessaria una licenza di disaster recovery BlueXP. T
   <block id="70fdbb4fe1ac448b07e3ab48c5bd8bb1" category="list-text">Se si desidera eliminare tutti i dati, selezionare *Elimina dati immediatamente dopo aver terminato la prova gratuita*.</block>
   <block id="ba1769c41cb5cf97045fc108e9213d38" category="admonition">Se si termina la prova gratuita, non si è chiesto di eliminare i dati e non si acquista una licenza o un abbonamento, il ripristino d'emergenza BlueXP  elimina tutti i dati 60 giorni dopo la fine della prova gratuita.</block>
   <block id="801c0fa0d304ca22d8afec06189bcf93" category="section-title">16 aprile 2025</block>
-  <block id="e1b61136672bccd13e6828fe7987e4f6" category="paragraph">Versione 4,3</block>
   <block id="61e45ffabe7cc2e3542ca9a55a1a53bf" category="paragraph">Le macchine virtuali possono essere protette solo se il piano di replica si trova in uno dei seguenti stati:</block>
   <block id="e7d31fc0602fb2ede144d18cdffd816b" category="list-text">Pronti</block>
   <block id="eca4b06cc957b067c25916bf563bfcb1" category="list-text">Failback confermata</block>
@@ -1124,4 +1123,18 @@ Per un accesso completo è necessaria una licenza di disaster recovery BlueXP. T
   <block id="c2104ad12897a5730ad3b288494cdd97" category="paragraph">È possibile aggiornare la ricerca manualmente in qualsiasi momento. Ciò è utile se sono state aggiunte o rimosse macchine virtuali e si desidera aggiornare le informazioni in BlueXP  Disaster Recovery.</block>
   <block id="5196afaaa8fb34fc7153a30daf14514e" category="list-text">Selezionare il sito che si desidera aggiornare.</block>
   <block id="c87fc74cb4f8f9196e191287a96f80dd" category="list-text">Selezionare l'icona azioni <block ref="145ad72607e9a3c177918d31007a191e" category="inline-image-macro-rx" type="image"></block> a destra e selezionare *Aggiorna*.</block>
+  <block id="78e5de64c036a105265b3f447a5fbbca" category="doc">Supporto proxy intelligente</block>
+  <block id="12430fc7d9e2c156fb2dc1af2bf60126" category="paragraph">Il connettore BlueXP  supporta il proxy intelligente. Il proxy intelligente è un modo leggero, sicuro ed efficiente per connettere l'ambiente on-premise al servizio BlueXP . Fornisce una connessione sicura tra l'ambiente e il servizio BlueXP  senza richiedere una VPN o un accesso diretto a Internet. Questa implementazione proxy ottimizzata alleggerisce il traffico API all'interno della rete locale.</block>
+  <block id="2baae43f4fa62104c66585e956c51e1e" category="paragraph">Quando viene configurato un proxy, BlueXP  disaster recovery tenta di comunicare direttamente con VMware o ONTAP e utilizza il proxy configurato in caso di errore della comunicazione diretta.</block>
+  <block id="a115e6ab8acfcda534f22a18d1d6940d" category="paragraph">L'implementazione del proxy per il disaster recovery di BlueXP  richiede la comunicazione della porta 443 tra il connettore e qualsiasi server vCenter e array ONTAP utilizzando un protocollo HTTPS. L'agente di disaster recovery BlueXP  all'interno del connettore comunica direttamente con VMware vSphere, VC o ONTAP durante l'esecuzione di qualsiasi azione.</block>
+  <block id="a7a0475144b255eccfff4d2ee3e7a5c4" category="paragraph">Per ulteriori informazioni sul proxy intelligente per il ripristino di emergenza BlueXP , vedere<block ref="bf1bf7a536149f2406a2eab17db3a297" category="inline-link-rx"></block>.</block>
+  <block id="146adb7944757e88795676b780c31811" category="inline-link">Configurare un connettore per l'utilizzo di un server proxy</block>
+  <block id="635abfb2f80497d39998f2a81dfecd7e" category="paragraph">Per ulteriori informazioni sulla configurazione generale del proxy in BlueXP , vedere<block ref="4d83a369cd8d5456206d71335578eaaa" category="inline-link-rx"></block>.</block>
+  <block id="7469dc0d82ce9411c03b852f2163d515" category="section-title">Termina la prova gratuita in qualsiasi momento</block>
+  <block id="38567a6024618c3687de90b3e2cff86e" category="paragraph">È possibile interrompere la prova gratuita a qualsiasi dente o attendere la scadenza.</block>
+  <block id="b618f30aeca114d464120de119b19ced" category="paragraph">Vedere<block ref="5f37f8bd4230e4b629c60b7dc23a5850" category="inline-link-rx"></block>.</block>
+  <block id="74027f9fc959ea61e0fe4228f42245b9" category="list-text">Per informazioni sulla configurazione di un proxy intelligente per il ripristino di emergenza BlueXP , vedere <block ref="b42f106c81bf8d9365b4d08b31fa2987" category="inline-link-macro-rx"></block>.</block>
+  <block id="848964f0743e2416b5d061a5e088ca73" category="paragraph">Versione 4.2.2</block>
+  <block id="f070435ef55d6c7cc1db59f0a41a4609" category="section-title">10 marzo 2025</block>
+  <block id="ae493f6fb938d3c8c6db8b5a9e623794" category="paragraph">Versione 4.2.1</block>
 </blocks>
