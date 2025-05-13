@@ -33,7 +33,7 @@ Le macchine virtuali possono essere protette solo se il piano di replica si trov
 
 
 .Fasi
-. Accedi a BlueXP e seleziona *protezione* > *Disaster Recovery* dal navigatore di sinistra.
+. Accedere a BlueXP  e dal menu di navigazione a sinistra selezionare *protezione* > *Disaster Recovery*.
 +
 Ti atterrai alla pagina della dashboard di disaster recovery di BlueXP. Quando si inizia con il servizio, è necessario aggiungere le informazioni vCenter. Successivamente, il Dashboard visualizza i dati relativi ai siti e ai piani di replica.
 
@@ -80,6 +80,70 @@ image:sites-list2.png["Schermata della pagina dei siti"]
 
 
 . Per visualizzare lo stato di avanzamento dell'operazione, dal menu superiore, selezionare *monitoraggio processi*.
+
+
+
+
+== Aggiungere la mappatura della subnet per un sito vCenter
+
+Gestire gli indirizzi IP in caso di failover in un nuovo modo utilizzando la mappatura delle subnet, che consente di aggiungere sottoreti per ogni vCenter. In tal caso, definire IPv4 CIDR, il gateway predefinito e il DNS per ogni rete virtuale.
+
+In caso di failover, BlueXP  Disaster Recovery determina l'indirizzo IP appropriato di ogni vNIC guardando il CIDR fornito per la rete virtuale mappata e la utilizza per derivare il nuovo indirizzo IP.
+
+Ad esempio:
+
+* Rete a = 10,1.1.0/24
+* Rete B = 192.168.1.0/24
+
+
+VM1 dispone di una vNIC (10,1.1,50) collegata a NetworkA. NetworkA viene mappato su NetworkB nelle impostazioni del piano di replica.
+
+In caso di failover, il disaster recovery di BlueXP  sostituisce la parte Network dell'indirizzo IP originale (10,1.1) e mantiene l'indirizzo host (.50) dell'indirizzo IP originale (10,1.1,50). Per VM1, BlueXP  disaster recovery esamina le impostazioni CIDR per NetworkB e utilizza la porzione di rete NetworkB 192.168.1 mantenendo la porzione host (.50) per creare il nuovo indirizzo IP per VM1. Il nuovo IP diventa 192.168.1.50.
+
+Riassumendo, l'indirizzo dell'host rimane lo stesso, mentre l'indirizzo di rete viene sostituito con quello configurato nella mappatura della subnet del sito. Ciò consente di gestire più facilmente la riassegnazione degli indirizzi IP al momento del failover, specialmente se si devono gestire centinaia di reti e migliaia di macchine virtuali.
+
+L'utilizzo della mappatura della subnet è un processo facoltativo a due fasi:
+
+* Innanzitutto, aggiungere la mappatura della subnet per ogni sito vCenter.
+* In secondo luogo, nel piano di replica, indicare che si desidera utilizzare la mappatura della subnet.
+
+
+.Fasi
+. Dal menu di ripristino di emergenza BlueXP , selezionare *Siti*.
+. Dall'icona azioni image:icon-vertical-dots.png["Icona delle azioni"]a destra, selezionare *Aggiungi subnet*.
++
+image:sites-subnet-add.png["Schermata Aggiungi mappatura subnet"]
+
+. Nella pagina Configure subnet (Configura subnet), inserire le seguenti informazioni:
++
+.. Subnet: Inserire IPv4 CIDR per la subnet fino a /32.
++
+
+TIP: La notazione CIDR è un metodo per specificare gli indirizzi IP e le relative maschere di rete. /24 indica la maschera di rete. Il numero è costituito da un indirizzo IP con il numero dopo "/" che indica quanti bit dell'indirizzo IP indicano la rete. Ad esempio, 192.168.0.50/24, l'indirizzo IP è 192.168.0.50 e il numero totale di bit nell'indirizzo di rete è 24. 192.168.0.50 255.255.255.0 diventa 192.168.0.0/24.
+
+.. Gateway: Inserire il gateway predefinito per la subnet.
+.. DNS: Inserire il DNS della subnet.
+
+
+. Selezionare *Aggiungi mappatura subnet*.
+
+
+
+
+=== Selezionare la mappatura della subnet per un piano di replica
+
+Quando si crea un piano di replica, è possibile selezionare la mappatura della subnet per il piano di replica.
+
+.Fasi
+. Dal menu superiore del disaster recovery di BlueXP, selezionare *piani di replica*.
+. Selezionare *Aggiungi* per aggiungere un piano di replica.
+. Completare i campi nel modo usuale aggiungendo i server vCenter, selezionando i gruppi di risorse o le applicazioni e completando le mappature.
+. Nella pagina piano di replica > mappatura delle risorse, selezionare la sezione *macchine virtuali*.
++
+image:dr-plan-create-subnet-mapping.png["Schermata di selezione della mappatura della subnet"]
+
+. Nel campo *IP di destinazione*, selezionare *Usa mappatura subnet* dall'elenco a discesa.
+. Continuare con la creazione del piano di replica.
 
 
 

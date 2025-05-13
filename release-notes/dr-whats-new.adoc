@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: release-notes/dr-whats-new.html 
-keywords: disaster recovery, bluexp, disaster recovery, vmware, vcenter, draas 
+keywords: disaster recovery, bluexp, disaster recovery, vmware, vcenter, draas, disaster 
 summary: Il disaster recovery di BlueXP è un servizio di disaster recovery basato sul cloud che automatizza i flussi di lavoro di disaster recovery. Grazie al disaster recovery di BlueXP per VMware, puoi replicare i carichi di lavoro VMware on-premise con lo storage ONTAP su un data center software-defined VMware in cloud pubblici come sito di disaster recovery usando il cloud storage NetApp. 
 ---
 = Novità di disaster recovery BlueXP 
@@ -13,6 +13,62 @@ summary: Il disaster recovery di BlueXP è un servizio di disaster recovery basa
 
 [role="lead"]
 Scopri le novità del disaster recovery BlueXP.
+
+
+
+== 12 maggio 2025
+
+Versione 4.2.3
+
+
+
+=== Mappatura subnet
+
+Con questa release, è possibile gestire gli indirizzi IP in caso di failover in un nuovo modo utilizzando la mappatura delle subnet, che consente di aggiungere sottoreti per ogni vCenter. In tal caso, definire IPv4 CIDR, il gateway predefinito e il DNS per ogni rete virtuale.
+
+In caso di failover, BlueXP  Disaster Recovery determina l'indirizzo IP appropriato di ogni vNIC guardando il CIDR fornito per la rete virtuale mappata e la utilizza per derivare il nuovo indirizzo IP.
+
+Ad esempio:
+
+* Rete a = 10,1.1.0/24
+* Rete B = 192.168.1.0/24
+
+
+VM1 dispone di una vNIC (10,1.1,50) collegata a NetworkA. NetworkA viene mappato su NetworkB nelle impostazioni del piano di replica.
+
+In caso di failover, il disaster recovery di BlueXP  sostituisce la parte Network dell'indirizzo IP originale (10,1.1) e mantiene l'indirizzo host (.50) dell'indirizzo IP originale (10,1.1,50). Per VM1, BlueXP  disaster recovery esamina le impostazioni CIDR per NetworkB e utilizza la porzione di rete NetworkB 192.168.1 mantenendo la porzione host (.50) per creare il nuovo indirizzo IP per VM1. Il nuovo IP diventa 192.168.1.50.
+
+Riassumendo, l'indirizzo dell'host rimane lo stesso, mentre l'indirizzo di rete viene sostituito con quello configurato nella mappatura della subnet del sito. Ciò consente di gestire più facilmente la riassegnazione degli indirizzi IP al momento del failover, specialmente se si devono gestire centinaia di reti e migliaia di macchine virtuali.
+
+Per informazioni dettagliate sull'inclusione della mappatura delle subnet nei siti, vedere link:../use/sites-add.html["Aggiungere i siti del server vCenter"].
+
+
+
+=== Protezione di salto
+
+È ora possibile ignorare la protezione in modo che il servizio non crei automaticamente una relazione di protezione inversa dopo il failover di un piano di replica. Questa funzione è utile se si desidera eseguire operazioni aggiuntive sul sito ripristinato prima di riportarlo online all'interno del disaster recovery di BlueXP .
+
+All'avvio di un failover, per impostazione predefinita il servizio crea automaticamente una relazione di protezione inversa per ogni volume del piano di replica, se il sito di origine è online. Questo significa che il servizio crea una relazione SnapMirror dal sito di destinazione al sito di origine. Inoltre, il servizio inverte automaticamente la relazione SnapMirror quando si avvia un failback.
+
+Quando si avvia un failover, è ora possibile scegliere un'opzione *Salta protezione*. Con questo, il servizio non inverte automaticamente la relazione di SnapMirror. Invece, lascia il volume scrivibile su entrambi i lati del piano di replica.
+
+Una volta che il sito di origine è tornato in linea, è possibile stabilire la protezione inversa selezionando *Proteggi risorse* dal menu azioni piano di replica. Questo tenta di creare una relazione di replica inversa per ogni volume nel piano. È possibile eseguire questo processo ripetutamente fino a quando non viene ripristinata la protezione. Una volta ripristinata la protezione, è possibile avviare un failback nel modo usuale.
+
+Per ulteriori informazioni sulla protezione da saltare, vedere link:../use/failover.html["Eseguire il failover delle applicazioni in un sito remoto"].
+
+
+
+=== SnapMirror pianifica gli aggiornamenti nel piano di replica
+
+Il disaster recovery di BlueXP  ora supporta l'utilizzo di soluzioni di gestione delle snapshot esterne, come lo scheduler nativo delle policy ONTAP SnapMirror o integrazioni di terze parti con ONTAP. Se ogni datastore (volume) nel piano di replica dispone già di una relazione SnapMirror che viene gestita altrove, puoi utilizzare tali snapshot come punti di recovery nel disaster recovery di BlueXP .
+
+Per configurare, nella sezione piano di replica > mappatura delle risorse, selezionare la casella di controllo *utilizza piani di backup gestiti dalla piattaforma e piani di conservazione* durante la configurazione della mappatura degli archivi dati.
+
+Se selezionato, il ripristino di emergenza BlueXP  non configura una pianificazione di backup. Tuttavia, è comunque necessario configurare un piano di conservazione, perché potrebbe essere ancora necessario creare snapshot per le operazioni di test, failover e failback.
+
+Dopo la configurazione, il servizio non acquisisce istantanee pianificate regolarmente, ma si affida all'entità esterna per acquisire e aggiornare tali istantanee.
+
+Per informazioni dettagliate sull'utilizzo di soluzioni snapshot esterne nel piano di replica, vedere link:../use/drplan-create.html["Creare un piano di replica"].
 
 
 

@@ -86,13 +86,18 @@ TIP: Una volta avviato il failover, è possibile visualizzare le VM ripristinate
 . Selezionare il piano di replica.
 . A destra, selezionare l'opzione *azioni* image:../use/icon-horizontal-dots.png["Icona del menu Actions nel servizio di disaster recovery BlueXP"] E selezionare *failover*.
 +
-image:dr-plan-failover2.png["Pagina di failover"]
+image:dr-plan-failover3.png["Pagina di failover"]
 
 . Nella pagina di failover, avviare uno snapshot ora o scegliere lo snapshot per il datastore da cui ripristinare. L'impostazione predefinita è l'ultima.
 +
 Prima che si verifichi il failover, verrà acquisita e replicata una snapshot dell'origine corrente nella destinazione corrente.
 
 . Facoltativamente, selezionare *forza failover* se si desidera che il failover avvenga anche se viene rilevato un errore che normalmente impedirebbe il failover.
+. In alternativa, selezionare *Ignora protezione* se si desidera che il servizio non crei automaticamente una relazione di protezione SnapMirror inversa dopo il failover di un piano di replica. Questa funzione è utile se si desidera eseguire operazioni aggiuntive sul sito ripristinato prima di riportarlo online all'interno del disaster recovery di BlueXP .
++
+
+TIP: È possibile stabilire la protezione inversa selezionando *Proteggi risorse* dal menu azioni piano di replica. Questo tenta di creare una relazione di replica inversa per ogni volume nel piano. È possibile eseguire questo processo ripetutamente fino a quando non viene ripristinata la protezione. Una volta ripristinata la protezione, è possibile avviare un failback nel modo usuale.
+
 . Digitare "failover" nella casella.
 . Selezionare *failover*.
 . Per verificare l'avanzamento, nel menu superiore, selezionare *monitoraggio processi*.

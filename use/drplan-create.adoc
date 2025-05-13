@@ -71,12 +71,12 @@ image:dr-plan-create-name.png["Schermata che mostra la pagina Aggiungi piano di 
 
 === Selezionare le applicazioni da replicare e assegnare gruppi di risorse
 
-La fase successiva consiste nel raggruppare le VM o i datastore richiesti in gruppi di risorse funzionali. I gruppi di risorse consentono di raggruppare una serie di macchine virtuali o datastore dipendenti in gruppi logici in grado di soddisfare i tuoi requisiti. Ad esempio, i gruppi potrebbero contenere ordini di avvio ritardati che possono essere eseguiti al momento del ripristino.
+La fase successiva consiste nel raggruppare le VM o i datastore richiesti in gruppi di risorse funzionali. I gruppi di risorse consentono di proteggere un set di macchine virtuali o datastore con una snapshot comune.
 
 Quando selezioni le applicazioni nel piano di replica, puoi vedere il sistema operativo per ogni macchina virtuale o datastore nel piano. Che è utile per decidere come raggruppare macchine virtuali o datastore in un gruppo di risorse.
 
 
-TIP: Ogni gruppo di risorse può includere una o più macchine virtuali o datastore. Le macchine virtuali si accenderanno in base alla sequenza in cui vengono incluse.
+TIP: Ogni gruppo di risorse può includere una o più macchine virtuali o datastore.
 
 Quando si creano gruppi di risorse, considerare i seguenti aspetti:
 
@@ -92,7 +92,7 @@ Quando si creano gruppi di risorse, considerare i seguenti aspetti:
 * Per avere una VM protetta, deve essere inclusa in un gruppo di risorse.
 
 
-*BEST PRACTICE*: Organizzare le macchine virtuali prima di implementare il disaster recovery di BlueXP  per ridurre al minimo la "proliferazione dei datastore". Posiziona le macchine virtuali che richiedono protezione su un sottoinsieme di datastore e posiziona le macchine virtuali che non verranno protette in un altro sottoinsieme di datastore. Assicurarsi che le macchine virtuali di un determinato datastore non siano protette da piani di replica diversi.
+*BEST PRACTICE*: Organizzare le macchine virtuali prima di implementare il disaster recovery di BlueXP  per ridurre al minimo la "proliferazione dei datastore". Posiziona le macchine virtuali che richiedono protezione su un sottoinsieme di datastore e posiziona le macchine virtuali che non verranno protette in un altro sottoinsieme di datastore. Utilizza la protezione basata su datastore per garantire la protezione delle macchine virtuali di un datastore specifico.
 
 .Fasi
 . Selezionare *macchine virtuali* o *archivi dati*.
@@ -120,10 +120,6 @@ image:dr-plan-create-apps-datastores.png["Schermata che mostra la pagina Aggiung
 TIP: Per spostare un datastore in un gruppo di risorse diverso, deselezionare l'archivio dati indesiderato e inviare il piano di replica. Quindi, creare o modificare l'altro piano di replica e riselezionare l'archivio dati.
 
 
-
-. Quando si dispone di più gruppi di risorse, assicurarsi che la sequenza dei gruppi corrisponda alla sequenza operativa che dovrebbe verificarsi.
-+
-Ogni VM all'interno di un gruppo viene avviata in sequenza in base all'ordine qui riportato.
 
 . Selezionare *Avanti*.
 
@@ -177,7 +173,7 @@ In questa sezione potrebbero essere visualizzati campi diversi a seconda della s
 ** *Tipo di indirizzo IP*: Riconfigurare la configurazione delle VM in modo che corrisponda ai requisiti della rete virtuale di destinazione. Il disaster recovery di BlueXP  offre due opzioni: DHCP o IP statico. Per gli IP statici, configurare la subnet mask, il gateway e i server DNS. Inoltre, immettere le credenziali per le VM.
 +
 *** *DHCP*: Selezionare questa impostazione se si desidera che le macchine virtuali ottengano informazioni sulla configurazione di rete da un server DHCP. Se si sceglie questa opzione, è necessario fornire solo le credenziali per la macchina virtuale.
-*** *IP statico*: Selezionare questa impostazione se si desidera specificare manualmente le informazioni di configurazione IP. È possibile selezionare informazioni identiche o diverse dalla macchina virtuale di origine. Se si sceglie lo stesso come origine, non è necessario immettere le credenziali. D'altro canto, se si sceglie di utilizzare informazioni diverse dall'origine, è possibile fornire le credenziali, l'indirizzo IP della macchina virtuale, la subnet mask, il DNS e le informazioni del gateway. Le credenziali del sistema operativo guest delle VM devono essere fornite a livello globale o a ciascun livello di VM.
+*** *IP statico*: Selezionare questa impostazione se si desidera specificare manualmente le informazioni di configurazione IP. È possibile selezionare una delle seguenti opzioni: Uguale all'origine, diversa dall'origine o mappatura della subnet. Se si sceglie lo stesso come origine, non è necessario immettere le credenziali. D'altro canto, se si sceglie di utilizzare informazioni diverse dall'origine, è possibile fornire le credenziali, l'indirizzo IP della macchina virtuale, la subnet mask, il DNS e le informazioni del gateway. Le credenziali del sistema operativo guest delle VM devono essere fornite a livello globale o a ciascun livello di VM.
 +
 Ciò può risultare molto utile quando si ripristinano ambienti di grandi dimensioni in cluster di destinazione più piccoli o quando si eseguono test di disaster recovery senza dover eseguire il provisioning di un'infrastruttura fisica VMware uno a uno.
 
@@ -192,13 +188,13 @@ image:dr-plan-create-mapping-vms2.png["Schermata di aggiunta del piano di replic
 +
 image:dr-plan-resource-mapping-vm-boot-order.png["Schermata di aggiunta del piano di replica > mappatura delle risorse > macchine virtuali"]
 
-** *Ordine di avvio*: È possibile modificare l'ordine di avvio dopo un failover per tutte le macchine virtuali selezionate nei gruppi di risorse. Per impostazione predefinita, viene utilizzato l'ordine di avvio selezionato durante la selezione del gruppo di risorse; tuttavia, è possibile apportare modifiche in questa fase. Questa operazione è utile per garantire che tutte le macchine virtuali con priorità 1 vengano eseguite prima dell'avvio delle macchine virtuali con priorità successiva.
+** *Ordine di avvio*: È possibile modificare l'ordine di avvio dopo un failover per tutte le macchine virtuali selezionate nei gruppi di risorse. Per impostazione predefinita, tutte le macchine virtuali si avviano insieme in parallelo; tuttavia, è possibile apportare modifiche in questa fase. Questa operazione è utile per garantire che tutte le macchine virtuali con priorità 1 vengano eseguite prima dell'avvio delle macchine virtuali con priorità successiva.
 +
-I numeri dell'ordine di avvio si applicano solo all'interno di un gruppo di risorse. Se si dispone di un "2" in un gruppo e di un "2" in un altro gruppo, le macchine virtuali nel primo gruppo iniziano nell'ordine e le macchine virtuali nel secondo gruppo iniziano nell'ordine.
+Tutte le macchine virtuali con lo stesso numero di ordine di avvio verranno avviate in parallelo.
 
 +
-*** Avvio sequenziale: Assegnare a ciascuna macchina virtuale un numero univoco per avviare nell'ordine assegnato, ad esempio 1,2,3,4,5
-*** Avvio simultaneo: Assegnare lo stesso numero a tutte le VM per avviarle contemporaneamente, ad esempio 1,1,4,2,2,3,4,1,1.
+*** Avvio sequenziale: Assegnare a ciascuna macchina virtuale un numero univoco per avviare nell'ordine assegnato, ad esempio 1,2,3,4,5.
+*** Avvio simultaneo: Assegnare lo stesso numero a tutte le macchine virtuali per avviarle contemporaneamente, ad esempio 1,1,1,1,2,2,3,4,4.
 
 
 ** *Boot Delay*: Regola il ritardo in minuti dell'azione di avvio.
@@ -214,14 +210,21 @@ TIP: Per ripristinare l'ordine di avvio predefinito, selezionare *Ripristina imp
 Questa sezione potrebbe essere attivata o disattivata a seconda della selezione effettuata.
 
 +
-** *RPO*: Inserire l'obiettivo del punto di ripristino (RPO) per indicare la quantità di dati da recuperare (misurata nel tempo). Ad esempio, se inserisci un RPO di 60 minuti, il recovery deve avere dati non più vecchi di 60 minuti in ogni momento. In caso di emergenza, si può perdere fino a 60 minuti di dati. Inserire inoltre il numero di copie Snapshot da conservare per tutti i datastore.
+** *Utilizza backup gestiti dalla piattaforma e pianificazioni di conservazione*: Se si utilizza una soluzione di gestione delle istantanee esterna, selezionare questa casella. Il disaster recovery di BlueXP  supporta l'utilizzo di soluzioni di gestione delle snapshot esterne, come lo scheduler nativo delle policy ONTAP SnapMirror o integrazioni di terze parti. Se ogni datastore (volume) nel piano di replica dispone già di una relazione SnapMirror che viene gestita altrove, puoi utilizzare tali snapshot come punti di recovery nel disaster recovery di BlueXP .
++
+Se selezionato, il ripristino di emergenza BlueXP  non configura una pianificazione di backup. Tuttavia, è comunque necessario configurare un piano di conservazione, perché potrebbe essere ancora necessario creare snapshot per le operazioni di test, failover e failback.
+
++
+Dopo la configurazione, il servizio non acquisisce istantanee pianificate regolarmente, ma si affida all'entità esterna per acquisire e aggiornare tali istantanee.
+
+** *Ora di inizio*: Immettere la data e l'ora in cui si desidera che i backup e la conservazione vengano eseguiti.
+** *Intervallo di esecuzione*: Immettere l'intervallo di tempo in ore e minuti. Ad esempio, se si immette 1 ora, il servizio acquisirà un'istantanea ogni ora.
 ** *Conteggio di conservazione*: Immettere il numero di istantanee che si desidera conservare.
 ** *Datastore di origine e destinazione*: Se esistono più relazioni SnapMirror (fan-out), è possibile selezionare la destinazione da utilizzare. Se un volume ha già stabilito una relazione di SnapMirror, appariranno i datastore di origine e destinazione corrispondenti. Se un volume non ha una relazione SnapMirror, puoi crearne uno subito selezionando un cluster di destinazione, una SVM di destinazione e fornendo un nome del volume. Il servizio crea la relazione tra volume e SnapMirror.
 +
 
 NOTE: Per creare una relazione di SnapMirror in questo servizio, il cluster e il relativo peering SVM dovrebbero essere già stati impostati al di fuori del disaster recovery di BlueXP.
 
-** Quando si specifica l'obiettivo RPO (Recovery Point Objective), il servizio pianifica un backup primario in base all'RPO e aggiorna le destinazioni secondarie.
 ** Se le macchine virtuali provengono dallo stesso volume e dalla stessa SVM, il servizio esegue una snapshot ONTAP standard e aggiorna le destinazioni secondarie.
 ** Se le macchine virtuali provengono da volumi diversi e dalla stessa SVM, il servizio crea uno snapshot del gruppo di coerenza includendo tutti i volumi e aggiornando le destinazioni secondarie.
 ** Se le VM provengono da volumi diversi e da SVM diverse, il servizio esegue una fase di avvio del gruppo di coerenza e applica la snapshot della fase includendo tutti i volumi nello stesso cluster o in un cluster diverso, quindi aggiorna le destinazioni secondarie.
@@ -232,7 +235,7 @@ NOTE: Per creare una relazione di SnapMirror in questo servizio, il cluster e il
 
 
 
-=== Verificare le mappature
+=== Aggiungere mappature di failover di test
 
 .Fasi
 . Per impostare diverse mappature per l'ambiente di test, deselezionare la casella e selezionare la scheda *mappature di test*.
@@ -244,27 +247,6 @@ Nella scheda Mapping test, le mappature macchine virtuali e archivi dati sono di
 
 TIP: In seguito, è possibile testare l'intero piano. In questo momento, si stanno impostando le mappature per l'ambiente di test.
 
-
-
-
-
-=== Identificare la ricorrenza
-
-Seleziona se desideri migrare i dati (uno spostamento una tantum) su un'altra destinazione o replicarli alla frequenza di SnapMirror.
-
-Se si desidera eseguirne la replica, identificare la frequenza di mirroring dei dati.
-
-.Fasi
-. Nella pagina ricorrenza, selezionare *Migra* o *Replica*.
-+
-** *Migra*: Selezionare per spostare l'applicazione nella posizione di destinazione.
-** *Replica*: Mantenere aggiornata la copia di destinazione con le modifiche apportate dalla copia di origine in una replica ricorrente.
-
-
-+
-image:dr-plan-create-recurrence.png["Schermata che mostra Aggiungi piano di replica > ricorrenza"]
-
-. Selezionare *Avanti*.
 
 
 
@@ -311,11 +293,12 @@ image:dr-plan-list.png["Schermata che mostra l'elenco dei piani di replica"]
 .. Selezionare il giorno del mese e l'ora in cui si desidera eseguire i test.
 .. Immettere la data in formato aaaa-mm-gg quando si desidera avviare il test.
 +
-image:dr-plan-schedule-edit.png["Schermata che mostra dove è possibile modificare le pianificazioni"]
+image:dr-plan-schedule-edit2.png["Schermata che mostra dove è possibile modificare le pianificazioni"]
 
 
 
-. Per ripulire l'ambiente di test al termine del test di failover, selezionare *pulizia automatica dopo il failover del test*.
+. *Usa snapshot ondemand per il failover del test pianificato*: Per creare un nuovo snapshot prima di avviare il failover del test automatico, selezionare questa casella.
+. Per ripulire l'ambiente di test al termine del test di failover, selezionare *pulizia automatica dopo il failover di test* e immettere il numero di minuti che si desidera attendere prima dell'avvio della pulizia.
 +
 
 NOTE: Questo processo disregistra le macchine virtuali temporanee dalla posizione di test, elimina il volume FlexClone creato e dismonta i datastore temporanei.
