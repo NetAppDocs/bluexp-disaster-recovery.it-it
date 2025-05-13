@@ -22,7 +22,7 @@ In caso di failover, il disaster recovery di BlueXP  sostituisce la parte Netwo
 
 Riassumendo, l'indirizzo dell'host rimane lo stesso, mentre l'indirizzo di rete viene sostituito con quello configurato nella mappatura della subnet del sito. Ciò consente di gestire più facilmente la riassegnazione degli indirizzi IP al momento del failover, specialmente se si devono gestire centinaia di reti e migliaia di macchine virtuali.
 
-Per informazioni dettagliate sull'inclusione della mappatura delle subnet nei siti, vedere link:../use/sites-add.html["Aggiungere i siti del server vCenter"].
+Per ulteriori informazioni sull'inclusione della mappatura delle subnet nei siti, fare riferimento a https://docs.netapp.com/us-en/bluexp-disaster-recovery/use/sites-add.html["Aggiungere i siti del server vCenter"].
 
 
 
@@ -36,7 +36,7 @@ Quando si avvia un failover, è ora possibile scegliere un'opzione *Salta protez
 
 Una volta che il sito di origine è tornato in linea, è possibile stabilire la protezione inversa selezionando *Proteggi risorse* dal menu azioni piano di replica. Questo tenta di creare una relazione di replica inversa per ogni volume nel piano. È possibile eseguire questo processo ripetutamente fino a quando non viene ripristinata la protezione. Una volta ripristinata la protezione, è possibile avviare un failback nel modo usuale.
 
-Per ulteriori informazioni sulla protezione da saltare, vedere link:../use/failover.html["Eseguire il failover delle applicazioni in un sito remoto"].
+Per ulteriori dettagli sulla protezione da saltare, fare riferimento alla https://docs.netapp.com/us-en/bluexp-disaster-recovery/use/failover.html["Eseguire il fail delle applicazioni ovre in un sito remoto"].
 
 
 
@@ -50,4 +50,4 @@ Se selezionato, il ripristino di emergenza BlueXP  non configura una pianificaz
 
 Dopo la configurazione, il servizio non acquisisce istantanee pianificate regolarmente, ma si affida all'entità esterna per acquisire e aggiornare tali istantanee.
 
-Per informazioni dettagliate sull'utilizzo di soluzioni snapshot esterne nel piano di replica, vedere link:../use/drplan-create.html["Creare un piano di replica"].
+Per ulteriori dettagli sulla protezione da saltare, fare riferimento alla https://docs.netapp.com/us-en/bluexp-disaster-recovery/use/drplan-create.html["Creare un piano di replica"].
