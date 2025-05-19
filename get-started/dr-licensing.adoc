@@ -17,7 +17,7 @@ Grazie al disaster recovery di BlueXP, puoi utilizzare diversi piani di licenza,
 È possibile utilizzare i seguenti tipi di licenza:
 
 * Iscriviti per una prova gratuita di 30 giorni.
-* Acquista un abbonamento pay-as-you-go (PAYGO) con Amazon Web Services (AWS) Marketplace.
+* Acquista un abbonamento pay-as-you-go (PAYGO) a *NetApp Intelligent Services* con Amazon Web Services (AWS) Marketplace.
 * BYOL (Bring Your Own License), ovvero un file di licenza NetApp (NLF) ottenuto dal rappresentante vendite NetApp Puoi utilizzare il numero di serie della licenza per attivare il BYOL nel Digital Wallet di BlueXP.
 
 
@@ -71,12 +71,12 @@ Per ulteriori informazioni, vedere link:../use/sites-add.html["Aggiungere siti v
 
 == Al termine della prova, iscriviti attraverso AWS Marketplace
 
-Al termine della prova gratuita, puoi acquistare una licenza da NetApp o iscriverti tramite AWS Marketplace. Questa procedura offre una panoramica di alto livello su come iscriversi direttamente in AWS Marketplace.
+Al termine della prova gratuita, puoi acquistare una licenza da NetApp o abbonarti a *NetApp Intelligent Services* tramite AWS Marketplace. Questa procedura offre una panoramica di alto livello su come iscriversi direttamente in AWS Marketplace.
 
 .Fasi
 . Nel disaster recovery di BlueXP, viene visualizzato un messaggio che informa che la prova gratuita sta per scadere. Nel messaggio, selezionare *Sottoscrivi o acquista una licenza*.
 . Seleziona *Iscriviti in AWS Marketplace*.
-. In AWS Marketplace, selezionare *Visualizza opzioni di acquisto*. USA AWS Marketplace per iscriversi al disaster recovery di BlueXP.
+. USA il marketplace AWS per abbonarti a *servizi intelligenti di NetApp* e *disaster recovery di BlueXP *.
 . Quando torni al disaster recovery di BlueXP, un messaggio indica che sei iscritto.
 +
 Puoi visualizzare i dettagli dell'abbonamento nel portafoglio digitale di BlueXP . link:https://docs.netapp.com/us-en/bluexp-digital-wallet/task-homepage.html["Scopri di più sulla gestione delle iscrizioni con il Digital Wallet"^].
