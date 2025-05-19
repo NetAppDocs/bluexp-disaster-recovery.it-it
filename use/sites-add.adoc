@@ -112,6 +112,12 @@ L'utilizzo della mappatura della subnet è un processo facoltativo a due fasi:
 . Dal menu di ripristino di emergenza BlueXP , selezionare *Siti*.
 . Dall'icona azioni image:icon-vertical-dots.png["Icona delle azioni"]a destra, selezionare *Aggiungi subnet*.
 +
+image:dr-sites-subnet-menu.png["Schermata del menu Add subnet (Aggiungi subnet)"]
+
++
+Viene visualizzata la pagina Configure subnet (Configura subnet):
+
++
 image:sites-subnet-add.png["Schermata Aggiungi mappatura subnet"]
 
 . Nella pagina Configure subnet (Configura subnet), inserire le seguenti informazioni:
@@ -140,9 +146,13 @@ Quando si crea un piano di replica, è possibile selezionare la mappatura della 
 . Completare i campi nel modo usuale aggiungendo i server vCenter, selezionando i gruppi di risorse o le applicazioni e completando le mappature.
 . Nella pagina piano di replica > mappatura delle risorse, selezionare la sezione *macchine virtuali*.
 +
-image:dr-plan-create-subnet-mapping.png["Schermata di selezione della mappatura della subnet"]
+image:dr-plan-vm-subnet-option.png["Schermata di selezione della mappatura della subnet"]
 
 . Nel campo *IP di destinazione*, selezionare *Usa mappatura subnet* dall'elenco a discesa.
++
+
+NOTE: Se sono presenti due macchine virtuali (ad esempio, una è Linux e l'altra è Windows), le credenziali sono necessarie solo per Windows.
+
 . Continuare con la creazione del piano di replica.
 
 
