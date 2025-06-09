@@ -20,9 +20,12 @@ Il disaster recovery di BlueXP è un servizio di disaster recovery basato sul cl
 * Un altro ambiente VMware on-premise basato su NFS con storage ONTAP
 
 
+
+NOTE: QUESTA DOCUMENTAZIONE RIGUARDANTE AWS EVS VIENE FORNITA COME ANTEPRIMA TECNOLOGICA. Con questa offerta di anteprima, NetApp si riserva il diritto di modificare i dettagli dell'offerta, i contenuti e la tempistica prima della disponibilità generale. Per ulteriori informazioni, vedere link:../reference/evs-deploy-guide-introduction.html["Introduzione del disaster recovery di BlueXP tramite Amazon Elastic VMware Service e Amazon FSx per NetApp ONTAP"].
+
 Il disaster recovery di BlueXP sfrutta la tecnologia ONTAP SnapMirror come trasporto di replica verso il sito di disaster recovery. Ciò offre la migliore efficienza dello storage del settore (compressione e deduplica) sui siti primari e secondari.
 
-image:draas-onprem-to-cloud-onprem.png["Diagramma che mostra i componenti del disaster recovery di BlueXP per VMware"]
+image:../use/evs-bluexp-architecture.png["Diagramma che mostra i componenti del disaster recovery di BlueXP per VMware"]
 
 
 
@@ -48,6 +51,8 @@ Il disaster recovery di BlueXP ti fornisce l'utilizzo completo di diverse tecnol
 * In caso di disastro, effettua il failover on-demand nel sito di disaster recovery, che può essere VMware Cloud su AWS con Amazon FSX per NetApp ONTAP o un ambiente VMware on-premise con ONTAP.
 * Una volta risolto il disastro, è possibile eseguire il failback on-demand dal sito di disaster recovery al sito primario. *Raggruppare le macchine virtuali o i datastore in gruppi di risorse logiche per una gestione efficiente.
 
+
+image:../use/evs-use-cases.png["Diagramma che mostra i casi d'uso per il disaster recovery di BlueXP per VMware"]
 
 
 NOTE: La configurazione del server vSphere viene eseguita al di fuori del disaster recovery BlueXP in vSphere Server.

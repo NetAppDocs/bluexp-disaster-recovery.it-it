@@ -1,0 +1,25 @@
+---
+sidebar: sidebar 
+permalink: reference/evs-deploy-guide-verify-rp.html 
+keywords: disaster recovery, bluexp disaster recovery, failover, failback, replicate, fail over, fail back, vmware, vcenter 
+summary: Introduzione del disaster recovery BlueXP tramite Amazon EVS e Amazon FSx per NetApp ONTAP. 
+---
+= Verificare che tutto funzioni nel ripristino di emergenza di BlueXP
+:allow-uri-read: 
+
+
+[role="lead"]
+Dopo aver aggiunto il piano di replicazione nel disaster recovery di BlueXP, si torna alla pagina Piani di replicazione, dove è possibile visualizzare i piani di replicazione e il loro stato. È necessario verificare che il piano di replicazione sia nello stato *Integro*. In caso contrario, è necessario controllare lo stato del piano di replicazione e correggere eventuali problemi prima di procedere.
+
+Figura: Pagina dei piani di replicazione image:evs-replication-plan-post-create.png["Pagina dei piani di replicazione"]
+
+Il disaster recovery di BlueXP esegue una serie di test per verificare che tutti i componenti (cluster ONTAP, cluster vCenter e VM) siano accessibili e in condizioni idonee affinché il servizio protegga le VM. Questo controllo, chiamato controllo di conformità, viene eseguito regolarmente.
+
+Nella pagina Piani di replicazione puoi vedere le seguenti informazioni:
+
+* Stato dell'ultimo controllo di conformità
+* Lo stato di replicazione del piano di replicazione
+* Il nome del sito protetto (di origine)
+* L'elenco dei gruppi di risorse protetti dal piano di replicazione
+* Il nome del sito di failover (destinazione)
+

@@ -1,0 +1,19 @@
+---
+sidebar: sidebar 
+permalink: reference/evs-deploy-guide-config-draas.html 
+keywords: disaster recovery, bluexp disaster recovery, failover, failback, replicate, fail over, fail back, vmware, vcenter 
+summary: Dopo aver installato BlueXP Connector, è necessario integrare tutte le risorse di storage ONTAP e VMware vCenter che parteciperanno al processo di DR. 
+---
+= Panoramica sulla configurazione del disaster recovery di BlueXP per Amazon EVS
+:allow-uri-read: 
+
+
+[role="lead"]
+Dopo aver installato BlueXP Connector, è necessario integrare tutte le risorse di storage ONTAP e VMware vCenter che parteciperanno al processo di disaster recovery con BlueXP Disaster Recovery.
+
+* link:evs-deploy-guide-config-prereqs.html["Prerequisiti per il disaster recovery di Amazon EVS con BlueXP"]
+* link:evs-deploy-guide-config-add-arrays.html["Aggiungere array di archiviazione ONTAP al ripristino di emergenza di BlueXP"]
+* link:evs-deploy-guide-enable-draas.html["Abilita il disaster recovery di BlueXP per Amazon EVS"]
+* link:evs-deploy-guide-config-add-sites.html["Aggiungere siti vCenter al ripristino di emergenza di BlueXP"]
+* link:evs-deploy-guide-config-add-vcenters.html["Aggiungere cluster vCenter al disaster recovery di BlueXP"]
+

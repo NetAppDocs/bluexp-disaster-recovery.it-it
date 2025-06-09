@@ -1,0 +1,28 @@
+---
+sidebar: sidebar 
+permalink: reference/evs-deploy-guide-config-prereqs.html 
+keywords: disaster recovery, bluexp disaster recovery, failover, failback, replicate, fail over, fail back, vmware, vcenter 
+summary: Prima di procedere alla configurazione del disaster recovery di Amazon EVS con BlueXP, è necessario assicurarsi che siano soddisfatti diversi prerequisiti. 
+---
+= Prerequisiti per il disaster recovery di Amazon EVS con BlueXP
+:allow-uri-read: 
+
+
+[role="lead"]
+Prima di procedere alla configurazione del disaster recovery di Amazon EVS con BlueXP, è necessario assicurarsi che siano soddisfatti diversi prerequisiti.
+
+Nello specifico, procedi come segue:
+
+* Creare un account utente vCenter con i privilegi VMware specifici richiesti per il disaster recovery di BlueXP per eseguire le operazioni necessarie.
++
+
+NOTE: Si sconsiglia di utilizzare l'account amministratore predefinito "administrator@vsphere.com". È invece consigliabile creare un account utente specifico per il disaster recovery di BlueXP su tutti i cluster vCenter che parteciperanno al processo di disaster recovery. Per un elenco dei privilegi specifici richiesti, consultare link:vcenter-privileges.html["Privilegi vCenter necessari per il disaster recovery di BlueXP"] .
+
+* Assicurarsi che tutti gli archivi dati vCenter che ospiteranno le VM protette dal disaster recovery di BlueXP siano posizionati su risorse di storage NetApp ONTAP.
++
+Il servizio supporta NFS e VMFS su iSCSI (e non FC) quando si utilizza Amazon FSx su NetApp ONTAP. Sebbene il servizio supporti FC, Amazon FSx per NetApp ONTAP non lo supporta.
+
+* Assicurati che Amazon EVS vCenter sia connesso a un cluster di storage Amazon FSx for NetApp ONTAP.
+* Assicurarsi che gli strumenti VMware siano installati su tutte le VM protette.
+* Assicurati che la tua rete locale sia connessa alla tua rete AWS VPC tramite un metodo di connessione approvato da Amazon. Ti consigliamo di utilizzare AWS Direct Connect, AWS Private Link o una VPN AWS Site-to-Site.
+
