@@ -84,6 +84,7 @@ Per un elenco dei privilegi vCenter necessari, fare riferimento a link:../refere
 È necessario configurare un connettore BlueXP in BlueXP. Quando utilizzi il connettore BlueXP, includerà le funzionalità appropriate per il servizio di disaster recovery.
 
 * Il disaster recovery di BlueXP funziona solo con l'implementazione di connettori in modalità standard. Vedere https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-standard-mode.html["Guida introduttiva di BlueXP in modalità standard"^].
+* Assicurarsi che sia il vCenter di origine che quello di destinazione utilizzino lo stesso BlueXP Connector.
 * Tipo di connettore BlueXP richiesto:
 +
 ** *Disaster recovery da on-premise a on-premise*: Installare il connettore BlueXP on-premise nel sito di disaster recovery. Fare riferimento alla https://docs.netapp.com/us-en/bluexp-setup-admin/task-install-connector-on-prem.html["Installazione e configurazione di un connettore on-premise"^].

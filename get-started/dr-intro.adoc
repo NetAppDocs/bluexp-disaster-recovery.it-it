@@ -20,9 +20,6 @@ Il disaster recovery di BlueXP è un servizio di disaster recovery basato sul cl
 * Un altro ambiente VMware on-premise basato su NFS con storage ONTAP
 
 
-
-IMPORTANT: Con questa release, il disaster recovery è supportato in un'anteprima tecnologica per i carichi di lavoro VMware on-premise negli ambienti VMware on-premise con datastore VMFS (Virtual Machine file system) VMware vSphere. NetApp non ti addebita alcun costo per la capacità dei workload in anteprima.
-
 Il disaster recovery di BlueXP sfrutta la tecnologia ONTAP SnapMirror come trasporto di replica verso il sito di disaster recovery. Ciò offre la migliore efficienza dello storage del settore (compressione e deduplica) sui siti primari e secondari.
 
 image:draas-onprem-to-cloud-onprem.png["Diagramma che mostra i componenti del disaster recovery di BlueXP per VMware"]

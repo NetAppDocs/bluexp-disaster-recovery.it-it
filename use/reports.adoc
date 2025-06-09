@@ -4,7 +4,7 @@ permalink: use/reports.html
 keywords: disaster recovery, bluexp disaster recovery, failover, failback, replicate, fail over, fail back, vmware, vcenter, monitor, bluexp, protection, reports 
 summary: 'La revisione dei report sul disaster recovery può aiutarti ad analizzare la tua preparazione al disaster recovery. I report preprogettati includono un riepilogo di failover e failback, dettagli di replica su tutti i siti e dettagli sui processi relativi all"anno precedente.' 
 ---
-= Creare report di disaster recovery
+= Crea report di ripristino di emergenza BlueXP
 :hardbreaks:
 :allow-uri-read: 
 :icons: font
@@ -12,7 +12,7 @@ summary: 'La revisione dei report sul disaster recovery può aiutarti ad analizz
 
 
 [role="lead"]
-La revisione dei report sul disaster recovery può aiutarti ad analizzare la tua preparazione al disaster recovery. I report preprogettati includono un riepilogo dei failover dei test, dei dettagli del piano di replica e dei dettagli dei processi su tutti i siti all'interno di un account negli ultimi sette giorni.
+Esaminare i report di disaster recovery di BlueXP può aiutarti ad analizzare la tua preparazione al disaster recovery. I report preprogettati includono un riepilogo dei failover dei test, dei dettagli del piano di replica e dei dettagli dei processi su tutti i siti all'interno di un account negli ultimi sette giorni.
 
 È possibile scaricare i report in formato PDF, HTML o JSON.
 

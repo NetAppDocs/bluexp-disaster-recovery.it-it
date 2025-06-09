@@ -4,7 +4,7 @@ permalink: use/drplan-create.html
 keywords: disaster recovery, bluexp disaster recovery, failover, failback, replicate, fail over, fail back, vmware, vcenter, replication plan, protection, disaster, recovery, virtual machines, vm 
 summary: Il disaster recovery di NetApp BlueXP è un servizio di disaster recovery basato sul cloud che automatizza i flussi di lavoro di disaster recovery. Una volta aggiunti i siti vCenter, potrai creare un piano di disaster recovery o replica. 
 ---
-= Creare un piano di replica
+= Creare un piano di replicazione nel ripristino di emergenza di BlueXP
 :hardbreaks:
 :allow-uri-read: 
 :icons: font
@@ -186,9 +186,28 @@ In questa sezione potrebbero essere visualizzati campi diversi a seconda della s
 Ciò può risultare molto utile quando si ripristinano ambienti di grandi dimensioni in cluster di destinazione più piccoli o quando si eseguono test di disaster recovery senza dover eseguire il provisioning di un'infrastruttura fisica VMware uno a uno.
 
 +
-image:dr-plan-create-mapping-vms2.png["Schermata di aggiunta del piano di replica > mappatura delle risorse > macchine virtuali"]
+image:dr-plan-vm-subnet-option2.png["Schermata di aggiunta del piano di replica > mappatura delle risorse > macchine virtuali"]
 
 
+
+* Nel campo *IP di destinazione*, seleziona una delle seguenti opzioni:
++
+** *Come la fonte*
+** *Diverso dalla fonte*
+** *Mappatura subnet*: selezionare questa opzione se si desidera mappare la subnet di origine a una subnet di destinazione diversa. È possibile selezionare la subnet di origine e quindi quella di destinazione. Questa opzione è utile quando si desidera modificare l'indirizzo IP della VM nell'ambiente di destinazione.
++
+
+NOTE: L'utilizzo del mapping delle subnet è un processo facoltativo in due fasi: innanzitutto, aggiungere il mapping delle subnet per ciascun sito vCenter nella scheda Siti. In secondo luogo, nel piano di replica, indicare che si desidera utilizzare la mappatura della subnet.
+
++
+
+NOTE: Se sono presenti due macchine virtuali (ad esempio, una è Linux e l'altra è Windows), le credenziali sono necessarie solo per Windows.
+
+
+
+* *Utilizza Windows LAPS*: se si utilizza Windows Local Administrator Password Solution (Windows LAPS), selezionare questa casella. Questa opzione è disponibile solo se è stata selezionata l'opzione *IP statico*. Selezionando questa casella, non è necessario fornire una password per ciascuna macchina virtuale. È sufficiente fornire i dettagli del controller di dominio.
++
+Se non si utilizza Windows LAPS, la VM è una VM Windows e l'opzione relativa alle credenziali nella riga della VM è abilitata. È possibile fornire le credenziali per la VM.
 
 * *Scripts*: È possibile includere script personalizzati in formato .sh, .bat o .ps1 come processi di post-failover. Grazie agli script personalizzati, puoi fare in modo che il disaster recovery di BlueXP esegua lo script dopo un processo di failover. Ad esempio, è possibile utilizzare uno script personalizzato per riprendere tutte le transazioni del database al termine del failover.
 * *Prefisso e suffisso VM di destinazione*: Nei dettagli delle macchine virtuali è possibile aggiungere un prefisso e un suffisso al nome VM.

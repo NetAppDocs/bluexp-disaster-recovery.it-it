@@ -4,7 +4,7 @@ permalink: use/sites-add.html
 keywords: disaster recovery, bluexp disaster recovery, failover, failback, replicate, fail over, fail back, vmware, vcenter 
 summary: Prima di poter creare un piano di disaster recovery, è necessario aggiungere un sito vCenter primario e un sito di disaster recovery vCenter di destinazione nel disaster recovery di BlueXP . 
 ---
-= Aggiungere vCenter a un sito
+= Aggiungere vCenter a un sito nel ripristino di emergenza di BlueXP
 :hardbreaks:
 :allow-uri-read: 
 :icons: font
@@ -13,6 +13,9 @@ summary: Prima di poter creare un piano di disaster recovery, è necessario aggi
 
 [role="lead"]
 Prima di poter creare un piano di disaster recovery, è necessario aggiungere un server vCenter primario a un sito e un sito di disaster recovery vCenter di destinazione in BlueXP .
+
+
+TIP: Assicurarsi che sia il vCenter di origine che quello di destinazione utilizzino lo stesso BlueXP Connector.
 
 Una volta aggiunti i vCenter, il disaster recovery di BlueXP  esegue un rilevamento approfondito degli ambienti vCenter, inclusi cluster vCenter, host ESXi, datastore, impronta ecologica dello storage, dettagli delle macchine virtuali, repliche SnapMirror e reti di macchine virtuali.
 
@@ -139,6 +142,12 @@ TIP: La notazione CIDR è un metodo per specificare gli indirizzi IP e le relati
 === Selezionare la mappatura della subnet per un piano di replica
 
 Quando si crea un piano di replica, è possibile selezionare la mappatura della subnet per il piano di replica.
+
+L'utilizzo della mappatura della subnet è un processo facoltativo a due fasi:
+
+* Innanzitutto, aggiungere la mappatura della subnet per ogni sito vCenter.
+* In secondo luogo, nel piano di replica, indicare che si desidera utilizzare la mappatura della subnet.
+
 
 .Fasi
 . Dal menu superiore del disaster recovery di BlueXP, selezionare *piani di replica*.

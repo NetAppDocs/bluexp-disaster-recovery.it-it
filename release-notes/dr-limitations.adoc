@@ -4,7 +4,7 @@ permalink: release-notes/dr-limitations.html
 keywords: disaster recovery, bluexp 
 summary: Le limitazioni note identificano piattaforme, dispositivi o funzioni non supportate da questa release del servizio o che non interagiscono correttamente con esso. 
 ---
-= Limitazioni
+= Limitazioni nel ripristino di emergenza di BlueXP
 :hardbreaks:
 :allow-uri-read: 
 :icons: font
