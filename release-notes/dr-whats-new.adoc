@@ -16,6 +16,30 @@ Scopri le novità del disaster recovery BlueXP.
 
 
 
+== 30 giugno 2025
+
+Versione 4.2.4P2
+
+
+
+=== Miglioramenti della scoperta
+
+Questo aggiornamento migliora il processo di individuazione, riducendone i tempi necessari.
+
+
+
+== 23 giugno 2025
+
+Versione 4.2.4P1
+
+
+
+=== Miglioramenti della mappatura delle subnet
+
+Questo aggiornamento migliora la finestra di dialogo "Aggiungi e modifica mappatura subnet" con una nuova funzionalità di ricerca. Ora è possibile trovare rapidamente subnet specifiche inserendo termini di ricerca, semplificando la gestione delle mappature subnet.
+
+
+
 == 9 giugno 2025
 
 Versione 4.2.4

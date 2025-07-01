@@ -1640,4 +1640,12 @@ Per un accesso completo è necessaria una licenza di disaster recovery BlueXP. T
   <block id="3a83143b77a0b90d82bf03cbf43e4443" category="sidebar">Creare un piano di replicazione Fase 4 per Amazon EVS</block>
   <block id="5a72de72f8b0ba4525e25ce937621889" category="sidebar">Verificare il piano di replicazione per Amazon EVS</block>
   <block id="f260d0f12b515f0ab789c0349e49a0fc" category="sidebar">Eseguire le operazioni del piano di replicazione</block>
+  <block id="a1e044c84ca270d3adc998b256510801" category="doc">Miglioramenti della mappatura delle subnet</block>
+  <block id="494053c615ca0aa0debeb6eac90b3e5a" category="paragraph">Questo aggiornamento migliora la finestra di dialogo "Aggiungi e modifica mappatura subnet" con una nuova funzionalità di ricerca. Ora è possibile trovare rapidamente subnet specifiche inserendo termini di ricerca, semplificando la gestione delle mappature subnet.</block>
+  <block id="dc729c135725ed28b09cd35258e2a28d" category="doc">Miglioramenti della scoperta</block>
+  <block id="778d15d21e8eaffc6a6c8069d8fa5872" category="paragraph">Questo aggiornamento migliora il processo di individuazione, riducendone i tempi necessari.</block>
+  <block id="b77e8ec0a3425747f32b3dbc303adecb" category="section-title">30 giugno 2025</block>
+  <block id="f5939a7e3fd75d2d5422c1d6029f44c8" category="paragraph">Versione 4.2.4P2</block>
+  <block id="1d498761d9b5afe7d166fb15809b8000" category="section-title">23 giugno 2025</block>
+  <block id="c114a433f08237cc585990ed9e9e88d5" category="paragraph">Versione 4.2.4P1</block>
 </blocks>
