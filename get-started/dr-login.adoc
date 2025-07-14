@@ -16,6 +16,8 @@ USA NetApp BlueXP per accedere al servizio di disaster recovery di BlueXP.
 
 Per accedere a BlueXP, puoi utilizzare le credenziali del sito di supporto NetApp oppure iscriverti per un login cloud NetApp utilizzando la tua email e una password. https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-logging-in.html["Scopri di più sull'accesso"^].
 
+Attività specifiche richiedono ruoli utente BlueXP specifici. link:../reference/dr-reference-roles.html["Scopri di più sui ruoli utente e sulle autorizzazioni nel BlueXP disaster recovery"]. https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html["Scopri i ruoli di accesso BlueXP per tutti i servizi"^].
+
 .Fasi
 . Aprire un browser Web e accedere a. https://console.bluexp.netapp.com/["Console BlueXP"^].
 +

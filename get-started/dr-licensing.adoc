@@ -14,6 +14,10 @@ summary: 'Grazie al disaster recovery di BlueXP, puoi utilizzare diversi piani d
 [role="lead"]
 Grazie al disaster recovery di BlueXP, puoi utilizzare diversi piani di licenza, tra cui una versione di prova gratuita, un'iscrizione pay-as-you-go o il modello Bring Your Own License.
 
+*Ruolo BlueXP obbligatorio* Ruolo di amministratore dell'organizzazione, amministratore di cartelle o progetti, amministratore del ripristino di emergenza o amministratore dell'applicazione di ripristino di emergenza.
+
+link:../reference/dr-reference-roles.html["Scopri di più sui ruoli utente e sulle autorizzazioni nel BlueXP disaster recovery"]. https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html["Scopri i ruoli di accesso BlueXP per tutti i servizi"^].
+
 È possibile utilizzare i seguenti tipi di licenza:
 
 * Iscriviti per una prova gratuita di 30 giorni.

@@ -14,6 +14,10 @@ summary: Il disaster recovery di NetApp BlueXP è un servizio di disaster recove
 [role="lead"]
 Dopo aver risolto un disastro, esegui il failback dal sito di disaster recovery al sito di origine per tornare alle normali operazioni. È possibile selezionare l'istantanea da cui eseguire il ripristino.
 
+*Ruolo BlueXP obbligatorio* Ruolo di amministratore dell'organizzazione, amministratore di cartelle o progetti, amministratore del ripristino di emergenza o amministratore del failover del ripristino di emergenza.
+
+link:../reference/dr-reference-roles.html["Scopri di più sui ruoli utente e sulle autorizzazioni nel BlueXP disaster recovery"]. https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html["Scopri i ruoli di accesso BlueXP per tutti i servizi"^].
+
 In questo workflow, il disaster recovery di BlueXP replica (risincronizza) qualsiasi modifica alla macchina virtuale di origine prima di invertire la direzione della replica. Questo processo inizia da una relazione che ha completato il failover a una destinazione e prevede i seguenti passaggi:
 
 * Sul sito di destinazione, le macchine virtuali vengono spente e non registrate e i volumi vengono dismontati.

@@ -21,11 +21,17 @@ Puoi dare una rapida occhiata a tutte le risorse di disaster recovery di BlueXP 
 * Macchine virtuali
 
 
+Le attività richiedono ruoli BlueXP diversi. Per maggiori dettagli, consulta la sezione *Ruolo BlueXP richiesto* in ogni attività.
+
+link:../reference/dr-reference-roles.html["Scopri di più sui ruoli utente e sulle autorizzazioni nel BlueXP disaster recovery"]. https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html["Scopri i ruoli di accesso BlueXP per tutti i servizi"^].
+
 
 
 == Gestire i siti vCenter
 
 Puoi modificare il nome del sito vCenter e il tipo di sito (on-premise o AWS).
+
+*Ruolo BlueXP obbligatorio* Ruolo di amministratore dell'organizzazione, amministratore di cartelle o progetti o amministratore di ripristino di emergenza.
 
 .Fasi
 . Dal menu in alto, selezionare *Siti*.
@@ -38,6 +44,8 @@ Puoi modificare il nome del sito vCenter e il tipo di sito (on-premise o AWS).
 == Gestire i gruppi di risorse
 
 Sebbene sia possibile aggiungere un gruppo di risorse come parte della creazione di un piano di replica, potrebbe essere più conveniente aggiungere i gruppi separatamente e in seguito utilizzare tali gruppi nel piano. Puoi creare gruppi di risorse per macchine virtuali o datastore.
+
+*Ruolo BlueXP obbligatorio* Ruolo di amministratore dell'organizzazione, amministratore di cartelle o progetti, amministratore del ripristino di emergenza o amministratore dell'applicazione di ripristino di emergenza.
 
 È possibile creare un gruppo di risorse per datastore nei seguenti modi:
 
@@ -58,6 +66,8 @@ Sebbene sia possibile aggiungere un gruppo di risorse come parte della creazione
 == Gestire i piani di replica
 
 È possibile disattivare, attivare ed eliminare i piani di replica. È possibile modificare le pianificazioni.
+
+*Ruolo BlueXP obbligatorio* Ruolo di amministratore dell'organizzazione, amministratore di cartelle o progetti, amministratore del ripristino di emergenza, amministratore del failover del ripristino di emergenza o amministratore dell'applicazione di ripristino di emergenza.
 
 * Se si desidera sospendere temporaneamente un piano di replica, è possibile disattivarlo e attivarlo in un secondo momento.
 * Se il piano non è più necessario, è possibile eliminarlo.
@@ -94,6 +104,8 @@ image:../use/dr-plan-list2.png["Elenco dei piani di replica"]
 
 È possibile riconciliare le istantanee non sincronizzate tra l'origine e la destinazione. Questo può verificarsi se le snapshot vengono eliminate su una destinazione al di fuori del disaster recovery di BlueXP . Il servizio elimina automaticamente lo snapshot sulla sorgente ogni 24 ore. Tuttavia, è possibile eseguire questa operazione su richiesta. Questa funzione consente di garantire la coerenza delle istantanee in tutti i siti.
 
+*Ruolo BlueXP obbligatorio* Ruolo di amministratore dell'organizzazione, amministratore di cartelle o progetti, amministratore del ripristino di emergenza, amministratore del failover del ripristino di emergenza o amministratore dell'applicazione di ripristino di emergenza.
+
 .Fasi
 . Dal menu superiore, selezionare *piani di replica*.
 +
@@ -109,6 +121,8 @@ image:../use/dr-plan-list2.png["Elenco dei piani di replica"]
 === Eliminare un piano di replica
 
 È possibile eliminare un piano di replica se non è più necessario. Se si elimina un piano di replica, è anche possibile eliminare gli snapshot primari e secondari creati dal piano.
+
+*Ruolo BlueXP obbligatorio* Ruolo di amministratore dell'organizzazione, amministratore di cartelle o progetti, amministratore del ripristino di emergenza, amministratore del failover del ripristino di emergenza o amministratore dell'applicazione di ripristino di emergenza.
 
 .Fasi
 . Dal menu superiore, selezionare *piani di replica*.
@@ -127,6 +141,9 @@ image:../use/dr-plan-list2.png["Elenco dei piani di replica"]
 
 È possibile modificare il numero di datastore conservati.
 
+*Ruolo BlueXP obbligatorio* Ruolo di amministratore dell'organizzazione, amministratore di cartelle o progetti, amministratore del ripristino di emergenza, amministratore del failover del ripristino di emergenza o amministratore dell'applicazione di ripristino di emergenza.
+
+.Fasi
 . Dal menu superiore, selezionare *piani di replica*.
 . Selezionare il piano di replica, fare clic sulla scheda *mappatura di failover* e fare clic sull'icona *Modifica* matita.
 . Fare clic sulla freccia *Datastores* per espanderla.
@@ -143,6 +160,9 @@ image:../use/dr-plan-failover-edit.png["Modificare la pagina mappature di failov
 
 Puoi visualizzare informazioni sul numero di datastore presenti nell'origine e nella destinazione.
 
+*Ruolo BlueXP obbligatorio* Amministratore dell'organizzazione, Amministratore di cartelle o progetti, Amministratore del ripristino di emergenza, Amministratore del failover del ripristino di emergenza, Amministratore dell'applicazione di ripristino di emergenza o Ruolo di visualizzatore del ripristino di emergenza.
+
+.Fasi
 . Dal menu superiore, selezionare *Dashboard*.
 . Selezionare il vCenter nella riga del sito.
 . Selezionare *Datastores*.
@@ -155,6 +175,9 @@ Puoi visualizzare informazioni sul numero di datastore presenti nell'origine e n
 
 È possibile visualizzare informazioni sul numero di macchine virtuali presenti sull'origine e sulla destinazione, oltre a CPU, memoria e capacità disponibile.
 
+*Ruolo BlueXP obbligatorio* Amministratore dell'organizzazione, Amministratore di cartelle o progetti, Amministratore del ripristino di emergenza, Amministratore del failover del ripristino di emergenza, Amministratore dell'applicazione di ripristino di emergenza o Ruolo di visualizzatore del ripristino di emergenza.
+
+.Fasi
 . Dal menu superiore, selezionare *Dashboard*.
 . Selezionare il vCenter nella riga del sito.
 . Selezionare *macchine virtuali*.

@@ -16,6 +16,10 @@ Una volta aggiunti i siti vCenter, sarai pronto a creare un disaster recovery o 
 
 Tali piani sono a volte chiamati _blueprint_.
 
+*Ruolo BlueXP obbligatorio* Ruolo di amministratore dell'organizzazione, amministratore di cartelle o progetti, amministratore del ripristino di emergenza, amministratore del failover del ripristino di emergenza o amministratore dell'applicazione di ripristino di emergenza.
+
+link:../reference/dr-reference-roles.html["Scopri di più sui ruoli utente e sulle autorizzazioni nel BlueXP disaster recovery"]. https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html["Scopri i ruoli di accesso BlueXP per tutti i servizi"^].
+
 È possibile creare un piano di replica e modificare le pianificazioni per la conformità e il test.
 
 Puoi proteggere più VM su datastore multipli. Il disaster recovery di BlueXP  crea gruppi di coerenza ONTAP per tutti i volumi ONTAP che ospitano datastore di macchine virtuali protetti.

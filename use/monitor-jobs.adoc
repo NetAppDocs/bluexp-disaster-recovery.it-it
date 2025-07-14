@@ -14,6 +14,14 @@ summary: 'Il disaster recovery di NetApp BlueXP è un servizio di disaster recov
 [role="lead"]
 È possibile monitorare tutti i processi di disaster recovery di BlueXP e verificarne l'avanzamento.
 
+
+
+== Visualizzare i lavori
+
+*Ruolo BlueXP obbligatorio* Amministratore dell'organizzazione, Amministratore di cartelle o progetti, Amministratore del ripristino di emergenza, Amministratore dell'applicazione di ripristino di emergenza o Ruolo di visualizzatore del ripristino di emergenza.
+
+link:../reference/dr-reference-roles.html["Scopri di più sui ruoli utente e sulle autorizzazioni nel BlueXP disaster recovery"]. https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html["Scopri i ruoli di accesso BlueXP per tutti i servizi"^].
+
 .Fasi
 . Dal nav sinistro di BlueXP, seleziona *protezione* > *Disaster Recovery*.
 . Dal menu superiore, selezionare *monitoraggio processi*.
@@ -27,6 +35,10 @@ summary: 'Il disaster recovery di NetApp BlueXP è un servizio di disaster recov
 == Annullare un lavoro
 
 Se un lavoro è in corso o in stato di coda e non si desidera che continui, è possibile annullarlo. È possibile annullare un lavoro se è bloccato nello stesso stato e si desidera liberare l'operazione successiva nella coda. È possibile annullare un processo prima che scada.
+
+*Ruolo BlueXP obbligatorio* Ruolo di amministratore dell'organizzazione, amministratore di cartelle o progetti, amministratore del ripristino di emergenza, amministratore del failover del ripristino di emergenza o amministratore dell'applicazione di ripristino di emergenza.
+
+link:../reference/dr-reference-roles.html["Scopri di più sui ruoli utente e sulle autorizzazioni nel BlueXP disaster recovery"]. https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html["Scopri i ruoli di accesso BlueXP per tutti i servizi"^].
 
 .Fasi
 . Dal nav sinistro di BlueXP, seleziona *protezione* > *Disaster Recovery*.

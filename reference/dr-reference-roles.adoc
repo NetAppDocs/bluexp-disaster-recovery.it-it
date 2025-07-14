@@ -1,0 +1,264 @@
+---
+sidebar: sidebar 
+permalink: reference/dr-reference-roles.html 
+keywords: how bluexp disaster recovery works, what is disaster recovery, bluexp, vmware, vcenter, draas, replicate, failover, failback, fail over, fail back, vmware cloud, netapp intelligent services 
+summary: 'Il BlueXP disaster recovery utilizza ruoli per gestire l"accesso di ciascun utente a specifiche funzionalità e azioni.' 
+---
+= Accesso basato sui ruoli BlueXP disaster recovery alle funzionalità
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+Il BlueXP disaster recovery utilizza ruoli per gestire l'accesso di ciascun utente a specifiche funzionalità e azioni.
+
+Il servizio utilizza i seguenti ruoli specifici per il BlueXP disaster recovery.
+
+* *Amministratore del ripristino di emergenza*: esegue qualsiasi azione nel BlueXP disaster recovery.
+* *Amministratore del failover del disaster recovery*: esegue azioni di failover e migrazione nel BlueXP disaster recovery.
+* *Amministratore dell'applicazione di disaster recovery*: crea e modifica piani di replica e avvia failover di prova.
+* *Visualizzatore di disaster recovery*: visualizza le informazioni nel BlueXP disaster recovery, ma non può eseguire alcuna azione.
+
+
+Questi ruoli sono specifici del BlueXP disaster recovery e non sono gli stessi dei ruoli della piattaforma utilizzati in BlueXP. Per informazioni dettagliate su tutti i ruoli della piattaforma BlueXP , vedere https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html["La documentazione di installazione e amministrazione di BlueXP"^].
+
+Nella tabella seguente sono indicate le azioni che ogni ruolo di BlueXP disaster recovery può eseguire.
+
+[cols="30,20a,20a,20a,20a"]
+|===
+| Funzione e azione | Amministratore del ripristino di emergenza | Amministratore del failover del ripristino di emergenza | Amministratore dell'applicazione di ripristino di emergenza | Visualizzatore di ripristino di emergenza 
+
+
+| Visualizza dashboard e tutte le schede  a| 
+Sì
+ a| 
+Sì
+ a| 
+Sì
+ a| 
+Sì
+
+
+
+| Inizia la prova gratuita  a| 
+Sì
+ a| 
+No
+ a| 
+No
+ a| 
+No
+
+
+
+| Avvia il rilevamento dei carichi di lavoro  a| 
+Sì
+ a| 
+No
+ a| 
+No
+ a| 
+No
+
+
+
+| Visualizza le informazioni sulla licenza  a| 
+Sì
+ a| 
+Sì
+ a| 
+Sì
+ a| 
+Sì
+
+
+
+| Attiva la licenza  a| 
+Sì
+ a| 
+No
+ a| 
+Sì
+ a| 
+No
+
+
+
+5+| *Nella scheda Siti*: 
+
+
+| Visualizza i siti  a| 
+Sì
+ a| 
+Sì
+ a| 
+Sì
+ a| 
+Sì
+
+
+
+| Aggiungere, modificare o eliminare siti  a| 
+Sì
+ a| 
+No
+ a| 
+No
+ a| 
+No
+
+
+
+5+| *Nella scheda Piani di replicazione*: 
+
+
+| Visualizza i piani di replicazione  a| 
+Sì
+ a| 
+Sì
+ a| 
+Sì
+ a| 
+Sì
+
+
+
+| Visualizza i dettagli del piano di replicazione  a| 
+Sì
+ a| 
+Sì
+ a| 
+Sì
+ a| 
+Sì
+
+
+
+| Creare o modificare piani di replicazione  a| 
+Sì
+ a| 
+Sì
+ a| 
+Sì
+ a| 
+No
+
+
+
+| Creare report  a| 
+Sì
+ a| 
+No
+ a| 
+No
+ a| 
+No
+
+
+
+| Visualizza istantanee  a| 
+Sì
+ a| 
+Sì
+ a| 
+Sì
+ a| 
+Sì
+
+
+
+| Eseguire test di failover  a| 
+Sì
+ a| 
+Sì
+ a| 
+Sì
+ a| 
+No
+
+
+
+| Eseguire failover  a| 
+Sì
+ a| 
+Sì
+ a| 
+No
+ a| 
+No
+
+
+
+| Eseguire failback  a| 
+Sì
+ a| 
+Sì
+ a| 
+No
+ a| 
+No
+
+
+
+| Eseguire migrazioni  a| 
+Sì
+ a| 
+Sì
+ a| 
+No
+ a| 
+No
+
+
+
+5+| *Nella scheda Gruppi di risorse*: 
+
+
+| Visualizza i gruppi di risorse  a| 
+Sì
+ a| 
+Sì
+ a| 
+Sì
+ a| 
+Sì
+
+
+
+| Crea, modifica o elimina gruppi di risorse  a| 
+Sì
+ a| 
+No
+ a| 
+Sì
+ a| 
+No
+
+
+
+5+| *Nella scheda Monitoraggio lavori*: 
+
+
+| Visualizzare i lavori  a| 
+Sì
+ a| 
+No
+ a| 
+Sì
+ a| 
+Sì
+
+
+
+| Annulla lavori  a| 
+Sì
+ a| 
+Sì
+ a| 
+Sì
+ a| 
+No
+
+|===

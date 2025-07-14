@@ -19,6 +19,10 @@ TIP: Assicurarsi che sia il vCenter di origine che quello di destinazione utiliz
 
 Una volta aggiunti i vCenter, il disaster recovery di BlueXP  esegue un rilevamento approfondito degli ambienti vCenter, inclusi cluster vCenter, host ESXi, datastore, impronta ecologica dello storage, dettagli delle macchine virtuali, repliche SnapMirror e reti di macchine virtuali.
 
+*Ruolo BlueXP obbligatorio* Amministratore dell'organizzazione, Amministratore di cartelle o progetti oppure Amministratore del ripristino di emergenza.
+
+link:../reference/dr-reference-roles.html["Scopri di più sui ruoli utente e sulle autorizzazioni nel BlueXP disaster recovery"]. https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html["Scopri i ruoli di accesso BlueXP per tutti i servizi"^].
+
 Se nelle release precedenti sono stati aggiunti vCenter e si desidera personalizzare la pianificazione del rilevamento, è necessario modificare il sito del server vCenter e impostare la pianificazione.
 
 
