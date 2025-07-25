@@ -14,6 +14,6 @@ Dopo aver installato BlueXP Connector, è necessario integrare tutte le risorse 
 * link:evs-deploy-guide-config-prereqs.html["Prerequisiti per il disaster recovery di Amazon EVS con BlueXP"]
 * link:evs-deploy-guide-config-add-arrays.html["Aggiungere array di archiviazione ONTAP al ripristino di emergenza di BlueXP"]
 * link:evs-deploy-guide-enable-draas.html["Abilita il disaster recovery di BlueXP per Amazon EVS"]
-* link:evs-deploy-guide-config-add-sites.html["Aggiungere siti vCenter al ripristino di emergenza di BlueXP"]
-* link:evs-deploy-guide-config-add-vcenters.html["Aggiungere cluster vCenter al disaster recovery di BlueXP"]
+* link:evs-deploy-guide-config-add-arrays.html["Aggiungere siti vCenter al ripristino di emergenza di BlueXP"]
+* link:evs-deploy-guide-add-vcenters.html["Aggiungere cluster vCenter al disaster recovery di BlueXP"]
 
