@@ -75,7 +75,7 @@ IMPORTANT: Alcune versioni includono un'anteprima tecnologica. NetApp non ti add
 È possibile utilizzare i seguenti tipi di licenza:
 
 * Iscriviti per una prova gratuita di 30 giorni.
-* Acquista un abbonamento pay-as-you-go (PAYGO) a *servizi intelligenti NetApp* con il marketplace di Amazon Web Services (AWS).
+* Acquista un abbonamento pay-as-you-go (PAYGO) a * NetApp Intelligent Services* con Amazon Web Services (AWS) Marketplace e Microsoft Azure Marketplace.
 * BYOL (Bring Your Own License), ovvero un file di licenza NetApp (NLF) ottenuto dal rappresentante vendite NetApp Puoi utilizzare il numero di serie della licenza per attivare il BYOL nel Digital Wallet di BlueXP.
 
 
